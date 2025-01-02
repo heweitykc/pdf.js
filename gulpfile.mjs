@@ -2112,14 +2112,14 @@ gulp.task(
       console.log();
       console.log("### Starting local server");
 
-      let port = 8888;
+      let port = 9898;
       const i = process.argv.indexOf("--port");
       if (i >= 0 && i + 1 < process.argv.length) {
         const p = parseInt(process.argv[i + 1], 10);
         if (!isNaN(p)) {
           port = p;
         } else {
-          console.error("Invalid port number: using default (8888)");
+          console.error("Invalid port number: using default (9898)");
         }
       }
 
