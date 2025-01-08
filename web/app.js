@@ -1129,7 +1129,8 @@ const PDFViewerApplication = {
     } catch {
       // When the PDF document isn't ready, simply download using the URL.
     }
-    this.downloadManager.download(data, this._downloadUrl, this._docFilename);
+    // this.downloadManager.download(data, this._downloadUrl, this._docFilename);
+    Palmmob_savefile(data);
   },
 
   async save() {
@@ -1140,8 +1141,9 @@ const PDFViewerApplication = {
     await this.pdfScriptingManager.dispatchWillSave();
 
     try {
-      const data = await this.pdfDocument.saveDocument();
-      this.downloadManager.download(data, this._downloadUrl, this._docFilename);
+      const data = await this.pdfDocument.saveDocument();      
+      // this.downloadManager.download(data, this._downloadUrl, this._docFilename);
+      Palmmob_savefile(data);
     } catch (reason) {
       // When the PDF document isn't ready, fallback to a "regular" download.
       console.error(`Error when saving the document:`, reason);
