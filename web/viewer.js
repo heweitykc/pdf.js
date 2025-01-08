@@ -259,6 +259,7 @@ function webViewerLoad() {
     }
   }
   PDFViewerApplication.run(config);
+  Palmmob_docReady();
 }
 
 // Block the "load" event until all pages are loaded, to ensure that printing

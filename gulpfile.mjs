@@ -2113,6 +2113,7 @@ gulp.task(
       console.log("### Starting local server");
 
       let port = 9898;
+      let host = "0.0.0.0";
       const i = process.argv.indexOf("--port");
       if (i >= 0 && i + 1 < process.argv.length) {
         const p = parseInt(process.argv[i + 1], 10);
@@ -2124,7 +2125,7 @@ gulp.task(
       }
 
       const { WebServer } = await import("./test/webserver.mjs");
-      const server = new WebServer({ port });
+      const server = new WebServer({ port, host });
       server.start();
     }
   )
