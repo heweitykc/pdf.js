@@ -6,10 +6,6 @@ var baidu_stat, baidu_stat_ios;
 var isEditable, editorMode=0;
 var isQuit = false;             //是否保存并退出
 
-function uint8ArrayToBase64(u8Array) {
-    return btoa(String.fromCharCode.apply(null, u8Array));
-}
-
 function Palmmob_Func(FuncName, defaultVal){
     // console.log("Palmmob_Func", FuncName)
     if(window.ReactNativeWebView){
@@ -60,11 +56,15 @@ function Palmmob_savefile(data) {
     
     while (offset < data.length) {
         const chunk = data.slice(offset, offset + chunkSize);
-        Palmmob_Func1("saveBlob", uint8ArrayToBase64(chunk));
+        Palmmob_Func1("saveBlob", btoa(String.fromCharCode.apply(null, chunk)));
         offset += chunkSize;
     }
     
     Palmmob_Func('finishSaveBlob');
+}
+
+function js_switchEdit(editable){
+
 }
 
 function initBDStat(){
