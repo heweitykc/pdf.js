@@ -1753,33 +1753,3 @@ dialog :link {
     display: none;
   }
 }
-
-#pop_edit_button {
-  position: fixed;
-  right: 16px; 
-  bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image:linear-gradient(180deg, #5A17FF, #000ED3);
-  padding: 12px 14px 12px 14px;
-  box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.25);
-  border-radius: 8px;    
-}
-
-#pop_edit_button .pop_edit_button_icon {    
-  width:22px;
-  height:22px;
-  margin-right: 6px;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: center; 
-  background-size: contain;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMzAuMzA2IDE1LjM0MkwyNC4yNDQgOC42MSA2LjI4IDI1LjEyOGwtMS40OTkgNy4zNCA3LjQ0NC0uNSAxOC4wODEtMTYuNjI1em02LjAyLTYuMzZsLTUuMTI1LTUuODk2LS4wMTEtLjAxMmEuNjI1LjYyNSAwIDAgMC0uODgzLS4wMzhsLTUuMTIzIDQuNzEgNi4wNjEgNi43MzMgNS4wMzMtNC42MjhhLjYyMi42MjIgMCAwIDAgLjA0OC0uODY5ek0zLjc1IDM1aDMyLjV2Mi41SDMuNzVWMzV6IiBmaWxsPSIjRkZGIiBzdHJva2Utd2lkdGg9IjAiLz48L3N2Zz4=');
-}
-
-#pop_edit_button .pop_edit_button_text {
-  color: #FFFFFF;
-  font-size: 15px;
-  line-height: 1;
-}
