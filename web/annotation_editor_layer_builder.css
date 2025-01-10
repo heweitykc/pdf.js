@@ -1215,10 +1215,6 @@
                 outline-offset: 2px;
               }
 
-              &[aria-selected="true"] > .swatch {
-                outline: 2px solid var(--selected-outline-color);
-              }
-
               &:is(:hover, :active, :focus-visible) > .swatch {
                 outline: 2px solid var(--hover-outline-color);
               }
@@ -1270,10 +1266,6 @@
 
         &:is(:active, :focus-visible) {
           outline: none;
-        }
-
-        &[aria-selected="true"] > .swatch {
-          outline: 2px solid var(--selected-outline-color);
         }
 
         &:is(:hover, :active, :focus-visible) > .swatch {

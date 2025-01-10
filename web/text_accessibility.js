@@ -151,26 +151,9 @@ class TextAccessibilityManager {
     const node = children[nodeIndex];
 
     this.#textNodes.delete(id);
-    let owns = node.getAttribute("aria-owns");
-    if (owns?.includes(id)) {
-      owns = owns
-        .split(" ")
-        .filter(x => x !== id)
-        .join(" ");
-      if (owns) {
-        node.setAttribute("aria-owns", owns);
-      } else {
-        node.removeAttribute("aria-owns");
-        node.setAttribute("role", "presentation");
-      }
-    }
   }
 
-  #addIdToAriaOwns(id, node) {
-    const owns = node.getAttribute("aria-owns");
-    if (!owns?.includes(id)) {
-      node.setAttribute("aria-owns", owns ? `${owns} ${id}` : id);
-    }
+  #addIdToAriaOwns(id, node) {    
     node.removeAttribute("role");
   }
 

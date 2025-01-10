@@ -148,16 +148,9 @@ class StructTreeLayerBuilder {
             attrs = new Map();
             this.#elementAttributes.set(child.id, attrs);
           }
-          attrs.set("aria-label", label);
           added = true;
         }
       }
-      if (!added) {
-        htmlElement.setAttribute("aria-label", label);
-      }
-    }
-    if (id !== undefined) {
-      htmlElement.setAttribute("aria-owns", id);
     }
     if (lang !== undefined) {
       htmlElement.setAttribute(
@@ -183,11 +176,9 @@ class StructTreeLayerBuilder {
     // text layer might not be ready yet. Instead, we store the element and add
     // it later in `addElementsToTextLayer`.
 
-    element.setAttribute("aria-owns", id);
     const img = document.createElement("span");
     (this.#elementsToAddToTextLayer ||= new Map()).set(id, img);
     img.setAttribute("role", "img");
-    img.setAttribute("aria-label", removeNullCharacters(alt));
 
     const { pageHeight, pageX, pageY } = this.#rawDims;
     const calc = "calc(var(--scale-factor)*";
@@ -221,8 +212,7 @@ class StructTreeLayerBuilder {
       const { role } = node;
       const match = role.match(HEADING_PATTERN);
       if (match) {
-        element.setAttribute("role", "heading");
-        element.setAttribute("aria-level", match[1]);
+        element.setAttribute("role", "heading");        
       } else if (PDF_ROLE_TO_HTML_ROLE[role]) {
         element.setAttribute("role", PDF_ROLE_TO_HTML_ROLE[role]);
       }

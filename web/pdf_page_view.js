@@ -474,13 +474,6 @@ class PDFPageView {
     this.#renderStructTreeLayer();
   }
 
-  /**
-   * The structure tree is currently only supported when the text layer is
-   * enabled and a canvas is used for rendering.
-   *
-   * The structure tree must be generated after the text layer for the
-   * aria-owns to work.
-   */
   async #renderStructTreeLayer() {
     if (!this.textLayer) {
       return;

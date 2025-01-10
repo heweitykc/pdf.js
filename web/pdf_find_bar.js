@@ -130,8 +130,7 @@ class PDFFindBar {
           : "pdfjs-find-reached-bottom";
         break;
     }
-    findField.setAttribute("data-status", status);
-    findField.setAttribute("aria-invalid", state === FindState.NOT_FOUND);
+    findField.setAttribute("data-status", status);    
 
     findMsg.setAttribute("data-status", status);
     if (findMsgId) {

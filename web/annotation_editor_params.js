@@ -88,8 +88,6 @@ class AnnotationEditorParams {
       dispatchEvent("HIGHLIGHT_THICKNESS", this.valueAsNumber);
     });
     editorHighlightShowAll.addEventListener("click", function () {
-      const checked = this.getAttribute("aria-pressed") === "true";
-      this.setAttribute("aria-pressed", !checked);
       dispatchEvent("HIGHLIGHT_SHOW_ALL", !checked);
     });
 
@@ -117,8 +115,7 @@ class AnnotationEditorParams {
           case AnnotationEditorParamsType.HIGHLIGHT_FREE:
             editorFreeHighlightThickness.disabled = !value;
             break;
-          case AnnotationEditorParamsType.HIGHLIGHT_SHOW_ALL:
-            editorHighlightShowAll.setAttribute("aria-pressed", value);
+          case AnnotationEditorParamsType.HIGHLIGHT_SHOW_ALL:            
             break;
         }
       }

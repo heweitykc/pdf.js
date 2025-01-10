@@ -824,14 +824,12 @@ function apiPageModeToSidebarView(mode) {
 
 function toggleCheckedBtn(button, toggle, view = null) {
   button.classList.toggle("toggled", toggle);
-  button.setAttribute("aria-checked", toggle);
 
   view?.classList.toggle("hidden", !toggle);
 }
 
 function toggleExpandedBtn(button, toggle, view = null) {
   button.classList.toggle("toggled", toggle);
-  button.setAttribute("aria-expanded", toggle);
 
   view?.classList.toggle("hidden", !toggle);
 }

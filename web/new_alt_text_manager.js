@@ -114,18 +114,6 @@ class NewAltTextManager {
       this.#toggleError(false);
     });
     createAutomaticallyButton.addEventListener("click", async () => {
-      const checked =
-        createAutomaticallyButton.getAttribute("aria-pressed") !== "true";
-      this.#currentEditor._reportTelemetry({
-        action: "pdfjs.image.alt_text.ai_generation_check",
-        data: { status: checked },
-      });
-
-      if (this.#uiManager) {
-        this.#uiManager.setPreference("enableGuessAltText", checked);
-        await this.#uiManager.mlManager.toggleService("altText", checked);
-      }
-      this.#toggleGuessAltText(checked, /* isInitial = */ false);
     });
     textarea.addEventListener("focus", () => {
       this.#wasAILoading = this.#isAILoading;
@@ -175,8 +163,7 @@ class NewAltTextManager {
     if (!this.#uiManager) {
       return;
     }
-    this.#dialog.classList.toggle("aiDisabled", !value);
-    this.#createAutomaticallyButton.setAttribute("aria-pressed", value);
+    this.#dialog.classList.toggle("aiDisabled", !value);    
 
     if (value) {
       const { altTextLearnMoreUrl } = this.#uiManager.mlManager;
@@ -563,22 +550,10 @@ class ImageAltTextSettings {
     dialog.addEventListener("contextmenu", noContextMenu);
 
     createModelButton.addEventListener("click", async e => {
-      const checked = this.#togglePref("enableGuessAltText", e);
-      await mlManager.toggleService("altText", checked);
-      this.#reportTelemetry({
-        type: "stamp",
-        action: "pdfjs.image.alt_text.settings_ai_generation_check",
-        data: { status: checked },
-      });
     });
 
     showAltTextDialogButton.addEventListener("click", e => {
-      const checked = this.#togglePref("enableNewAltTextWhenAddingImage", e);
-      this.#reportTelemetry({
-        type: "stamp",
-        action: "pdfjs.image.alt_text.settings_edit_alt_text_check",
-        data: { status: checked },
-      });
+
     });
 
     deleteModelButton.addEventListener("click", this.#delete.bind(this, true));
@@ -641,8 +616,7 @@ class ImageAltTextSettings {
       this.#downloadModelButton.disabled = false;
     }
 
-    this.#aiModelSettings.classList.toggle("download", false);
-    this.#createModelButton.setAttribute("aria-pressed", true);
+    this.#aiModelSettings.classList.toggle("download", false);    
   }
 
   async #delete(isFromUI = false) {
@@ -653,21 +627,12 @@ class ImageAltTextSettings {
     }
 
     this.#aiModelSettings.classList.toggle("download", true);
-    this.#createModelButton.disabled = true;
-    this.#createModelButton.setAttribute("aria-pressed", false);
+    this.#createModelButton.disabled = true;    
   }
 
   async open({ enableGuessAltText, enableNewAltTextWhenAddingImage }) {
     const { enableAltTextModelDownload } = this.#mlManager;
     this.#createModelButton.disabled = !enableAltTextModelDownload;
-    this.#createModelButton.setAttribute(
-      "aria-pressed",
-      enableAltTextModelDownload && enableGuessAltText
-    );
-    this.#showAltTextDialogButton.setAttribute(
-      "aria-pressed",
-      enableNewAltTextWhenAddingImage
-    );
     this.#aiModelSettings.classList.toggle(
       "download",
       !enableAltTextModelDownload
@@ -678,13 +643,6 @@ class ImageAltTextSettings {
       type: "stamp",
       action: "pdfjs.image.alt_text.settings_displayed",
     });
-  }
-
-  #togglePref(name, { target }) {
-    const checked = target.getAttribute("aria-pressed") !== "true";
-    this.#setPref(name, checked);
-    target.setAttribute("aria-pressed", checked);
-    return checked;
   }
 
   #setPref(name, value) {
