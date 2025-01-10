@@ -26,7 +26,7 @@
   --sidebar-transition-duration: 200ms;
   --sidebar-transition-timing-function: ease;
 
-  --toolbar-height: 32px;
+  --toolbar-height: 56px;
   --toolbar-horizontal-padding: 1px;
   --toolbar-vertical-padding: 2px;
   --icon-size: 16px;
@@ -42,12 +42,12 @@
   --progressBar-blend-color: rgb(116 177 239);
   --scrollbar-color: auto;
   --scrollbar-bg-color: auto;
-  --toolbar-icon-bg-color: rgb(0 0 0);
+  --toolbar-icon-bg-color: rgb(255 255 255);
   --toolbar-icon-hover-bg-color: rgb(0 0 0);
 
   --sidebar-narrow-bg-color: rgb(212 212 215 / 0.9);
   --sidebar-toolbar-bg-color: rgb(245 246 247);
-  --toolbar-bg-color: rgb(249 249 250);
+  --toolbar-bg-color: rgb(68 105 149);
   --toolbar-border-color: rgb(184 184 184);
   --toolbar-box-shadow: 0 1px 0 var(--toolbar-border-color);
   --toolbar-border-bottom: none;
@@ -91,6 +91,7 @@
   --toolbarButton-editorStamp-icon: url(images/toolbarButton-editorStamp.svg);
   --toolbarButton-menuArrow-icon: url(images/toolbarButton-menuArrow.svg);
   --toolbarButton-sidebarToggle-icon: url(images/toolbarButton-sidebarToggle.svg);
+  --toolbarButton-exit-icon: url(images/toolbarButton-exit.svg);
   --toolbarButton-secondaryToolbarToggle-icon: url(images/toolbarButton-secondaryToolbarToggle.svg);
   --toolbarButton-pageUp-icon: url(images/toolbarButton-pageUp.svg);
   --toolbarButton-pageDown-icon: url(images/toolbarButton-pageDown.svg);
@@ -524,6 +525,11 @@ body {
   content: "";
   background-color: var(--toolbar-icon-bg-color);
   mask-size: cover;
+}
+
+#exitButton::before {
+  mask-image: var(--toolbarButton-exit-icon);
+  transform: scaleX(var(--dir-factor));
 }
 
 #sidebarToggleButton::before {
@@ -1749,7 +1755,10 @@ dialog :link {
 }
 
 @media all and (max-width: 560px) {
-  #scaleSelectContainer {
+  #toolbarViewerLeft {
+    display: none;
+  }
+  #toolbarViewerMiddle {
     display: none;
   }
 }
