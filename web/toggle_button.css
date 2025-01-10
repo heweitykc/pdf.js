@@ -115,21 +115,6 @@
     border-color: var(--toggle-border-color);
   }
 
-  &[aria-pressed="true"] {
-    background: var(--toggle-background-color-pressed);
-    border-color: transparent;
-  }
-
-  &[aria-pressed="true"]:enabled:hover {
-    background: var(--toggle-background-color-pressed-hover);
-    border-color: transparent;
-  }
-
-  &[aria-pressed="true"]:enabled:active {
-    background: var(--toggle-background-color-pressed-active);
-    border-color: transparent;
-  }
-
   &::before {
     display: block;
     content: "";
@@ -139,23 +124,6 @@
     margin: var(--toggle-dot-margin);
     border-radius: var(--toggle-border-radius);
     translate: 0;
-  }
-
-  &[aria-pressed="true"]::before {
-    translate: var(--toggle-dot-transform-x);
-    background-color: var(--toggle-dot-background-color-on-pressed);
-  }
-
-  &[aria-pressed="true"]:enabled:hover::before,
-  &[aria-pressed="true"]:enabled:active::before {
-    background-color: var(--toggle-dot-background-color-on-pressed);
-  }
-
-  /*#if MOZCENTRAL*/
-  /*&[aria-pressed="true"]:-moz-locale-dir(rtl)::before,*/
-  /*#endif*/
-  &[aria-pressed="true"]:dir(rtl)::before {
-    translate: calc(-1 * var(--toggle-dot-transform-x));
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -171,21 +139,6 @@
 
     &:enabled:active {
       border-color: var(--toggle-border-color-active);
-    }
-
-    &[aria-pressed="true"]:enabled {
-      border-color: var(--toggle-border-color);
-      position: relative;
-    }
-
-    &[aria-pressed="true"]:enabled:hover,
-    &[aria-pressed="true"]:enabled:hover:active {
-      border-color: var(--toggle-border-color-hover);
-    }
-
-    &[aria-pressed="true"]:enabled:active {
-      background-color: var(--toggle-dot-background-color-active);
-      border-color: var(--toggle-dot-background-color-hover);
     }
 
     &:hover::before,
@@ -204,19 +157,5 @@
     --toggle-border-color-active: var(--border-interactive-color-active);
     --toggle-border-color-disabled: var(--border-interactive-color-disabled);
 
-    &[aria-pressed="true"]:enabled::after {
-      border: 1px solid var(--button-background-color);
-      content: "";
-      position: absolute;
-      height: var(--toggle-height);
-      width: var(--toggle-width);
-      display: block;
-      border-radius: var(--toggle-border-radius);
-      inset: -2px;
-    }
-
-    &[aria-pressed="true"]:enabled:active::after {
-      border-color: var(--toggle-border-color-active);
-    }
   }
 }

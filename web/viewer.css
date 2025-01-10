@@ -29,7 +29,7 @@
   --toolbar-height: 56px;
   --toolbar-horizontal-padding: 1px;
   --toolbar-vertical-padding: 2px;
-  --icon-size: 16px;
+  --icon-size: 22px;
 
   --toolbar-icon-opacity: 0.7;
   --doorhanger-icon-opacity: 0.9;
@@ -42,7 +42,7 @@
   --progressBar-blend-color: rgb(116 177 239);
   --scrollbar-color: auto;
   --scrollbar-bg-color: auto;
-  --toolbar-icon-bg-color: rgb(255 255 255);
+  --toolbar-icon-bg-color: rgb(0 0 0);
   --toolbar-icon-hover-bg-color: rgb(0 0 0);
 
   --sidebar-narrow-bg-color: rgb(212 212 215 / 0.9);
@@ -92,6 +92,7 @@
   --toolbarButton-menuArrow-icon: url(images/toolbarButton-menuArrow.svg);
   --toolbarButton-sidebarToggle-icon: url(images/toolbarButton-sidebarToggle.svg);
   --toolbarButton-exit-icon: url(images/toolbarButton-exit.svg);
+  --toolbarButton-save-icon: url(images/toolbarButton-save.svg);
   --toolbarButton-secondaryToolbarToggle-icon: url(images/toolbarButton-secondaryToolbarToggle.svg);
   --toolbarButton-pageUp-icon: url(images/toolbarButton-pageUp.svg);
   --toolbarButton-pageDown-icon: url(images/toolbarButton-pageDown.svg);
@@ -103,6 +104,7 @@
   --toolbarButton-openFile-icon: url(images/toolbarButton-openFile.svg);
   /*#endif*/
   --toolbarButton-download-icon: url(images/toolbarButton-download.svg);
+  --toolbarButton-more-icon: url(images/toolbarButton-more.svg);
   --toolbarButton-bookmark-icon: url(images/toolbarButton-bookmark.svg);
   --toolbarButton-viewThumbnail-icon: url(images/toolbarButton-viewThumbnail.svg);
   --toolbarButton-viewOutline-icon: url(images/toolbarButton-viewOutline.svg);
@@ -450,6 +452,43 @@ body {
   }
 }
 
+.doorHangerMiddle {
+  border-radius: 2px;
+  box-shadow:
+    0 1px 5px var(--doorhanger-border-color),
+    0 0 0 1px var(--doorhanger-border-color);
+  border: var(--doorhanger-border-color-whcm);
+  background-color: var(--doorhanger-bg-color);
+  inset-block-start: calc(100% + var(--doorhanger-height) - 2px);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+    opacity: var(--doorhanger-triangle-opacity-whcm);
+  }
+
+  &::before {
+    border-width: calc(var(--doorhanger-height) + 2px);
+    border-bottom-color: var(--doorhanger-border-color);
+  }
+
+  &::after {
+    border-width: var(--doorhanger-height);
+    border-bottom-color: var(--doorhanger-bg-color);
+  }
+  inset-inline: 50%;
+  transform: translateX(-50%);
+  inset-block-start: calc(100% + var(--doorhanger-height) - 2px);
+}
+
 .doorHangerRight {
   inset-inline-end: calc(50% - var(--doorhanger-height) - 1px);
 
@@ -527,7 +566,14 @@ body {
   mask-size: cover;
 }
 
+#exitButton {
+  padding-left: 13px;
+  padding-right: 13px;
+}
 #exitButton::before {
+  background-color: #FFFFFF;
+  width: 24px;
+  height: 24px;
   mask-image: var(--toolbarButton-exit-icon);
   transform: scaleX(var(--dir-factor));
 }
@@ -538,7 +584,8 @@ body {
 }
 
 #secondaryToolbarToggleButton::before {
-  mask-image: var(--toolbarButton-secondaryToolbarToggle-icon);
+  background-color: #FFFFFF;
+  mask-image: var(--toolbarButton-more-icon);
   transform: scaleX(var(--dir-factor));
 }
 
@@ -563,19 +610,28 @@ body {
 }
 
 #editorFreeTextButton::before {
+  background-color: #FFFFFF;
   mask-image: var(--toolbarButton-editorFreeText-icon);
 }
 
 #editorHighlightButton::before {
+  background-color: #FFFFFF;
   mask-image: var(--toolbarButton-editorHighlight-icon);
 }
 
 #editorInkButton::before {
+  background-color: #FFFFFF;
   mask-image: var(--toolbarButton-editorInk-icon);
 }
 
 #editorStampButton::before {
+  background-color: #FFFFFF;
   mask-image: var(--toolbarButton-editorStamp-icon);
+}
+
+#editorSaveButton::before {
+  background-color: #FFFFFF;
+  mask-image: var(--toolbarButton-save-icon);
 }
 
 #printButton::before {
@@ -987,10 +1043,21 @@ dialog :link {
   z-index: 50000; /* should be higher than anything else in PDF.js! */
 }
 
+.bottomText {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  overflow: visible !important;
+  font-size: 10px;
+  margin-top: -5px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
 .toolbarButton {
-  height: 100%;
-  aspect-ratio: 1;
-  display: flex;
+  height: auto;
+  padding-bottom: 2px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: none;
@@ -1020,32 +1087,33 @@ dialog :link {
     background-color: var(--toolbar-icon-bg-color);
     mask-size: cover;
     mask-position: center;
+    margin-bottom: 2px;
   }
 
   &.toggled {
-    background-color: var(--toggled-btn-bg-color);
+    /* background-color: var(--toggled-btn-bg-color);
     color: var(--toggled-btn-color);
 
     &::before {
       background-color: var(--toggled-btn-color);
-    }
+    } */
 
-    &:hover {
+    /* &:hover {
       outline: var(--toggled-hover-btn-outline) !important;
 
       &:active {
         background-color: var(--toggled-hover-active-btn-color);
       }
-    }
+    } */
   }
 
-  &:is(:hover, :focus-visible) {
+  /* &:is(:hover, :focus-visible) {
     background-color: var(--button-hover-color);
 
     &::before {
       background-color: var(--toolbar-icon-hover-bg-color);
     }
-  }
+  } */
 
   &:is([disabled="disabled"], [disabled]) {
     opacity: 0.5;
@@ -1076,10 +1144,10 @@ dialog :link {
       opacity: var(--doorhanger-icon-opacity);
     }
 
-    &:is(:hover, :focus-visible) {
+    /* &:is(:hover, :focus-visible) {
       background-color: var(--doorhanger-hover-bg-color);
       color: var(--doorhanger-hover-color);
-    }
+    } */
 
     > span {
       display: inline-block;

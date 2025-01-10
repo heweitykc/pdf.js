@@ -69,6 +69,7 @@ function getViewerConfiguration() {
         "editorStampParamsToolbar"
       ),
       download: document.getElementById("downloadButton"),
+      editorSave: document.getElementById("editorSaveButton"),
     },
     secondaryToolbar: {
       toolbar: document.getElementById("secondaryToolbar"),
