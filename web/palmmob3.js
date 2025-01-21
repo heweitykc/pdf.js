@@ -1,10 +1,5 @@
 var isIOS = !!navigator.userAgent.toLowerCase().match(/iphone|macintosh|ipad/g)
-var isBroswer = !window.webkit && !window.ReactNativeWebView; //浏览器环境
-var editorWin, editorDoc, docEditor;
-var action = "edit", uid, fileuri, documentType, lang = navigator.language;
 var baidu_stat, baidu_stat_ios;
-var isEditable, editorMode=0;
-var isQuit = false;             //是否保存并退出
 
 function Palmmob_Func(FuncName, defaultVal){
     // console.log("Palmmob_Func", FuncName)
