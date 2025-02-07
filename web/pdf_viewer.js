@@ -377,6 +377,18 @@ class PDFViewer {
       // Ensure that Fluent is connected in e.g. the COMPONENTS build.
       this.l10n.translate(this.container);
     }
+
+    this.eventBus._on("undo", evt => {
+      if (this.#annotationEditorMode !== AnnotationEditorType.NONE) {
+        this.#annotationEditorUIManager?.undo();
+      }
+    });
+
+    this.eventBus._on("redo", evt => {
+      if (this.#annotationEditorMode !== AnnotationEditorType.NONE) {
+        this.#annotationEditorUIManager?.redo();
+      }
+    });
   }
 
   get pagesCount() {
@@ -919,6 +931,7 @@ class PDFViewer {
               this.#editorUndoBar,
               this.#supportsPinchToZoom
             );
+            console.log("mlManager", this.#mlManager);
             eventBus.dispatch("annotationeditoruimanager", {
               source: this,
               uiManager: this.#annotationEditorUIManager,
@@ -2336,6 +2349,7 @@ class PDFViewer {
       return;
     }
     if (mode === AnnotationEditorType.STAMP) {
+      console.log("loadModel");
       this.#mlManager?.loadModel("altText");
     }
 

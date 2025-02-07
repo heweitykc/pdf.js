@@ -53,6 +53,8 @@ import { PagesCountLimit } from "./pdf_viewer.js";
  *   the image alt-text settings dialog.
  * @property {HTMLButtonElement} documentPropertiesButton - Button for opening
  *   the document properties dialog.
+ * @property {HTMLButtonElement} undoButton - Button for undoing the last action.
+ * @property {HTMLButtonElement} redoButton - Button for redoing the last action.
  */
 
 class SecondaryToolbar {

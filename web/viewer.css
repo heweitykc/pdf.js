@@ -132,6 +132,10 @@
   );
   --secondaryToolbarButton-documentProperties-icon: url(images/secondaryToolbarButton-documentProperties.svg);
   --editorParams-stampAddImage-icon: url(images/toolbarButton-zoomIn.svg);
+  --toolbarButton-editorUndo-icon: url(images/toolbarButton-undo.svg);
+  --toolbarButton-editorRedo-icon: url(images/toolbarButton-redo.svg);
+  --toolbarButton-editorOK-icon: url(images/toolbarButton-ok.svg);
+  --toolbarButton-editorEdit-icon: url(images/toolbarButton-edit.svg);
 }
 
 :root:dir(rtl) {
@@ -243,6 +247,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -566,15 +571,27 @@ body {
   mask-size: cover;
 }
 
-#exitButton {
+#editorExitButton {
   padding-left: 13px;
   padding-right: 13px;
 }
-#exitButton::before {
+#editorExitButton::before {
   background-color: #FFFFFF;
   width: 24px;
   height: 24px;
   mask-image: var(--toolbarButton-exit-icon);
+  transform: scaleX(var(--dir-factor));
+}
+
+#editorOKButton {
+  padding-left: 13px;
+  padding-right: 13px;
+}
+#editorOKButton::before {
+  background-color: #FFFFFF;
+  width: 24px;
+  height: 24px;
+  mask-image: var(--toolbarButton-editorOK-icon);
   transform: scaleX(var(--dir-factor));
 }
 
@@ -634,6 +651,21 @@ body {
   mask-image: var(--toolbarButton-save-icon);
 }
 
+#editorUndoButton::before {
+  background-color: #FFFFFF;
+  mask-image: var(--toolbarButton-editorUndo-icon);
+}
+
+#editorEditButton::before {
+  background-color: #FFFFFF;
+  mask-image: var(--toolbarButton-editorEdit-icon);
+}
+
+#editorRedoButton::before {
+  background-color: #FFFFFF;
+  mask-image: var(--toolbarButton-editorRedo-icon);
+}
+
 #printButton::before {
   mask-image: var(--toolbarButton-print-icon);
 }
@@ -644,7 +676,7 @@ body {
 }
 /*#endif*/
 
-#downloadButton::before {
+#editorDownloadButton::before {
   mask-image: var(--toolbarButton-download-icon);
 }
 

@@ -52,24 +52,22 @@ function getViewerConfiguration() {
       zoomOut: document.getElementById("zoomOutButton"),
       print: document.getElementById("printButton"),
       editorFreeTextButton: document.getElementById("editorFreeTextButton"),
-      editorFreeTextParamsToolbar: document.getElementById(
-        "editorFreeTextParamsToolbar"
-      ),
+      editorFreeTextParamsToolbar: document.getElementById("editorFreeTextParamsToolbar"),
       editorHighlightButton: document.getElementById("editorHighlightButton"),
-      editorHighlightParamsToolbar: document.getElementById(
-        "editorHighlightParamsToolbar"
-      ),
-      editorHighlightColorPicker: document.getElementById(
-        "editorHighlightColorPicker"
-      ),
+      editorHighlightParamsToolbar: document.getElementById("editorHighlightParamsToolbar"),
+      editorHighlightColorPicker: document.getElementById("editorHighlightColorPicker"),
       editorInkButton: document.getElementById("editorInkButton"),
       editorInkParamsToolbar: document.getElementById("editorInkParamsToolbar"),
       editorStampButton: document.getElementById("editorStampButton"),
-      editorStampParamsToolbar: document.getElementById(
-        "editorStampParamsToolbar"
-      ),
-      download: document.getElementById("downloadButton"),
-      editorSave: document.getElementById("editorSaveButton"),
+      editorStampParamsToolbar: document.getElementById("editorStampParamsToolbar"),
+      editorModeButtons: document.getElementById("editorModeButtons"),
+      editorDownloadButton: document.getElementById("editorDownloadButton"),
+      editorOKButton: document.getElementById("editorOKButton"),
+      editorExitButton: document.getElementById("editorExitButton"),
+      editorEditButton: document.getElementById("editorEdit"),
+      editorSaveButton: document.getElementById("editorSave"),
+      editorUndoButton: document.getElementById("editorUndoButton"),
+      editorRedoButton: document.getElementById("editorRedoButton"),
     },
     secondaryToolbar: {
       toolbar: document.getElementById("secondaryToolbar"),
@@ -217,7 +215,7 @@ function getViewerConfiguration() {
       editorInkColor: document.getElementById("editorInkColor"),
       editorInkThickness: document.getElementById("editorInkThickness"),
       editorInkOpacity: document.getElementById("editorInkOpacity"),
-      editorStampAddImage: document.getElementById("editorStampAddImage"),
+      // editorStampAddImage: document.getElementById("editorStampAddImage"),
       editorFreeHighlightThickness: document.getElementById(
         "editorFreeHighlightThickness"
       ),

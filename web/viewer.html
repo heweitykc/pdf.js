@@ -145,9 +145,14 @@ See https://github.com/adobe-type-tools/cmap-resources
         <div class="toolbar">
           <div id="toolbarContainer">
             <div id="toolbarViewer" class="toolbarHorizontalGroup">
-              <div id="toolbarViewerExit" class="toolbarHorizontalGroup">
-                <button id="exitButton" class="toolbarButton" type="button" title="Exit" tabindex="0" >                  
+              <div class="toolbarHorizontalGroup">
+
+                <button id="editorExitButton" class="toolbarButton" type="button" title="Exit" tabindex="0" >
                 </button>
+
+                <button id="editorOKButton" class="toolbarButton" type="button" title="OK" tabindex="0" >
+                </button>
+
               </div>
               <div id="toolbarViewerLeft" class="toolbarHorizontalGroup">
                 <button id="sidebarToggleButton" class="toolbarButton" type="button" title="Toggle Sidebar" tabindex="0" data-l10n-id="pdfjs-toggle-sidebar-button" >
@@ -246,6 +251,18 @@ See https://github.com/adobe-type-tools/cmap-resources
                 </span>
               </div>
               <div id="toolbarViewerRight" class="toolbarHorizontalGroup">
+                <div class="toolbarButtonWithContainer">
+                  <button id="editorUndoButton" class="toolbarButton" type="button" title="Undo" tabindex="0" data-l10n-id="pdfjs-undo-button">
+                    <span data-l10n-id="pdfjs-undo-button-label" class="bottomText">Undo</span>
+                  </button>
+                </div>
+
+                <div class="toolbarButtonWithContainer">
+                  <button id="editorRedoButton" class="toolbarButton" type="button" title="Redo" tabindex="0" data-l10n-id="pdfjs-redo-button">
+                    <span data-l10n-id="pdfjs-redo-button-label" class="bottomText">Redo</span>
+                  </button>
+                </div>
+
                 <div id="editorModeButtons" class="toolbarHorizontalGroup" role="radiogroup">
                   <div id="editorHighlight" class="toolbarButtonWithContainer hidden">
                     <button id="editorHighlightButton" class="toolbarButton" type="button" disabled="disabled" title="Highlight" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-highlight-button">
@@ -313,28 +330,28 @@ See https://github.com/adobe-type-tools/cmap-resources
                   <div id="editorStamp" class="toolbarButtonWithContainer">
                     <button id="editorStampButton" class="toolbarButton" type="button" disabled="disabled" title="Add or edit images" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-stamp-button">
                       <span data-l10n-id="pdfjs-editor-insert-button-label" class="bottomText" >Insert</span>
-                    </button>
-                    <div class="editorParamsToolbar hidden doorHangerMiddle menu" id="editorStampParamsToolbar">
-                      <div class="menuContainer">
-                        <button id="editorStampAddImage" class="toolbarButton labeled" type="button" title="Add image" tabindex="0" data-l10n-id="pdfjs-editor-stamp-add-image-button">
-                          <span class="editorParamsLabel" data-l10n-id="pdfjs-editor-stamp-add-image-button-label">Add image</span>
-                        </button>
-                      </div>
-                    </div>                    
+                    </button>                  
                   </div>
-                  <div id="editorSave" class="toolbarButtonWithContainer">
-                    <button id="editorSaveButton" class="toolbarButton" type="button"  tabindex="0" >
-                      <span data-l10n-id="pdfjs-save-button-label" class="bottomText" >Save</span>
-                    </button>
-                  </div>
+                </div>
+
+                <div id="editorEdit" class="toolbarButtonWithContainer">
+                  <button id="editorEditButton" class="toolbarButton" type="button" title="Edit" tabindex="0" data-l10n-id="pdfjs-undo-button">
+                    <span data-l10n-id="pdfjs-undo-button-label" class="bottomText">Edit</span>
+                  </button>
                 </div>                
+
+                <div id="editorSave" class="toolbarButtonWithContainer">
+                  <button id="editorSaveButton" class="toolbarButton" type="button"  tabindex="0" >
+                    <span data-l10n-id="pdfjs-save-button-label" class="bottomText" >Save</span>
+                  </button>
+                </div>
 
                 <div class="toolbarHorizontalGroup hiddenMediumView">
                   <button id="printButton" class="toolbarButton" type="button" title="Print" tabindex="0" data-l10n-id="pdfjs-print-button">
                     <span data-l10n-id="pdfjs-print-button-label">Print</span>
                   </button>
 
-                  <button id="downloadButton" class="toolbarButton" type="button" title="Save" tabindex="0" data-l10n-id="pdfjs-save-button">
+                  <button id="editorDownloadButton" class="toolbarButton" type="button" title="Save" tabindex="0" data-l10n-id="pdfjs-save-button">
                     <span data-l10n-id="pdfjs-save-button-label">Save</span>
                   </button>
                 </div>
@@ -400,7 +417,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 
                       <div class="horizontalToolbarSeparator hidden" ></div>
 
-                      <div id="cursorToolButtons" role="radiogroup" class="hidden" >
+                      <div id="cursorToolButtons" role="radiogroup"  >
                         <button id="cursorSelectTool" class="toolbarButton labeled toggled" type="button" title="Enable Text Selection Tool" tabindex="0" data-l10n-id="pdfjs-cursor-text-select-tool-button" role="radio" >
                           <span data-l10n-id="pdfjs-cursor-text-select-tool-button-label">Text Selection Tool</span>
                         </button>
@@ -453,6 +470,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                     </div>
                   </div>  <!-- secondaryToolbar -->
                 </div>
+
               </div>
             </div>
             <div id="loadingBar">
@@ -551,7 +569,7 @@ See https://github.com/adobe-type-tools/cmap-resources
             <div id="overallDescription">
               <span id="dialogLabel" data-l10n-id="pdfjs-editor-alt-text-dialog-label" class="title">Choose an option</span>
               <span id="dialogDescription" data-l10n-id="pdfjs-editor-alt-text-dialog-description">
-                Alt text (alternative text) helps when people can’t see the image or when it doesn’t load.
+                Alt text (alternative text) helps when people can't see the image or when it doesn't load.
               </span>
             </div>
             <div id="addDescription">
@@ -567,7 +585,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                 </div>
               </div>
               <div class="descriptionArea">
-                <textarea id="descriptionTextarea" placeholder="For example, “A young man sits down at a table to eat a meal”"  data-l10n-id="pdfjs-editor-alt-text-textarea" tabindex="0"></textarea>
+                <textarea id="descriptionTextarea" placeholder="For example, "A young man sits down at a table to eat a meal""  data-l10n-id="pdfjs-editor-alt-text-textarea" tabindex="0"></textarea>
               </div>
             </div>
             <div id="markAsDecorative">
@@ -601,7 +619,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                     <div class="altTextSpinner" role="status" ></div>
                     <textarea id="newAltTextDescriptionTextarea" placeholder="Write your description here…"  data-l10n-id="pdfjs-editor-new-alt-text-textarea" tabindex="0"></textarea>
                   </div>
-                  <span id="newAltTextDescription" role="note" data-l10n-id="pdfjs-editor-new-alt-text-description">Short description for people who can’t see the image or when the image doesn’t load.</span>
+                  <span id="newAltTextDescription" role="note" data-l10n-id="pdfjs-editor-new-alt-text-description">Short description for people who can't see the image or when the image doesn't load.</span>
                   <div id="newAltTextDisclaimer" role="note"><div><span data-l10n-id="pdfjs-editor-new-alt-text-disclaimer1">This alt text was created automatically and may be inaccurate.</span> <a href="https://support.mozilla.org/en-US/kb/pdf-alt-text" target="_blank" rel="noopener noreferrer" id="newAltTextLearnMore" data-l10n-id="pdfjs-editor-new-alt-text-disclaimer-learn-more-url" tabindex="0">Learn more</a></div></div>
                 </div>
                 <div id="newAltTextCreateAutomatically" class="toggler">
@@ -617,7 +635,7 @@ See https://github.com/adobe-type-tools/cmap-resources
             <div id="newAltTextError" class="messageBar">
               <div>
                 <div>
-                  <span class="title" data-l10n-id="pdfjs-editor-new-alt-text-error-title">Couldn’t create alt text automatically</span>
+                  <span class="title" data-l10n-id="pdfjs-editor-new-alt-text-error-title">Couldn't create alt text automatically</span>
                   <span  class="description" data-l10n-id="pdfjs-editor-new-alt-text-error-description">Please write your own alt text or try again later.</span>
                 </div>
                 <button id="newAltTextCloseButton" class="closeButton" type="button" tabindex="0" title="Close"><span data-l10n-id="pdfjs-editor-new-alt-text-error-close-button">Close</span></button>
@@ -645,7 +663,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                     <label for="createModelButton" class="togglerLabel" data-l10n-id="pdfjs-editor-alt-text-settings-create-model-button-label">Create alt text automatically</label>
                   </div>
                   <div id="createModelDescription" class="description">
-                    <span data-l10n-id="pdfjs-editor-alt-text-settings-create-model-description">Suggests descriptions to help people who can’t see the image or when the image doesn’t load.</span> <a href="https://support.mozilla.org/en-US/kb/pdf-alt-text" target="_blank" rel="noopener noreferrer" id="altTextSettingsLearnMore" data-l10n-id="pdfjs-editor-new-alt-text-disclaimer-learn-more-url" tabindex="0">Learn more</a>
+                    <span data-l10n-id="pdfjs-editor-alt-text-settings-create-model-description">Suggests descriptions to help people who can't see the image or when the image doesn't load.</span> <a href="https://support.mozilla.org/en-US/kb/pdf-alt-text" target="_blank" rel="noopener noreferrer" id="altTextSettingsLearnMore" data-l10n-id="pdfjs-editor-new-alt-text-disclaimer-learn-more-url" tabindex="0">Learn more</a>
                   </div>
                 </div>
                 <div id="aiModelSettings">

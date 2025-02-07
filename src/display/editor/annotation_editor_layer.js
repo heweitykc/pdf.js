@@ -805,6 +805,7 @@ class AnnotationEditorLayer {
   }
 
   startDrawingSession(event) {
+    console.log("startDrawingSession");
     this.div.focus();
     if (this.#drawingAC) {
       this.#currentEditorType.startDrawing(this, this.#uiManager, false, event);
@@ -844,6 +845,7 @@ class AnnotationEditorLayer {
   }
 
   endDrawingSession(isAborted = false) {
+    console.log("endDrawingSession");
     if (!this.#drawingAC) {
       return null;
     }

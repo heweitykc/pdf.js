@@ -15,7 +15,7 @@
 
 /** @typedef {import("./event_utils.js").EventBus} EventBus */
 
-import { AnnotationEditorType, ColorPicker, noContextMenu } from "pdfjs-lib";
+import { AnnotationEditorType, ColorPicker, noContextMenu, AnnotationEditorParamsType } from "pdfjs-lib";
 import {
   DEFAULT_SCALE,
   DEFAULT_SCALE_VALUE,
@@ -59,13 +59,18 @@ class Toolbar {
     this.#opts = options;
     this.eventBus = eventBus;
     const buttons = [
-      { element: options.previous, eventName: "previouspage" },
-      { element: options.next, eventName: "nextpage" },
-      { element: options.zoomIn, eventName: "zoomin" },
-      { element: options.zoomOut, eventName: "zoomout" },
-      { element: options.print, eventName: "print" },
-      { element: options.download, eventName: "download" },
-      { element: options.editorSave, eventName: "download" },
+      { element: options.previous,             eventName: "previouspage" },
+      { element: options.next,                 eventName: "nextpage" },
+      { element: options.zoomIn,               eventName: "zoomin" },
+      { element: options.zoomOut,              eventName: "zoomout" },
+      { element: options.print,                eventName: "print" },
+      { element: options.editorDownloadButton, eventName: "download" },
+      { element: options.editorExitButton,     eventName: "editorExit" },
+      { element: options.editorOKButton,       eventName: "annotation_edit_ok" },
+      { element: options.editorEditButton,     eventName: "annotation_edit" },
+      { element: options.editorSaveButton,     eventName: "download" },
+      { element: options.editorUndoButton,     eventName: "undo" },
+      { element: options.editorRedoButton,     eventName: "redo" },
       {
         element: options.editorFreeTextButton,
         eventName: "switchannotationeditormode",
@@ -73,7 +78,7 @@ class Toolbar {
           get mode() {
             const { classList } = options.editorFreeTextButton;
             return classList.contains("toggled")
-              ? AnnotationEditorType.NONE
+              ? AnnotationEditorType.STAMP
               : AnnotationEditorType.FREETEXT;
           },
         },
@@ -85,7 +90,7 @@ class Toolbar {
           get mode() {
             const { classList } = options.editorHighlightButton;
             return classList.contains("toggled")
-              ? AnnotationEditorType.NONE
+              ? AnnotationEditorType.STAMP
               : AnnotationEditorType.HIGHLIGHT;
           },
         },
@@ -97,27 +102,27 @@ class Toolbar {
           get mode() {
             const { classList } = options.editorInkButton;
             return classList.contains("toggled")
-              ? AnnotationEditorType.NONE
+              ? AnnotationEditorType.STAMP
               : AnnotationEditorType.INK;
           },
         },
       },
-      {
-        element: options.editorStampButton,
-        eventName: "switchannotationeditormode",
-        eventDetails: {
-          get mode() {
-            const { classList } = options.editorStampButton;
-            return classList.contains("toggled")
-              ? AnnotationEditorType.NONE
-              : AnnotationEditorType.STAMP;
-          },
-        },
-        telemetry: {
-          type: "editing",
-          data: { action: "pdfjs.image.icon_click" },
-        },
-      },
+      // {
+      //   element: options.editorStampButton,
+      //   eventName: "switchannotationeditormode",
+      //   eventDetails: {
+      //     get mode() {
+      //       const { classList } = options.editorStampButton;
+      //       return classList.contains("toggled")
+      //         ? AnnotationEditorType.NONE
+      //         : AnnotationEditorType.STAMP;
+      //     },
+      //   },
+      //   telemetry: {
+      //     type: "editing",
+      //     data: { action: "pdfjs.image.icon_click" },
+      //   },
+      // },
     ];
 
     // Bind the event listeners for click and various other actions.
@@ -183,6 +188,7 @@ class Toolbar {
     const {
       editorHighlightColorPicker,
       editorHighlightButton,
+      editorStampButton,
       pageNumber,
       scaleSelect,
     } = this.#opts;
@@ -207,6 +213,23 @@ class Toolbar {
         }
       });
     }
+
+    editorStampButton.addEventListener("click", () => {
+      this.eventBus.dispatch("reporttelemetry", {
+        source: this,
+        details: {
+          type: "editing",
+          data: { action: "pdfjs.image.add_image_click" },
+        },
+      });
+
+      this.eventBus.dispatch("switchannotationeditorparams", {
+        source: this,
+        type: AnnotationEditorParamsType["CREATE"],
+        value: undefined,
+      });
+    });
+
     // The non-button elements within the toolbar.
     pageNumber.addEventListener("click", function () {
       this.select();
@@ -271,6 +294,7 @@ class Toolbar {
   }
 
   #editorModeChanged({ mode }) {
+    console.log("editorModeChanged", mode);
     const {
       editorFreeTextButton,
       editorFreeTextParamsToolbar,
@@ -280,6 +304,13 @@ class Toolbar {
       editorInkParamsToolbar,
       editorStampButton,
       editorStampParamsToolbar,
+      editorModeButtons,
+      editorOKButton,
+      editorExitButton,
+      editorUndoButton,
+      editorRedoButton,
+      editorEditButton,
+      editorSaveButton
     } = this.#opts;
 
     toggleExpandedBtn(
@@ -308,6 +339,36 @@ class Toolbar {
     editorHighlightButton.disabled = isDisable;
     editorInkButton.disabled = isDisable;
     editorStampButton.disabled = isDisable;
+
+    //加入编辑/完成按钮, 点击"编辑"默认AnnotationEditorType.STAMP状态, 点击"完成"默认AnnotationEditorType.NONE状态
+    console.log("mode", mode);
+    if(mode > AnnotationEditorType.NONE){
+      editorEditButton.hidden  = true;
+      editorSaveButton.hidden  = true;
+      editorExitButton.hidden  =  true;
+
+      editorModeButtons.hidden =  false;
+      editorUndoButton.hidden  =  false;
+      editorRedoButton.hidden  =  false;
+      editorOKButton.hidden    =  false;
+      editorInkButton.hidden   =  false;
+      editorStampButton.hidden =  false;
+      editorFreeTextButton.hidden  = false;
+      editorHighlightButton.hidden = false;      
+    } else {
+      editorEditButton.hidden  = false;
+      editorSaveButton.hidden  = false;
+      editorExitButton.hidden  = false;
+      
+      editorModeButtons.hidden = true;
+      editorUndoButton.hidden = true;
+      editorRedoButton.hidden = true;      
+      editorOKButton.hidden = true;
+      editorFreeTextButton.hidden = true;
+      editorHighlightButton.hidden = true;
+      editorInkButton.hidden = true;
+      editorStampButton.hidden = true;      
+    }
   }
 
   #updateUIState(resetNumPages = false) {

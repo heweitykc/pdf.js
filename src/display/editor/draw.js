@@ -660,6 +660,7 @@ class DrawingEditor extends AnnotationEditor {
     // current drawing and let the user zoom the document.
 
     const { target, offsetX: x, offsetY: y, pointerId, pointerType } = event;
+    console.log("startDrawing", pointerType);
     if (
       DrawingEditor.#currentPointerType &&
       DrawingEditor.#currentPointerType !== pointerType

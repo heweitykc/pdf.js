@@ -1164,6 +1164,26 @@ const PDFViewerApplication = {
     }
   },
 
+  editorExit() {
+    console.log("editorExit");
+  },
+
+  annotationEdit() {
+    console.log("annotationEdit");
+    this.eventBus.dispatch("switchannotationeditormode", {
+      source: this,
+      mode: AnnotationEditorType.STAMP,
+    });
+  },
+
+  annotationEdit_OK() {
+    console.log("annotationEdit_OK");
+    this.eventBus.dispatch("switchannotationeditormode", {
+      source: this,
+      mode: AnnotationEditorType.NONE,
+    });
+  },
+
   async downloadOrSave() {
     // In the Firefox case, this method MUST always trigger a download.
     // When the user is closing a modified and unsaved document, we display a
@@ -1944,6 +1964,9 @@ const PDFViewerApplication = {
     );
     eventBus._on("print", this.triggerPrinting.bind(this), opts);
     eventBus._on("download", this.downloadOrSave.bind(this), opts);
+    eventBus._on("editorExit", this.editorExit.bind(this), opts);
+    eventBus._on("annotation_edit", this.annotationEdit.bind(this), opts);
+    eventBus._on("annotation_edit_ok", this.annotationEdit_OK.bind(this), opts);
     eventBus._on("firstpage", () => (this.page = 1), opts);
     eventBus._on("lastpage", () => (this.page = this.pagesCount), opts);
     eventBus._on("nextpage", () => pdfViewer.nextPage(), opts);
