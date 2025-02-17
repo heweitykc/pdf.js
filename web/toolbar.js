@@ -215,14 +215,6 @@ class Toolbar {
     }
 
     editorStampButton.addEventListener("click", () => {
-      this.eventBus.dispatch("reporttelemetry", {
-        source: this,
-        details: {
-          type: "editing",
-          data: { action: "pdfjs.image.add_image_click" },
-        },
-      });
-
       this.eventBus.dispatch("switchannotationeditorparams", {
         source: this,
         type: AnnotationEditorParamsType["CREATE"],
