@@ -192,12 +192,12 @@ const defaultOptions = {
   },
   enableAltTextModelDownload: {
     /** @type {boolean} */
-    value: true,
+    value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE + OptionKind.EVENT_DISPATCH,
   },
   enableGuessAltText: {
     /** @type {boolean} */
-    value: true,
+    value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE + OptionKind.EVENT_DISPATCH,
   },
   enableHighlightFloatingButton: {
@@ -210,7 +210,7 @@ const defaultOptions = {
   },
   enableNewAltTextWhenAddingImage: {
     /** @type {boolean} */
-    value: true,
+    value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE,
   },
   enablePermissions: {
