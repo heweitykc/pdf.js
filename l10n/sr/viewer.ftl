@@ -271,6 +271,11 @@ pdfjs-web-fonts-disabled = Веб фонтови су онемогућени: н
 
 ## Editing
 
+pdfjs-edit-button-label = Уреди
+pdfjs-editor-undo-button-label = Поништи
+pdfjs-editor-redo-button-label = Поново уради
+pdfjs-editor-insert-button-label = Уметни
+
 pdfjs-editor-free-text-button =
     .title = Текст
 pdfjs-editor-free-text-button-label = Текст

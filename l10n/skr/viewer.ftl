@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = ویب فونٹس غیر فعال ہن: ایمبیڈ�
 
 ## Editing
 
+pdfjs-edit-button-label = ترمیم
+pdfjs-editor-undo-button-label = واپس
+pdfjs-editor-redo-button-label = دوبارہ
+pdfjs-editor-insert-button-label = داخل کرو
+
 pdfjs-editor-free-text-button =
     .title = متن
 pdfjs-editor-free-text-button-label = متن

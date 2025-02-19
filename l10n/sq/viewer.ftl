@@ -291,6 +291,11 @@ pdfjs-web-fonts-disabled = Shkronjat Web janë të çaktivizuara: s’arrihet t�
 
 ## Editing
 
+pdfjs-edit-button-label = Redakto
+pdfjs-editor-undo-button-label = Zhbëj
+pdfjs-editor-redo-button-label = Ribëj
+pdfjs-editor-insert-button-label = Fut
+
 pdfjs-editor-free-text-button =
     .title = Tekst
 pdfjs-editor-free-text-button-label = Tekst

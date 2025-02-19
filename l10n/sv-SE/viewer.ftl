@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = Webbtypsnitt är inaktiverade: kan inte använda inb�
 
 ## Editing
 
+pdfjs-edit-button-label = Redigera
+pdfjs-editor-undo-button-label = Ångra
+pdfjs-editor-redo-button-label = Gör om
+pdfjs-editor-insert-button-label = Infoga
+
 pdfjs-editor-free-text-button =
     .title = Text
 pdfjs-editor-free-text-button-label = Text

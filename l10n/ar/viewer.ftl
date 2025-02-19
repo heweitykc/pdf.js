@@ -294,6 +294,11 @@ pdfjs-web-fonts-disabled = خطوط الوب مُعطّلة: تعذّر استخ
 
 ## Editing
 
+pdfjs-edit-button-label = تحرير
+pdfjs-editor-undo-button-label = تراجع
+pdfjs-editor-redo-button-label = إعادة
+pdfjs-editor-insert-button-label = إدراج
+
 pdfjs-editor-free-text-button =
     .title = نص
 pdfjs-editor-free-text-button-label = نص

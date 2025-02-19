@@ -302,6 +302,11 @@ pdfjs-web-fonts-disabled = Шрыфты Сеціва забаронены: не�
 
 ## Editing
 
+pdfjs-edit-button-label = Рэдагаваць
+pdfjs-editor-undo-button-label = Адкаціць
+pdfjs-editor-redo-button-label = Аднавіць
+pdfjs-editor-insert-button-label = Уставіць
+
 pdfjs-editor-free-text-button =
     .title = Тэкст
 pdfjs-editor-free-text-button-label = Тэкст

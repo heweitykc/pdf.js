@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = ვებშრიფტები გამორთ�
 
 ## Editing
 
+pdfjs-edit-button-label = ჩასწორება
+pdfjs-editor-undo-button-label = გაუქმება
+pdfjs-editor-redo-button-label = აღდგენა
+pdfjs-editor-insert-button-label = ჩასმა
+
 pdfjs-editor-free-text-button =
     .title = წარწერა
 pdfjs-editor-free-text-button-label = წარწერა

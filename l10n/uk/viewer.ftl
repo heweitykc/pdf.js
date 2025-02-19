@@ -302,6 +302,11 @@ pdfjs-web-fonts-disabled = Вебшрифти вимкнено: неможлив
 
 ## Editing
 
+pdfjs-edit-button-label = Редагувати
+pdfjs-editor-undo-button-label = Скасувати
+pdfjs-editor-redo-button-label = Повторити
+pdfjs-editor-insert-button-label = Вставити
+
 pdfjs-editor-free-text-button =
     .title = Текст
 pdfjs-editor-free-text-button-label = Текст

@@ -304,6 +304,11 @@ pdfjs-web-fonts-disabled = Spletne pisave so onemogočene: vgradnih pisav za PDF
 
 ## Editing
 
+pdfjs-edit-button-label = Uredi
+pdfjs-editor-undo-button-label = Razveljavi
+pdfjs-editor-redo-button-label = Ponovi
+pdfjs-editor-insert-button-label = Vstavi
+
 pdfjs-editor-free-text-button =
     .title = Besedilo
 pdfjs-editor-free-text-button-label = Besedilo

@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = Vef leturgerðir eru óvirkar: get ekki notað innbyg
 
 ## Editing
 
+pdfjs-edit-button-label = Breyta
+pdfjs-editor-undo-button-label = Afturkalla
+pdfjs-editor-redo-button-label = Endurheimta
+pdfjs-editor-insert-button-label = Setja inn
+
 pdfjs-editor-free-text-button =
     .title = Texti
 pdfjs-editor-free-text-button-label = Texti

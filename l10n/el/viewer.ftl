@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = Οι γραμματοσειρές ιστού είνα
 
 ## Editing
 
+pdfjs-edit-button-label = Επεξεργασία
+pdfjs-editor-undo-button-label = Αναίρεση
+pdfjs-editor-redo-button-label = Επανάληψη
+pdfjs-editor-insert-button-label = Εισαγωγή
+
 pdfjs-editor-free-text-button =
     .title = Κείμενο
 pdfjs-editor-free-text-button-label = Κείμενο

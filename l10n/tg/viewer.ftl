@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = Шрифтҳои интернетӣ ғайрифаъ�
 
 ## Editing
 
+pdfjs-edit-button-label = Таҳрир
+pdfjs-editor-undo-button-label = Бекор кардан
+pdfjs-editor-redo-button-label = Барқарор кардан
+pdfjs-editor-insert-button-label = Гузоштан
+
 pdfjs-editor-free-text-button =
     .title = Матн
 pdfjs-editor-free-text-button-label = Матн

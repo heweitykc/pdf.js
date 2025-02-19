@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = Web fontları devre dışı: Gömülü PDF fontları 
 
 ## Editing
 
+pdfjs-edit-button-label = Düzenle
+pdfjs-editor-undo-button-label = Geri al
+pdfjs-editor-redo-button-label = Yinele
+pdfjs-editor-insert-button-label = Ekle
+
 pdfjs-editor-free-text-button =
     .title = Metin
 pdfjs-editor-free-text-button-label = Metin

@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = ਵੈਬ ਫੋਂਟ ਬੰਦ ਹਨ: ਇੰਬੈ
 
 ## Editing
 
+pdfjs-edit-button-label = ਸੰਪਾਦਨ
+pdfjs-editor-undo-button-label = ਵਾਪਸ
+pdfjs-editor-redo-button-label = ਮੁੜ-ਕਰੋ 
+pdfjs-editor-insert-button-label = ਸ਼ਾਮਲ ਕਰੋ
+
 pdfjs-editor-free-text-button =
     .title = ਲਿਖਤ
 pdfjs-editor-free-text-button-label = ਲਿਖਤ

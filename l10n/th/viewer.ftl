@@ -292,6 +292,11 @@ pdfjs-web-fonts-disabled = แบบอักษรเว็บถูกปิ�
 
 ## Editing
 
+pdfjs-edit-button-label = แก้ไข
+pdfjs-editor-undo-button-label = เลิกทำ
+pdfjs-editor-redo-button-label = ทำใหม่
+pdfjs-editor-insert-button-label = แทรก
+
 pdfjs-editor-free-text-button =
     .title = ข้อความ
 pdfjs-editor-free-text-button-label = ข้อความ

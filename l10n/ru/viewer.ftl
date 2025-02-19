@@ -302,6 +302,11 @@ pdfjs-web-fonts-disabled = Веб-шрифты отключены: не удал
 
 ## Editing
 
+pdfjs-edit-button-label = Редактировать
+pdfjs-editor-undo-button-label = Отменить
+pdfjs-editor-redo-button-label = Повторить
+pdfjs-editor-insert-button-label = Вставить
+
 pdfjs-editor-free-text-button =
     .title = Текст
 pdfjs-editor-free-text-button-label = Текст

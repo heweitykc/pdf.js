@@ -292,6 +292,11 @@ pdfjs-web-fonts-disabled = Phông chữ Web bị vô hiệu hóa: không thể s
 
 ## Editing
 
+pdfjs-edit-button-label = Chỉnh sửa
+pdfjs-editor-undo-button-label = Hoàn tác
+pdfjs-editor-redo-button-label = Làm lại
+pdfjs-editor-insert-button-label = Chèn
+
 pdfjs-editor-free-text-button =
     .title = Văn bản
 pdfjs-editor-free-text-button-label = Văn bản

@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = Os tipos de letra web estão desativados: não é pos
 
 ## Editing
 
+pdfjs-edit-button-label = Editar
+pdfjs-editor-undo-button-label = Anular
+pdfjs-editor-redo-button-label = Refazer
+pdfjs-editor-insert-button-label = Inserir
+
 pdfjs-editor-free-text-button =
     .title = Texto
 pdfjs-editor-free-text-button-label = Texto

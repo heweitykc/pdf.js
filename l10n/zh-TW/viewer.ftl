@@ -292,6 +292,11 @@ pdfjs-web-fonts-disabled = 已停用網路字型 (Web fonts): 無法使用 PDF �
 
 ## Editing
 
+pdfjs-edit-button-label = 編輯
+pdfjs-editor-undo-button-label = 復原
+pdfjs-editor-redo-button-label = 重做
+pdfjs-editor-insert-button-label = 插入
+
 pdfjs-editor-free-text-button =
     .title = 文字
 pdfjs-editor-free-text-button-label = 文字

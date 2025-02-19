@@ -304,6 +304,11 @@ pdfjs-web-fonts-disabled = Webové písma sú vypnuté: nie je možné použiť 
 
 ## Editing
 
+pdfjs-edit-button-label = Upraviť
+pdfjs-editor-undo-button-label = Späť
+pdfjs-editor-redo-button-label = Znova
+pdfjs-editor-insert-button-label = Vložiť
+
 pdfjs-editor-free-text-button =
     .title = Text
 pdfjs-editor-free-text-button-label = Text

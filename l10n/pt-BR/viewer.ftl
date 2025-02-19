@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = As fontes web estão desativadas: não foi possível 
 
 ## Editing
 
+pdfjs-edit-button-label = Editar
+pdfjs-editor-undo-button-label = Desfazer
+pdfjs-editor-redo-button-label = Refazer
+pdfjs-editor-insert-button-label = Inserir
+
 pdfjs-editor-free-text-button =
     .title = Texto
 pdfjs-editor-free-text-button-label = Texto

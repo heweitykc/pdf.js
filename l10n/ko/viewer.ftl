@@ -292,6 +292,11 @@ pdfjs-web-fonts-disabled = 웹 폰트가 비활성화됨: 내장된 PDF 글꼴�
 
 ## Editing
 
+pdfjs-edit-button-label = 편집
+pdfjs-editor-undo-button-label = 실행 취소
+pdfjs-editor-redo-button-label = 다시 실행
+pdfjs-editor-insert-button-label = 삽입
+
 pdfjs-editor-free-text-button =
     .title = 텍스트
 pdfjs-editor-free-text-button-label = 텍스트

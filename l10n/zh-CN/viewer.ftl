@@ -293,6 +293,11 @@ pdfjs-web-fonts-disabled = Web 字体已被禁用：无法使用嵌入的 PDF �
 
 ## Editing
 
+pdfjs-edit-button-label = 编辑
+pdfjs-editor-undo-button-label = 撤销
+pdfjs-editor-redo-button-label = 恢复
+pdfjs-editor-insert-button-label = 插入
+
 pdfjs-editor-free-text-button =
     .title = 文本
 pdfjs-editor-free-text-button-label = 文本

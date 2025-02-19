@@ -263,6 +263,11 @@ pdfjs-web-fonts-disabled = Diweredekaet eo an nodrezhoù web: n'haller ket arver
 
 ## Editing
 
+pdfjs-edit-button-label = Aozañ
+pdfjs-editor-undo-button-label = Dizober
+pdfjs-editor-redo-button-label = Adober
+pdfjs-editor-insert-button-label = Enlakaat
+
 pdfjs-editor-free-text-button =
     .title = Testenn
 pdfjs-editor-free-text-button-label = Testenn

@@ -300,6 +300,11 @@ pdfjs-web-fonts-disabled = Web-Schriftarten sind deaktiviert: Eingebettete PDF-S
 
 ## Editing
 
+pdfjs-edit-button-label = Bearbeiten
+pdfjs-editor-undo-button-label = Rückgängig
+pdfjs-editor-redo-button-label = Wiederherstellen
+pdfjs-editor-insert-button-label = Einfügen
+
 pdfjs-editor-free-text-button =
     .title = Text
 pdfjs-editor-free-text-button-label = Text

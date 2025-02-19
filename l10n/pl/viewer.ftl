@@ -302,6 +302,11 @@ pdfjs-web-fonts-disabled = Czcionki sieciowe są wyłączone: nie można użyć 
 
 ## Editing
 
+pdfjs-edit-button-label = Edytuj
+pdfjs-editor-undo-button-label = Cofnij
+pdfjs-editor-redo-button-label = Ponów
+pdfjs-editor-insert-button-label = Wstaw
+
 pdfjs-editor-free-text-button =
     .title = Tekst
 pdfjs-editor-free-text-button-label = Tekst

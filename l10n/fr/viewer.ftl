@@ -296,6 +296,11 @@ pdfjs-web-fonts-disabled = Les polices web sont désactivées : impossible d’
 
 ## Editing
 
+pdfjs-edit-button-label = Éditer
+pdfjs-editor-undo-button-label = Annuler
+pdfjs-editor-redo-button-label = Rétablir
+pdfjs-editor-insert-button-label = Insérer
+
 pdfjs-editor-free-text-button =
     .title = Texte
 pdfjs-editor-free-text-button-label = Texte
