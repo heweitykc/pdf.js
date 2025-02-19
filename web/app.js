@@ -1164,8 +1164,8 @@ const PDFViewerApplication = {
     }
   },
 
-  editorExit() {
-    console.log("editorExit");
+  editorExit() {    
+    Palmmob_quit();
   },
 
   annotationEdit() {

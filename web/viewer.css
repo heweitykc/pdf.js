@@ -572,8 +572,8 @@ body {
 }
 
 #editorExitButton {
-  padding-left: 13px;
-  padding-right: 13px;
+  width: 100%;
+  height: 100%;
 }
 #editorExitButton::before {
   background-color: #FFFFFF;
@@ -584,8 +584,8 @@ body {
 }
 
 #editorOKButton {
-  padding-left: 13px;
-  padding-right: 13px;
+  width: 100%;
+  height: 100%;
 }
 #editorOKButton::before {
   background-color: #FFFFFF;

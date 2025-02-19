@@ -1,5 +1,5 @@
 var isIOS = !!navigator.userAgent.toLowerCase().match(/iphone|macintosh|ipad/g)
-var baidu_stat, baidu_stat_ios;
+var baidu_stat="a22e57e3af6919a0e515b1b00a399422", baidu_stat_ios="382d50f21a0139781907e7c434fb71a6";
 
 function Palmmob_Func(FuncName, defaultVal){
     // console.log("Palmmob_Func", FuncName)
@@ -43,6 +43,12 @@ function Palmmob_docReady(){
     });
 }
 
+function Palmmob_quit(){
+    postMsg({
+        "action":"quit"
+    });
+}
+
 function Palmmob_savefile(data) {    
     Palmmob_Func('startSaveBlob');
         
@@ -71,3 +77,5 @@ function initBDStat(){
       s.parentNode.insertBefore(hm, s);
     })();
 }
+
+initBDStat();
