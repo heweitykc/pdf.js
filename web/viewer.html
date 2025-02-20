@@ -1,25 +1,4 @@
 ﻿<!DOCTYPE html>
-<!--
-Copyright 2012 Mozilla Foundation
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-Adobe CMap resources are covered by their own copyright but the same license:
-
-    Copyright 1990-2015 Adobe Systems Incorporated.
-
-See https://github.com/adobe-type-tools/cmap-resources
--->
 <html dir="ltr" mozdisallowselectionprint>
   <head>
     <meta charset="utf-8">
@@ -146,13 +125,15 @@ See https://github.com/adobe-type-tools/cmap-resources
         <div class="toolbar">
           <div id="toolbarContainer">
             <div id="toolbarViewer" class="toolbarHorizontalGroup">
-              <div class="toolbarButtonWithContainer">
-                <button id="editorExitButton" class="toolbarButton" type="button" title="Exit" tabindex="0"  style="display:flex;gap:4px;" >
-                </button>
-                <button id="editorOKButton" class="toolbarButton" type="button" title="OK" tabindex="0"  style="display:flex;gap:4px;" >
-                </button>
+              <div class="toolbarHorizontalGroup">
+                <div class="toolbarButtonWithContainer">
+                  <button id="editorExitButton" class="toolbarButton" type="button" title="Exit" tabindex="0"  style="display:flex;gap:4px;" >
+                  </button>
+                  <button id="editorOKButton" class="toolbarButton" type="button" title="OK" tabindex="0"  style="display:flex;gap:4px;" hidden >
+                  </button>
+                </div>
               </div>
-              <div id="toolbarViewerLeft" class="toolbarHorizontalGroup">
+              <div class="toolbarHorizontalGroup" hidden >
                 <button id="sidebarToggleButton" class="toolbarButton" type="button" title="Toggle Sidebar" tabindex="0" data-l10n-id="pdfjs-toggle-sidebar-button" >
                   <span data-l10n-id="pdfjs-toggle-sidebar-button-label">Toggle Sidebar</span>
                 </button>
@@ -220,7 +201,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                   <span id="numPages" class="toolbarLabel"></span>
                 </div>
               </div>
-              <div id="toolbarViewerMiddle" class="toolbarHorizontalGroup">
+              <div class="toolbarHorizontalGroup" hidden >
                 <div class="toolbarHorizontalGroup">
                   <button id="zoomOutButton" class="toolbarButton" type="button" title="Zoom Out" tabindex="0" data-l10n-id="pdfjs-zoom-out-button">
                     <span data-l10n-id="pdfjs-zoom-out-button-label">Zoom Out</span>
@@ -248,15 +229,15 @@ See https://github.com/adobe-type-tools/cmap-resources
                   </select>
                 </span>
               </div>
-              <div id="toolbarViewerRight" class="toolbarHorizontalGroup">
+              <div class="toolbarHorizontalGroup">
                 <div class="toolbarButtonWithContainer">
-                  <button id="editorUndoButton" class="toolbarButton" type="button" title="Undo" tabindex="0" data-l10n-id="pdfjs-undo-button"  style="display:flex;gap:4px;" >
+                  <button id="editorUndoButton" class="toolbarButton" type="button" title="Undo" tabindex="0" data-l10n-id="pdfjs-undo-button"  style="display:flex;gap:4px;" hidden >
                     <span data-l10n-id="pdfjs-editor-undo-button-label" class="bottomText">Undo</span>
                   </button>
                 </div>
 
                 <div class="toolbarButtonWithContainer">
-                  <button id="editorRedoButton" class="toolbarButton" type="button" title="Redo" tabindex="0" data-l10n-id="pdfjs-redo-button"  style="display:flex;gap:4px;" >
+                  <button id="editorRedoButton" class="toolbarButton" type="button" title="Redo" tabindex="0" data-l10n-id="pdfjs-redo-button"  style="display:flex;gap:4px;" hidden >
                     <span data-l10n-id="pdfjs-editor-redo-button-label" class="bottomText">Redo</span>
                   </button>
                 </div>
@@ -288,7 +269,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                     </div>
                   </div>
                   <div id="editorFreeText" class="toolbarButtonWithContainer">
-                    <button id="editorFreeTextButton" class="toolbarButton" type="button" disabled="disabled" title="Text" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-free-text-button"  style="display:flex;gap:4px;" >
+                    <button id="editorFreeTextButton" class="toolbarButton" type="button" disabled="disabled" title="Text" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-free-text-button"  style="display:flex;gap:4px;" hidden >
                       <span data-l10n-id="pdfjs-editor-free-text-button-label" class="bottomText" >Text</span>
                     </button>
                     <div class="editorParamsToolbar hidden doorHangerMiddle" id="editorFreeTextParamsToolbar">
@@ -305,7 +286,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                     </div>
                   </div>
                   <div id="editorInk" class="toolbarButtonWithContainer">
-                    <button id="editorInkButton" class="toolbarButton" type="button" disabled="disabled" title="Draw" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-ink-button"  style="display:flex;gap:4px;" >
+                    <button id="editorInkButton" class="toolbarButton" type="button" disabled="disabled" title="Draw" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-ink-button"  style="display:flex;gap:4px;" hidden >
                       <span data-l10n-id="pdfjs-editor-ink-button-label" class="bottomText" >Draw</span>
                     </button>
                     <div class="editorParamsToolbar hidden doorHangerMiddle" id="editorInkParamsToolbar">
@@ -326,25 +307,25 @@ See https://github.com/adobe-type-tools/cmap-resources
                     </div>
                   </div>
                   <div id="editorStamp" class="toolbarButtonWithContainer">
-                    <button id="editorStampButton" class="toolbarButton" type="button" disabled="disabled" title="Add or edit images" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-stamp-button"  style="display:flex;gap:4px;" >
+                    <button id="editorStampButton" class="toolbarButton" type="button" disabled="disabled" title="Add or edit images" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-stamp-button"  style="display:flex;gap:4px;" hidden >
                       <span data-l10n-id="pdfjs-editor-insert-button-label" class="bottomText" >Insert</span>
                     </button>                  
                   </div>
                 </div>
 
-                <div id="editorEdit" class="toolbarButtonWithContainer">
-                  <button id="editorEditButton" class="toolbarButton" type="button" title="Edit" tabindex="0" data-l10n-id="pdfjs-edit-button"  style="display:flex;gap:4px;"  >
+                <div id="editorEdit" class="toolbarButtonWithContainer" hidden >
+                  <button id="editorEditButton" class="toolbarButton" type="button" title="Edit" tabindex="0" data-l10n-id="pdfjs-edit-button"  style="display:flex;gap:4px;" >
                     <span data-l10n-id="pdfjs-edit-button-label" class="bottomText">Edit</span>
                   </button>
                 </div>                
 
-                <div id="editorSave" class="toolbarButtonWithContainer">
-                  <button id="editorSaveButton" class="toolbarButton" type="button"  tabindex="0" data-l10n-id="pdfjs-save-button"  style="display:flex;gap:4px;"  >
+                <div id="editorSave" class="toolbarButtonWithContainer" hidden >
+                  <button id="editorSaveButton" class="toolbarButton" type="button"  tabindex="0" data-l10n-id="pdfjs-save-button"  style="display:flex;gap:4px;" >
                     <span data-l10n-id="pdfjs-save-button-label" class="bottomText" >Save</span>
                   </button>
                 </div>
 
-                <div class="toolbarHorizontalGroup hiddenMediumView">
+                <div class="toolbarHorizontalGroup" hidden >
                   <button id="printButton" class="toolbarButton" type="button" title="Print" tabindex="0" data-l10n-id="pdfjs-print-button">
                     <span data-l10n-id="pdfjs-print-button-label">Print</span>
                   </button>
@@ -354,7 +335,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                   </button>
                 </div>
 
-                <div class="verticalToolbarSeparator hiddenMediumView"></div>
+                <div class="verticalToolbarSeparator" hidden ></div>
 
                 <div id="secondaryToolbarToggle" class="toolbarButtonWithContainer">
                   <button id="secondaryToolbarToggleButton" class="toolbarButton" type="button" title="Tools" tabindex="0" data-l10n-id="pdfjs-tools-button" style="display:flex;gap:4px;" >
@@ -368,8 +349,7 @@ See https://github.com/adobe-type-tools/cmap-resources
                       </button>
 <!--#endif-->
 
-                      <div class="visibleMediumView 
-                      hidden">
+                      <div hidden>
                         <button id="secondaryPrint" class="toolbarButton labeled" type="button" title="Print" tabindex="0" data-l10n-id="pdfjs-print-button">
                           <span data-l10n-id="pdfjs-print-button-label">Print</span>
                         </button>
