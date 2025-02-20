@@ -2125,10 +2125,10 @@ class AnnotationEditorUIManager {
       ? [drawingEditor]
       : [...this.#selectedEditors];
     const cmd = () => {
-      this._editorUndoBar?.show(
-        undo,
-        editors.length === 1 ? editors[0].editorType : editors.length
-      );
+      // this._editorUndoBar?.show(
+      //   undo,
+      //   editors.length === 1 ? editors[0].editorType : editors.length
+      // );
       for (const editor of editors) {
         editor.remove();
       }
