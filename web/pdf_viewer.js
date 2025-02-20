@@ -814,6 +814,7 @@ class PDFViewer {
    * @param {PDFDocumentProxy} pdfDocument
    */
   setDocument(pdfDocument) {
+    console.log("setDocument", pdfDocument);
     if (this.pdfDocument) {
       this.eventBus.dispatch("pagesdestroy", { source: this });
 
@@ -906,6 +907,8 @@ class PDFViewer {
           viewer.before(element);
         }
 
+        console.log("annotationEditorMode="+annotationEditorMode);
+
         if (
           ((typeof PDFJSDev !== "undefined" && PDFJSDev.test("MOZCENTRAL")) ||
             typeof AbortSignal.any === "function") &&
@@ -916,6 +919,7 @@ class PDFViewer {
           if (pdfDocument.isPureXfa) {
             console.warn("Warning: XFA-editing is not implemented.");
           } else if (isValidAnnotationEditorMode(mode)) {
+            console.log("AnnotationEditorUIManager inited");
             this.#annotationEditorUIManager = new AnnotationEditorUIManager(
               this.container,
               viewer,
