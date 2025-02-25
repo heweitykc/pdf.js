@@ -80,8 +80,7 @@ const config = JSON.parse(fs.readFileSync(CONFIG_FILE).toString());
 
 const ENV_TARGETS = [
   "last 2 versions",
-  "Chrome >= 103",
-  "Firefox ESR",
+  "Chrome >= 103",  
   "Safari >= 16.4",
   "Node >= 20",
   "> 1%",
@@ -278,8 +277,8 @@ function createWebpackConfig(
   output,
   {
     disableVersionInfo = false,
-    disableSourceMaps = false,
-    disableLicenseHeader = false,
+    disableSourceMaps = true,
+    disableLicenseHeader = true,
     defaultPreferencesDir = null,
   } = {}
 ) {
@@ -467,7 +466,7 @@ function tweakWebpackOutput(jsName) {
 
 function createMainBundle(defines) {
   const mainFileConfig = createWebpackConfig(defines, {
-    filename: defines.MINIFIED ? "pdf.min.mjs" : "pdf.mjs",
+    filename: defines.MINIFIED ? "pdf.mjs" : "pdf.mjs",
     library: {
       type: "module",
     },
@@ -532,7 +531,7 @@ function createSandboxBundle(defines, extraOptions = undefined) {
     sandboxDefines,
     {
       filename: sandboxDefines.MINIFIED
-        ? "pdf.sandbox.min.mjs"
+        ? "pdf.sandbox.mjs"
         : "pdf.sandbox.mjs",
       library: {
         type: "module",
@@ -549,7 +548,7 @@ function createSandboxBundle(defines, extraOptions = undefined) {
 
 function createWorkerBundle(defines) {
   const workerFileConfig = createWebpackConfig(defines, {
-    filename: defines.MINIFIED ? "pdf.worker.min.mjs" : "pdf.worker.mjs",
+    filename: defines.MINIFIED ? "pdf.worker.mjs" : "pdf.worker.mjs",
     library: {
       type: "module",
     },
@@ -612,7 +611,7 @@ function createComponentsBundle(defines) {
 function createImageDecodersBundle(defines) {
   const componentsFileConfig = createWebpackConfig(defines, {
     filename: defines.MINIFIED
-      ? "pdf.image_decoders.min.mjs"
+      ? "pdf.image_decoders.mjs"
       : "pdf.image_decoders.mjs",
     library: {
       type: "module",
@@ -1085,6 +1084,10 @@ function buildGeneric(defines, dir) {
     gulp
       .src("web/compressed.tracemonkey-pldi-09.pdf", { encoding: false })
       .pipe(gulp.dest(dir + "web")),
+
+      gulp
+      .src("web/palmmob3.js", { encoding: false })
+      .pipe(gulp.dest(dir + "web")),      
   ]);
 }
 
@@ -1123,7 +1126,7 @@ gulp.task(
     createBuildNumber,
     "locale",
     function scriptingGenericLegacy() {
-      const defines = { ...DEFINES, GENERIC: true, SKIP_BABEL: false };
+      const defines = { ...DEFINES, MINIFIED: true, GENERIC: true, SKIP_BABEL: false };
       return ordered([
         buildDefaultPreferences(defines, "generic-legacy/"),
         createTemporaryScriptingBundle(defines),
@@ -1135,7 +1138,7 @@ gulp.task(
     function createGenericLegacy() {
       console.log();
       console.log("### Creating generic (legacy) viewer");
-      const defines = { ...DEFINES, GENERIC: true, SKIP_BABEL: false };
+      const defines = { ...DEFINES,MINIFIED: true, GENERIC: true, SKIP_BABEL: false };
 
       return buildGeneric(defines, GENERIC_LEGACY_DIR);
     }

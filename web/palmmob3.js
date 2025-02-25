@@ -37,6 +37,10 @@ function postMsg(cmd) {
     Palmmob_Func1('postMessage', cmddata)
 }
 
+function Palmmob_appErr(type, content){
+    Palmmob_Func2("appErr", type, content, null)
+}
+
 function Palmmob_docReady(){
     postMsg({
         "action":"init"
@@ -78,4 +82,42 @@ function initBDStat(){
     })();
 }
 
+function errWatch(){
+    window.addEventListener('error', function(event) {
+        console.log("error event:", event);
+        var errstr = '';
+        
+        if (event.error) {        
+            // 如果是普通的错误对象
+            errstr = `${event.error.message},${event.lineno},${event.colno},${event.error.stack || ''}`;
+        } else if (event.target && event.target.tagName) {
+            // 如果是资源加载错误(图片、脚本等)
+            errstr = `Resource Error: ${event.target.tagName},${event.target.src || event.target.href}`;
+        } else {
+            // 其他类型错误
+            errstr = `Unknown Error: ${event.message || JSON.stringify(event)}`;
+        }
+        
+        Palmmob_appErr("pdfjs", errstr);
+        return false;
+    }, true);  // 使用捕获阶段以确保最先处理
+    
+    // 捕获 Promise 未处理的错误
+    window.addEventListener('unhandledrejection', function(event) {
+        console.log("unhandled promise rejection:", event);
+        var errstr = `Promise Error: ${event.reason ? (event.reason.stack || event.reason.toString()) : '未知Promise错误'}`;
+        Palmmob_appErr("pdfjs", errstr);
+        event.preventDefault();
+    }, true);
+    
+    // 捕获 Promise 已处理的错误(可选)
+    window.addEventListener('rejectionhandled', function(event) {
+        console.log("handled promise rejection:", event);
+        var errstr = `Handled Promise Error: ${event.reason ? (event.reason.stack || event.reason.toString()) : '未知Promise错误'}`;
+        Palmmob_appErr("pdfjs", errstr);
+    }, true);
+}
+
+
+errWatch();
 initBDStat();
