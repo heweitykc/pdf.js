@@ -61,6 +61,7 @@ function getViewerConfiguration() {
       editorStampButton: document.getElementById("editorStampButton"),
       editorStampParamsToolbar: document.getElementById("editorStampParamsToolbar"),
       editorModeButtons: document.getElementById("editorModeButtons"),
+      editorControlButtons: document.getElementById("editorControlButtons"),
       editorDownloadButton: document.getElementById("editorDownloadButton"),
       editorOKButton:   document.getElementById("editorOK"),
       editorExitButton: document.getElementById("editorExit"),

@@ -302,7 +302,8 @@ class Toolbar {
       editorUndoButton,
       editorRedoButton,
       editorEditButton,
-      editorSaveButton
+      editorSaveButton,
+      editorControlButtons
     } = this.#opts;
 
     toggleExpandedBtn(
@@ -338,6 +339,7 @@ class Toolbar {
       editorEditButton.hidden  = true;
       editorSaveButton.hidden  = true;
       editorExitButton.hidden  =  true;
+      editorControlButtons.hidden = true;
 
       editorModeButtons.hidden =  false;
       editorUndoButton.hidden  =  false;
@@ -351,6 +353,7 @@ class Toolbar {
       editorEditButton.hidden  = false;
       editorSaveButton.hidden  = false;
       editorExitButton.hidden  = false;
+      editorControlButtons.hidden = false;
       
       editorModeButtons.hidden = true;
       editorUndoButton.hidden = true;

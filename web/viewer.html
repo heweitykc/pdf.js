@@ -233,7 +233,7 @@
                 </span>
               </div>
 
-              <div id="editorModeButtons" class="toolbarHorizontalGroup"  >
+              <div id="editorModeButtons" class="toolbarHorizontalGroup" style="margin-right:10px;" >
                 <div id="editorUndo"  class="toolbarButtonWithContainer" hidden >
                   <button id="editorUndoButton" class="toolbarButton" type="button" title="Undo" tabindex="0" data-l10n-id="pdfjs-undo-button"  style="display:flex;gap:4px;" >
                     <span data-l10n-id="pdfjs-editor-undo-button-label" class="bottomText">Undo</span>
@@ -270,11 +270,16 @@
                     </div>
                   </div>
                 </div>
+                <div id="editorStamp" class="toolbarButtonWithContainer">
+                  <button id="editorStampButton" class="toolbarButton" type="button" disabled="disabled" title="Add or edit images" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-stamp-button"  style="display:flex;gap:4px;" hidden >
+                    <span data-l10n-id="pdfjs-editor-insert-button-label" class="bottomText" >Insert</span>
+                  </button>                  
+                </div>                
                 <div id="editorFreeText" class="toolbarButtonWithContainer">
                   <button id="editorFreeTextButton" class="toolbarButton" type="button" disabled="disabled" title="Text" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-free-text-button"  style="display:flex;gap:4px;" hidden >
                     <span data-l10n-id="pdfjs-editor-free-text-button-label" class="bottomText" >Text</span>
                   </button>
-                  <div class="editorParamsToolbar hidden doorHangerMiddle" id="editorFreeTextParamsToolbar">
+                  <div class="editorParamsToolbar hidden doorHangerRight" id="editorFreeTextParamsToolbar">
                     <div class="editorParamsToolbarContainer">
                       <div class="editorParamsSetter">
                         <label for="editorFreeTextColor" class="editorParamsLabel" data-l10n-id="pdfjs-editor-free-text-color-input">Color</label>
@@ -291,7 +296,7 @@
                   <button id="editorInkButton" class="toolbarButton" type="button" disabled="disabled" title="Draw" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-ink-button"  style="display:flex;gap:4px;" hidden >
                     <span data-l10n-id="pdfjs-editor-ink-button-label" class="bottomText" >Draw</span>
                   </button>
-                  <div class="editorParamsToolbar hidden doorHangerMiddle" id="editorInkParamsToolbar">
+                  <div class="editorParamsToolbar hidden doorHangerRight" id="editorInkParamsToolbar">
                     <div class="editorParamsToolbarContainer">
                       <div class="editorParamsSetter">
                         <label for="editorInkColor" class="editorParamsLabel" data-l10n-id="pdfjs-editor-ink-color-input">Color</label>
@@ -308,14 +313,9 @@
                     </div>
                   </div>
                 </div>
-                <div id="editorStamp" class="toolbarButtonWithContainer">
-                  <button id="editorStampButton" class="toolbarButton" type="button" disabled="disabled" title="Add or edit images" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-stamp-button"  style="display:flex;gap:4px;" hidden >
-                    <span data-l10n-id="pdfjs-editor-insert-button-label" class="bottomText" >Insert</span>
-                  </button>                  
-                </div>
               </div>              
               
-              <div class="toolbarHorizontalGroup">
+              <div id="editorControlButtons" class="toolbarHorizontalGroup"  >
                 <div id="editorEdit" class="toolbarButtonWithContainer" hidden >
                   <button id="editorEditButton" class="toolbarButton" type="button" title="Edit" tabindex="0" data-l10n-id="pdfjs-edit-button"  style="display:flex;gap:4px;" >
                     <span data-l10n-id="pdfjs-edit-button-label" class="bottomText">Edit</span>
