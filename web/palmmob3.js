@@ -1,5 +1,6 @@
 var isIOS = !!navigator.userAgent.toLowerCase().match(/iphone|macintosh|ipad/g)
-var baidu_stat="a22e57e3af6919a0e515b1b00a399422", baidu_stat_ios="382d50f21a0139781907e7c434fb71a6";
+var baidu_stat="a22e57e3af6919a0e515b1b00a399422", baidu_stat_ios="382d50f21a0139781907e7c434fb71a6"
+var editorWin = window
 
 function Palmmob_Func(FuncName, defaultVal){
     // console.log("Palmmob_Func", FuncName)
@@ -37,6 +38,18 @@ function postMsg(cmd) {
     Palmmob_Func1('postMessage', cmddata)
 }
 
+function Palmmob_raiseEditor(inputMethodHeight){
+
+}
+
+function Palmmob_resumeEditor() {
+
+}
+
+function Palmmob_closePop(){
+    return "";
+}
+
 function Palmmob_appErr(type, content){
     Palmmob_Func2("appErr", type, content, null)
 }
@@ -44,6 +57,9 @@ function Palmmob_appErr(type, content){
 function Palmmob_docReady(){
     postMsg({
         "action":"init"
+    });
+    postMsg({
+        "action":"docloaded"
     });
 }
 
@@ -65,10 +81,36 @@ function Palmmob_savefile(data) {
         offset += chunkSize;
     }
     
-    Palmmob_Func('finishSaveBlob');
+    return new Promise(resolve => {
+        setTimeout(function() {
+            Palmmob_Func('finishSaveBlob');
+            resolve();
+        }, 1000);
+    });
+}
+
+function js_closeEditor() {
+    const activeElement = document.activeElement;
+    if(activeElement){
+        const newTarget = document.getElementById("editorOK");
+        newTarget.focus();
+        const blurEvent = new FocusEvent('blur', {
+          relatedTarget: newTarget,
+          bubbles: true
+        });
+        activeElement.dispatchEvent(blurEvent);
+    }
+
+    setTimeout(() => {
+        PDFViewerApplication.eventBus.dispatch("editorExit", {source: this});
+    }, 100);
 }
 
 function js_switchEdit(editable){
+
+}
+
+function js_inputHide(){
 
 }
 
@@ -116,5 +158,5 @@ function errWatch(){
 }
 
 
-errWatch();
-initBDStat();
+errWatch()
+initBDStat()
