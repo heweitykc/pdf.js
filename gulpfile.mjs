@@ -1049,7 +1049,7 @@ function buildGeneric(defines, dir) {
   return ordered([
     createMainBundle(defines).pipe(gulp.dest(dir + "build")),
     createWorkerBundle(defines).pipe(gulp.dest(dir + "build")),
-    createSandboxBundle(defines).pipe(gulp.dest(dir + "build")),
+    // createSandboxBundle(defines).pipe(gulp.dest(dir + "build")),
     createWebBundle(defines, {
       defaultPreferencesDir: defines.SKIP_BABEL
         ? "generic/"
@@ -1129,7 +1129,7 @@ gulp.task(
       const defines = { ...DEFINES, MINIFIED: true, GENERIC: true, SKIP_BABEL: false };
       return ordered([
         buildDefaultPreferences(defines, "generic-legacy/"),
-        createTemporaryScriptingBundle(defines),
+        // createTemporaryScriptingBundle(defines),
       ]);
     },
     async function prefsGenericLegacy() {
@@ -1241,7 +1241,7 @@ function buildMinified(defines, dir) {
   return ordered([
     createMainBundle(defines).pipe(gulp.dest(dir + "build")),
     createWorkerBundle(defines).pipe(gulp.dest(dir + "build")),
-    createSandboxBundle(defines).pipe(gulp.dest(dir + "build")),
+    // createSandboxBundle(defines).pipe(gulp.dest(dir + "build")),
     createImageDecodersBundle({ ...defines, IMAGE_DECODERS: true }).pipe(
       gulp.dest(dir + "image_decoders")
     ),
