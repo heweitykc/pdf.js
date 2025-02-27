@@ -145,10 +145,24 @@ class Toolbar {
     document.documentElement.setAttribute("data-toolbar-density", name);
   }
 
-  #setAnnotationEditorUIManager(uiManager, parentContainer) {
-    const colorPicker = new ColorPicker({ uiManager });
+  #setAnnotationEditorUIManager(uiManager) {
+    const {
+      editorHighlightColorPicker,
+      editorInkColorPicker,
+      editorFreeTextColorPicker,
+    } = this.#opts;
+
+    const colorPicker = new ColorPicker({ uiManager, type: AnnotationEditorParamsType.HIGHLIGHT_COLOR });
     uiManager.setMainHighlightColorPicker(colorPicker);
-    parentContainer.append(colorPicker.renderMainDropdown());
+    editorHighlightColorPicker.append(colorPicker.renderMainDropdown());
+
+    const colorPickerInk = new ColorPicker({ uiManager, type: AnnotationEditorParamsType.INK_COLOR });
+    uiManager.setMainInkColorPicker(colorPickerInk);
+    editorInkColorPicker.append(colorPickerInk.renderMainDropdown());
+
+    const colorPickerFreeText = new ColorPicker({ uiManager, type: AnnotationEditorParamsType.FREETEXT_COLOR });
+    uiManager.setMainFreeTextColorPicker(colorPickerFreeText);
+    editorFreeTextColorPicker.append(colorPickerFreeText.renderMainDropdown());
   }
 
   setPageNumber(pageNumber, pageLabel) {
@@ -186,7 +200,6 @@ class Toolbar {
   #bindListeners(buttons) {
     const { eventBus } = this;
     const {
-      editorHighlightColorPicker,
       editorHighlightButton,
       editorStampButton,
       pageNumber,
@@ -270,19 +283,16 @@ class Toolbar {
     });
     eventBus._on("toolbardensity", this.#updateToolbarDensity.bind(this));
 
-    if (editorHighlightColorPicker) {
-      eventBus._on(
-        "annotationeditoruimanager",
-        ({ uiManager }) => {
-          this.#setAnnotationEditorUIManager(
-            uiManager,
-            editorHighlightColorPicker
-          );
-        },
-        // Once the color picker has been added, we don't want to add it again.
-        { once: true }
-      );
-    }
+    eventBus._on(
+      "annotationeditoruimanager",
+      ({ uiManager }) => {
+        this.#setAnnotationEditorUIManager(
+          uiManager
+        );
+      },
+      // Once the color picker has been added, we don't want to add it again.
+      { once: true }
+    );    
   }
 
   #editorModeChanged({ mode }) {

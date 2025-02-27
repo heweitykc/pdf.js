@@ -8,3 +8,4 @@ node_modules/
 examples/node/svgdump/
 examples/node/pdf2png/*.png
 web/荣耀对接.pdf
+pdfjs-dist/

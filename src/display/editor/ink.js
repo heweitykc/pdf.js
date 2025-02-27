@@ -35,7 +35,7 @@ class InkDrawingOptions extends DrawingOptions {
       fill: "none",
       stroke: AnnotationEditor._defaultLineColor,
       "stroke-opacity": 1,
-      "stroke-width": 1,
+      "stroke-width": 10,
       "stroke-linecap": "round",
       "stroke-linejoin": "round",
       "stroke-miterlimit": 10,

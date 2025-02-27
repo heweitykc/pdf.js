@@ -395,7 +395,8 @@
         --alt-text-add-image: url(images/altText_add.svg);
         --alt-text-done-image: url(images/altText_done.svg);
 
-        display: flex;
+        /* display: flex; */
+        display: none;
         align-items: center;
         justify-content: center;
         width: max-content;
@@ -1235,46 +1236,6 @@
   padding-inline: 10px;
   padding-block-end: 12px;
 
-  .colorPicker {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    .dropdown {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: row;
-      height: auto;
-
-      button {
-        width: auto;
-        height: auto;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: none;
-        flex: 0 0 auto;
-        padding: 0;
-
-        .swatch {
-          width: 24px;
-          height: 24px;
-        }
-
-        &:is(:active, :focus-visible) {
-          outline: none;
-        }
-
-        &:is(:hover, :active, :focus-visible) > .swatch {
-          outline: 2px solid var(--hover-outline-color);
-        }
-      }
-    }
-  }
-
   #editorHighlightThickness {
     display: flex;
     flex-direction: column;
@@ -1356,6 +1317,46 @@
       justify-content: space-between;
       align-items: center;
       align-self: stretch;
+    }
+  }
+}
+
+.colorPicker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: auto;
+
+    button {
+      width: auto;
+      height: auto;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      flex: 0 0 auto;
+      padding: 0;
+
+      .swatch {
+        width: 24px;
+        height: 24px;
+      }
+
+      &:is(:active, :focus-visible) {
+        outline: none;
+      }
+
+      &:is(:hover, :active, :focus-visible) > .swatch {
+        outline: 2px solid var(--hover-outline-color);
+      }
     }
   }
 }

@@ -40,7 +40,7 @@ class ColorPicker {
 
   #type;
 
-  static #l10nColor = null;
+  // static #l10nColor = null;
 
   static get _keyboardManager() {
     return shadow(
@@ -66,15 +66,19 @@ class ColorPicker {
     );
   }
 
-  constructor({ editor = null, uiManager = null }) {
-    if (editor) {
-      this.#isMainColorPicker = false;
-      this.#type = AnnotationEditorParamsType.HIGHLIGHT_COLOR;
-      this.#editor = editor;
-    } else {
-      this.#isMainColorPicker = true;
-      this.#type = AnnotationEditorParamsType.HIGHLIGHT_DEFAULT_COLOR;
-    }
+  constructor({ editor = null, uiManager = null, type = null }) {
+    // if (editor) {
+    //   this.#isMainColorPicker = false;
+    //   this.#type = AnnotationEditorParamsType.HIGHLIGHT_COLOR;
+    //   this.#editor = editor;
+    // } else {
+    //   this.#isMainColorPicker = true;
+    //   this.#type = AnnotationEditorParamsType.HIGHLIGHT_DEFAULT_COLOR;
+    // }
+    this.#isMainColorPicker = false;
+    this.#type = type;
+    this.#editor = editor;
+    console.log("colorpicker constructor", this.#type);
     this.#uiManager = editor?._uiManager || uiManager;
     this.#eventBus = this.#uiManager._eventBus;
     this.#defaultColor =
@@ -82,13 +86,13 @@ class ColorPicker {
       this.#uiManager?.highlightColors.values().next().value ||
       "#FFFF98";
 
-    ColorPicker.#l10nColor ||= Object.freeze({
-      blue: "pdfjs-editor-colorpicker-blue",
-      green: "pdfjs-editor-colorpicker-green",
-      pink: "pdfjs-editor-colorpicker-pink",
-      red: "pdfjs-editor-colorpicker-red",
-      yellow: "pdfjs-editor-colorpicker-yellow",
-    });
+    // ColorPicker.#l10nColor ||= Object.freeze({
+    //   blue: "pdfjs-editor-colorpicker-blue",
+    //   green: "pdfjs-editor-colorpicker-green",
+    //   pink: "pdfjs-editor-colorpicker-pink",
+    //   red: "pdfjs-editor-colorpicker-red",
+    //   yellow: "pdfjs-editor-colorpicker-yellow",
+    // });
   }
 
   renderButton() {
@@ -110,9 +114,6 @@ class ColorPicker {
 
   renderMainDropdown() {
     const dropdown = (this.#dropdown = this.#getDropdownRoot());
-    dropdown.setAttribute("aria-orientation", "horizontal");
-    dropdown.setAttribute("aria-labelledby", "highlightColorPickerLabel");
-
     return dropdown;
   }
 
@@ -131,7 +132,7 @@ class ColorPicker {
       button.role = "option";
       button.setAttribute("data-color", color);
       button.title = name;
-      button.setAttribute("data-l10n-id", ColorPicker.#l10nColor[name]);
+      // button.setAttribute("data-l10n-id", ColorPicker.#l10nColor[name]);
       const swatch = document.createElement("span");
       button.append(swatch);
       swatch.className = "swatch";
@@ -275,6 +276,7 @@ class ColorPicker {
 
   updateColor(color) {
     if (this.#buttonSwatch) {
+      console.log("updateColor", color);
       this.#buttonSwatch.style.backgroundColor = color;
     }
     if (!this.#dropdown) {

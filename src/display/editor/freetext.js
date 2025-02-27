@@ -54,7 +54,7 @@ class FreeTextEditor extends AnnotationEditor {
 
   static _defaultColor = null;
 
-  static _defaultFontSize = 10;
+  static _defaultFontSize = 30;
 
   static get _keyboardManager() {
     const proto = FreeTextEditor.prototype;

@@ -44,8 +44,8 @@ class AnnotationEditorParams {
    */
   #bindListeners({
     editorFreeTextFontSize,
-    editorFreeTextColor,
-    editorInkColor,
+    // editorFreeTextColor,
+    // editorInkColor,
     editorInkThickness,
     editorInkOpacity,
     editorStampAddImage,
@@ -62,12 +62,12 @@ class AnnotationEditorParams {
     editorFreeTextFontSize.addEventListener("input", function () {
       dispatchEvent("FREETEXT_SIZE", this.valueAsNumber);
     });
-    editorFreeTextColor.addEventListener("input", function () {
-      dispatchEvent("FREETEXT_COLOR", this.value);
-    });
-    editorInkColor.addEventListener("input", function () {
-      dispatchEvent("INK_COLOR", this.value);
-    });
+    // editorFreeTextColor.addEventListener("input", function () {
+    //   dispatchEvent("FREETEXT_COLOR", this.value);
+    // });
+    // editorInkColor.addEventListener("input", function () {
+    //   dispatchEvent("INK_COLOR", this.value);
+    // });
     editorInkThickness.addEventListener("input", function () {
       dispatchEvent("INK_THICKNESS", this.valueAsNumber);
     });
@@ -92,16 +92,17 @@ class AnnotationEditorParams {
     });
 
     this.eventBus._on("annotationeditorparamschanged", evt => {
+      console.log("annotationeditorparamschanged", evt);
       for (const [type, value] of evt.details) {
         switch (type) {
           case AnnotationEditorParamsType.FREETEXT_SIZE:
             editorFreeTextFontSize.value = value;
             break;
           case AnnotationEditorParamsType.FREETEXT_COLOR:
-            editorFreeTextColor.value = value;
+            // editorFreeTextColor.value = value;
             break;
           case AnnotationEditorParamsType.INK_COLOR:
-            editorInkColor.value = value;
+            // editorInkColor.value = value;
             break;
           case AnnotationEditorParamsType.INK_THICKNESS:
             editorInkThickness.value = value;

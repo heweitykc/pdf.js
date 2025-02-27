@@ -245,14 +245,14 @@
                     <span data-l10n-id="pdfjs-editor-redo-button-label" class="bottomText">Redo</span>
                   </button>
                 </div>
-                <div id="editorHighlight" class="toolbarButtonWithContainer hidden">
+                <div id="editorHighlight" class="toolbarButtonWithContainer ">
                   <button id="editorHighlightButton" class="toolbarButton" type="button" disabled="disabled" title="Highlight" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-highlight-button"  style="display:flex;gap:4px;" >
                     <span data-l10n-id="pdfjs-editor-highlight-button-label"  class="bottomText" >Highlight</span>
                   </button>
                   <div class="editorParamsToolbar hidden doorHangerMiddle" id="editorHighlightParamsToolbar">
                     <div id="highlightParamsToolbarContainer" class="editorParamsToolbarContainer">
                       <div id="editorHighlightColorPicker" class="colorPicker">
-                        <span id="highlightColorPickerLabel" class="editorParamsLabel hidden" data-l10n-id="pdfjs-editor-highlight-colorpicker-label">Highlight color</span>
+                        <span class="editorParamsLabel hidden" data-l10n-id="pdfjs-editor-highlight-colorpicker-label">Highlight color</span>
                       </div>
                       <div id="editorHighlightThickness">
                         <label for="editorFreeHighlightThickness" class="editorParamsLabel  hidden" data-l10n-id="pdfjs-editor-free-highlight-thickness-input">Thickness</label>
@@ -281,9 +281,8 @@
                   </button>
                   <div class="editorParamsToolbar hidden doorHangerRight" id="editorFreeTextParamsToolbar">
                     <div class="editorParamsToolbarContainer">
-                      <div class="editorParamsSetter">
-                        <label for="editorFreeTextColor" class="editorParamsLabel" data-l10n-id="pdfjs-editor-free-text-color-input">Color</label>
-                        <input type="color" id="editorFreeTextColor" class="editorParamsColor" tabindex="0">
+                      <div id="editorFreeTextColorPicker" class="colorPicker">
+                        <span class="editorParamsLabel hidden" data-l10n-id="pdfjs-editor-highlight-colorpicker-label">Free text color</span>
                       </div>
                       <div class="editorParamsSetter">
                         <label for="editorFreeTextFontSize" class="editorParamsLabel" data-l10n-id="pdfjs-editor-free-text-size-input">Size</label>
@@ -298,9 +297,8 @@
                   </button>
                   <div class="editorParamsToolbar hidden doorHangerRight" id="editorInkParamsToolbar">
                     <div class="editorParamsToolbarContainer">
-                      <div class="editorParamsSetter">
-                        <label for="editorInkColor" class="editorParamsLabel" data-l10n-id="pdfjs-editor-ink-color-input">Color</label>
-                        <input type="color" id="editorInkColor" class="editorParamsColor" tabindex="0">
+                      <div id="editorInkColorPicker" class="colorPicker">
+                        <span class="editorParamsLabel hidden" data-l10n-id="pdfjs-editor-highlight-colorpicker-label">Ink color</span>
                       </div>
                       <div class="editorParamsSetter">
                         <label for="editorInkThickness" class="editorParamsLabel" data-l10n-id="pdfjs-editor-ink-thickness-input">Thickness</label>

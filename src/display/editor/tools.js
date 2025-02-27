@@ -653,6 +653,8 @@ class AnnotationEditorUIManager {
   #lastActiveElement = null;
 
   #mainHighlightColorPicker = null;
+  #mainInkColorPicker = null;
+  #mainFreeTextColorPicker = null;
 
   #mlManager = null;
 
@@ -992,6 +994,14 @@ class AnnotationEditorUIManager {
 
   setMainHighlightColorPicker(colorPicker) {
     this.#mainHighlightColorPicker = colorPicker;
+  }
+
+  setMainInkColorPicker(colorPicker) {
+    this.#mainInkColorPicker = colorPicker;
+  }
+
+  setMainFreeTextColorPicker(colorPicker) {
+    this.#mainFreeTextColorPicker = colorPicker;
   }
 
   editAltText(editor, firstTime = false) {
@@ -1748,6 +1758,12 @@ class AnnotationEditorUIManager {
         return;
       case AnnotationEditorParamsType.HIGHLIGHT_DEFAULT_COLOR:
         this.#mainHighlightColorPicker?.updateColor(value);
+        break;
+      case AnnotationEditorParamsType.INK_COLOR:
+        this.#mainInkColorPicker?.updateColor(value);
+        break;
+      case AnnotationEditorParamsType.FREETEXT_COLOR:
+        this.#mainFreeTextColorPicker?.updateColor(value);
         break;
       case AnnotationEditorParamsType.HIGHLIGHT_SHOW_ALL:
         this._eventBus.dispatch("reporttelemetry", {

@@ -142,7 +142,7 @@ class EditorToolbar {
   async addAltText(altText) {
     const button = await altText.render();
     this.#addListenersToElement(button);
-    this.#buttons.prepend(button, this.#divider);
+    // this.#buttons.prepend(button, this.#divider);
     this.#altText = altText;
   }
 
