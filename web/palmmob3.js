@@ -130,15 +130,15 @@ function errWatch(){
         if (event.error) {
             // 如果是普通的错误对象
             var errstr = `${event.error.message},${event.lineno},${event.colno},${event.error.stack || ''}`;
-            Palmmob_appErr("pdfjs_error", errstr);
+            Palmmob_appErr(8880, errstr);
         } else if (event.target && event.target.tagName) {
             // 如果是资源加载错误(图片、脚本等)
             var errstr = `Resource Error: ${event.target.tagName},${event.target.src || event.target.href}`;
-            Palmmob_appErr("pdfjs_resource", errstr);
+            Palmmob_appErr(8881, errstr);
         } else {
             // 其他类型错误
             var errstr = `Unknown Error: ${event.message || JSON.stringify(event)}`;
-            Palmmob_appErr("pdfjs_unknown", errstr);
+            Palmmob_appErr(8882, errstr);
         }                
         return false;
     }, true);
@@ -146,14 +146,14 @@ function errWatch(){
     window.addEventListener('unhandledrejection', function(event) {
         console.log("unhandled promise rejection:", event);
         var errstr = `Promise Error: ${event.reason ? (event.reason.stack || event.reason.toString()) : '未知Promise错误'}`;
-        Palmmob_appErr("pdfjs_unhandled", errstr);
+        Palmmob_appErr(8883, errstr);
         event.preventDefault();
     }, true);
         
     window.addEventListener('rejectionhandled', function(event) {
         console.log("handled promise rejection:", event);
         var errstr = `Handled Promise Error: ${event.reason ? (event.reason.stack || event.reason.toString()) : '未知Promise错误'}`;
-        Palmmob_appErr("pdfjs_rejection", errstr);
+        Palmmob_appErr(8884, errstr);
     }, true);
 }
 
