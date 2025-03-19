@@ -1178,7 +1178,7 @@ const PDFViewerApplication = {
   },
 
   annotationEdit_OK() {
-    console.log("annotationEdit_OK");
+    // console.log("annotationEdit_OK");
     this.eventBus.dispatch("switchannotationeditormode", {
       source: this,
       mode: AnnotationEditorType.NONE,
@@ -1965,7 +1965,7 @@ const PDFViewerApplication = {
     );
     eventBus._on("print", this.triggerPrinting.bind(this), opts);
     eventBus._on("download", this.downloadOrSave.bind(this), opts);
-    eventBus._on("editorExit", this.editorExit.bind(this), opts);
+    eventBus._on("editor_exit", this.editorExit.bind(this), opts);
     eventBus._on("annotation_edit", this.annotationEdit.bind(this), opts);
     eventBus._on("annotation_edit_ok", this.annotationEdit_OK.bind(this), opts);
     eventBus._on("firstpage", () => (this.page = 1), opts);

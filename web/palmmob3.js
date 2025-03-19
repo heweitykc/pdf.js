@@ -102,8 +102,8 @@ function js_closeEditor() {
     }
 
     setTimeout(() => {
-        PDFViewerApplication.eventBus.dispatch("editorExit", {source: this});
-    }, 100);
+        PDFViewerApplication.eventBus.dispatch("editor_exit", {source: this});
+    }, 300);
 }
 
 function js_switchEdit(editable){
