@@ -127,6 +127,10 @@ class AnnotationEditorLayerBuilder {
     this.show();
   }
 
+  commitOrRemove() {
+    this.annotationEditorLayer?.commitOrRemove();
+  }
+
   cancel() {
     this._cancelled = true;
 

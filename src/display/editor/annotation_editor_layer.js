@@ -853,9 +853,6 @@ class AnnotationEditorLayer {
     this.#drawingAC.abort();
     this.#drawingAC = null;
     this.#focusedElement = null;
-    if (this.#uiManager.getMode() != AnnotationEditorType.INK) {
-      return null;
-    }
     return this.#currentEditorType.endDrawing(isAborted);
   }
 

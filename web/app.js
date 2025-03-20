@@ -1164,6 +1164,26 @@ const PDFViewerApplication = {
     }
   },
 
+  editingEnd() {
+    console.log("editingEnd", this.pdfViewer);
+    for(let i = 0; i < this.pdfViewer.pagesCount; i++) {
+      const pageView = this.pdfViewer.getPageView(i);
+      pageView.annotationEditorLayer?.commitOrRemove();
+    }
+  },
+
+  editorInkClose() {
+    console.log("editorInkClose", this.pdfViewer);
+    for(let i = 0; i < this.pdfViewer.pagesCount; i++) {
+      const pageView = this.pdfViewer.getPageView(i);
+      pageView.annotationEditorLayer?.commitOrRemove();
+    }
+    this.eventBus.dispatch("switchannotationeditormode", {
+      source: this,
+      mode: AnnotationEditorType.STAMP,
+    });
+  },
+
   async editorExit() {
     await this.close();
     Palmmob_quit();
@@ -1910,6 +1930,14 @@ const PDFViewerApplication = {
     // in the 'rotationchanging' event handler.
   },
 
+  annotationModeChanged(evt) {
+    console.log("annotationModeChanged", evt);
+    if(this.pdfViewer.annotationEditorMode === AnnotationEditorType.INK) {
+      this.editingEnd();
+    }
+    this.pdfViewer.annotationEditorMode = evt;
+  },
+
   requestPresentationMode() {
     this.pdfPresentationMode?.request();
   },
@@ -1960,12 +1988,13 @@ const PDFViewerApplication = {
     );
     eventBus._on(
       "switchannotationeditormode",
-      evt => (pdfViewer.annotationEditorMode = evt),
+      this.annotationModeChanged.bind(this),
       opts
     );
     eventBus._on("print", this.triggerPrinting.bind(this), opts);
     eventBus._on("download", this.downloadOrSave.bind(this), opts);
-    eventBus._on("editor_exit", this.editorExit.bind(this), opts);
+    eventBus._on("editor_exit", this.editorExit.bind(this), opts);    
+    eventBus._on("close_editor_ink_params_toolbar", this.editorInkClose.bind(this), opts);
     eventBus._on("annotation_edit", this.annotationEdit.bind(this), opts);
     eventBus._on("annotation_edit_ok", this.annotationEdit_OK.bind(this), opts);
     eventBus._on("firstpage", () => (this.page = 1), opts);

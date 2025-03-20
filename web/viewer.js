@@ -58,6 +58,7 @@ function getViewerConfiguration() {
       editorHighlightColorPicker: document.getElementById("editorHighlightColorPicker"),
       editorInkButton: document.getElementById("editorInkButton"),
       editorInkParamsToolbar: document.getElementById("editorInkParamsToolbar"),
+      // editorInkParamsToolbar_closeBtn: document.getElementById("editorInkParamsToolbar_closeBtn"),
       editorInkColorPicker: document.getElementById("editorInkColorPicker"),
       editorFreeTextColorPicker: document.getElementById("editorFreeTextColorPicker"),
       editorStampButton: document.getElementById("editorStampButton"),
