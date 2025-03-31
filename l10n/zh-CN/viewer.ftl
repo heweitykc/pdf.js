@@ -58,6 +58,7 @@ pdfjs-tools-button =
     .title = 工具
 pdfjs-tools-button-label = 工具
 pdfjs-more-button-label = 更多
+pdfjs-share-pdf-button-label = 分享
 pdfjs-first-page-button =
     .title = 转到第一页
 pdfjs-first-page-button-label = 转到第一页
@@ -102,7 +103,7 @@ pdfjs-spread-even-button-label = 书籍视图
 
 pdfjs-document-properties-button =
     .title = 文档属性…
-pdfjs-document-properties-button-label = 文档属性…
+pdfjs-document-properties-button-label = 文档属性
 pdfjs-document-properties-file-name = 文件名:
 pdfjs-document-properties-file-size = 文件大小:
 # Variables:

@@ -1129,8 +1129,11 @@ const PDFViewerApplication = {
     } catch {
       // When the PDF document isn't ready, simply download using the URL.
     }
-    // this.downloadManager.download(data, this._downloadUrl, this._docFilename);
-    await Palmmob_savefile(data);
+    if(Palmmob_direct_download){
+      this.downloadManager.download(data, this._downloadUrl, this._docFilename);
+    } else {
+      await Palmmob_savefile(data, false);
+    }    
   },
 
   async save() {
@@ -1139,11 +1142,18 @@ const PDFViewerApplication = {
     }
     this._saveInProgress = true;
     await this.pdfScriptingManager.dispatchWillSave();
+    let tmpStamps = [];
+    // if(Palmmob_in_sharing) {
+      tmpStamps = await this.pdfViewer.convertAllFreeTextToStamp();      
+    // }    
 
     try {
-      const data = await this.pdfDocument.saveDocument();      
-      // this.downloadManager.download(data, this._downloadUrl, this._docFilename);
-      await Palmmob_savefile(data);
+      const data = await this.pdfDocument.saveDocument();
+      if(Palmmob_direct_download){
+        this.downloadManager.download(data, this._downloadUrl, this._docFilename);
+      } else {
+        await Palmmob_savefile(data, false);
+      }
     } catch (reason) {
       // When the PDF document isn't ready, fallback to a "regular" download.
       console.error(`Error when saving the document:`, reason);
@@ -1152,6 +1162,11 @@ const PDFViewerApplication = {
       await this.pdfScriptingManager.dispatchDidSave();
       this._saveInProgress = false;
     }
+
+    // for (const stampEditor of tmpStamps) {
+    //   stampEditor.remove();
+    // }
+    // Palmmob_in_sharing = true;
 
     if (this._hasAnnotationEditors) {
       this.externalServices.reportTelemetry({
@@ -1195,6 +1210,12 @@ const PDFViewerApplication = {
       source: this,
       mode: AnnotationEditorType.STAMP,
     });
+  },
+
+  sharePdf(){
+    // Palmmob_in_sharing = true;
+    // this.downloadOrSave();
+    Palmmob_sharePdf();
   },
 
   annotationEdit_OK() {
@@ -1930,8 +1951,7 @@ const PDFViewerApplication = {
     // in the 'rotationchanging' event handler.
   },
 
-  annotationModeChanged(evt) {
-    console.log("annotationModeChanged", evt);
+  annotationModeChanged(evt) {    
     if(this.pdfViewer.annotationEditorMode === AnnotationEditorType.INK) {
       this.editingEnd();
     }
@@ -1997,6 +2017,7 @@ const PDFViewerApplication = {
     eventBus._on("close_editor_ink_params_toolbar", this.editorInkClose.bind(this), opts);
     eventBus._on("annotation_edit", this.annotationEdit.bind(this), opts);
     eventBus._on("annotation_edit_ok", this.annotationEdit_OK.bind(this), opts);
+    eventBus._on("sharepdf", this.sharePdf.bind(this), opts);
     eventBus._on("firstpage", () => (this.page = 1), opts);
     eventBus._on("lastpage", () => (this.page = this.pagesCount), opts);
     eventBus._on("nextpage", () => pdfViewer.nextPage(), opts);

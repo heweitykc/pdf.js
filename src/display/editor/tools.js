@@ -213,7 +213,7 @@ class ImageManager {
     return this.getFromUrl(data.url);
   }
 
-  getFromCanvas(id, canvas) {
+  getFromCanvas(id, canvas, isTextToImage = false) {
     this.#cache ||= new Map();
     let data = this.#cache.get(id);
     if (data?.bitmap) {
@@ -225,7 +225,7 @@ class ImageManager {
     ctx.drawImage(canvas, 0, 0);
     data = {
       bitmap: offscreen.transferToImageBitmap(),
-      id: `image_${this.#baseId}_${this.#id++}`,
+      id: isTextToImage ? `texttoimage_${this.#baseId}_${this.#id++}` : `image_${this.#baseId}_${this.#id++}`,
       refCounter: 1,
       isSvg: false,
     };
@@ -1166,7 +1166,7 @@ class AnnotationEditorUIManager {
    * Add an editor in the annotation storage.
    * @param {AnnotationEditor} editor
    */
-  addToAnnotationStorage(editor) {
+  addToAnnotationStorage(editor) {    
     if (
       !editor.isEmpty() &&
       this.#annotationStorage &&
@@ -1883,7 +1883,7 @@ class AnnotationEditorUIManager {
    * @param {AnnotationEditor} editor
    */
   addEditor(editor) {
-    this.#allEditors.set(editor.id, editor);
+    this.#allEditors.set(editor.id, editor);    
   }
 
   /**
@@ -2529,6 +2529,21 @@ class AnnotationEditorUIManager {
       return;
     }
     editor.renderAnnotationElement(annotation);
+  }
+
+  async convertAllFreeTextToStamp() {
+    const tmpStamps = [];    
+    for (const editor of this.#allEditors.values()) {
+      if (editor.constructor._editorType === AnnotationEditorType.FREETEXT        
+      ) {
+        let stampEditor = await editor.convertToStamp();
+        if (stampEditor) {
+          tmpStamps.push(stampEditor);
+          editor.remove();
+        }
+      }
+    }
+    return tmpStamps;
   }
 }
 

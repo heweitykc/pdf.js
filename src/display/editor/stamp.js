@@ -54,6 +54,7 @@ class StampEditor extends AnnotationEditor {
     super({ ...params, name: "stampEditor" });
     this.#bitmapUrl = params.bitmapUrl;
     this.#bitmapFile = params.bitmapFile;
+    this.#bitmapId = params.bitmapId;    
   }
 
   /** @inheritdoc */
@@ -367,7 +368,7 @@ class StampEditor extends AnnotationEditor {
       return this.div;
     }
 
-    let baseX, baseY;
+    let baseX, baseY;    
     if (this.width) {
       baseX = this.x;
       baseY = this.y;

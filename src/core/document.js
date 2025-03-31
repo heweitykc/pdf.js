@@ -392,14 +392,14 @@ class Page {
       for (const annotation of annotations) {
         promises.push(
           annotation
-            .save(partialEvaluator, task, annotationStorage, changes)
-            .catch(function (reason) {
-              warn(
-                "save - ignoring annotation data during " +
-                  `"${task.name}" task: "${reason}".`
-              );
-              return null;
-            })
+          .save(partialEvaluator, task, annotationStorage, changes)
+          .catch(function (reason) {
+            warn(
+              "save - ignoring annotation data during " +
+                `"${task.name}" task: "${reason}".`
+            );
+            return null;
+          })
         );
       }
 

@@ -604,7 +604,12 @@ class AnnotationEditorLayer {
    * @returns {AnnotationEditor}
    */
   #createNewEditor(params) {
-    const editorType = this.#currentEditorType;
+    let editorType;
+    if(params?.annotationType) {
+      editorType = AnnotationEditorLayer.#editorTypes.get(params?.annotationType);
+    } else {
+      editorType = this.#currentEditorType;
+    }
     return editorType ? new editorType.prototype.constructor(params) : null;
   }
 

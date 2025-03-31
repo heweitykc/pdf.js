@@ -816,7 +816,7 @@ class FreeTextEditor extends AnnotationEditor {
   }
 
   /** @inheritdoc */
-  serialize(isForCopying = false) {
+  serialize(isForCopying = false) {    
     if (this.isEmpty()) {
       return null;
     }
@@ -825,6 +825,7 @@ class FreeTextEditor extends AnnotationEditor {
       return this.serializeDeleted();
     }
 
+    // 正常的FREETEXT序列化
     const padding = FreeTextEditor._internalPadding * this.parentScale;
     const rect = this.getRect(padding, padding);
     const color = AnnotationEditor._colorManager.convert(
@@ -902,6 +903,56 @@ class FreeTextEditor extends AnnotationEditor {
   resetAnnotationElement(annotation) {
     super.resetAnnotationElement(annotation);
     annotation.resetEdited();
+  }
+
+  async #textToImage() {
+    if (!this.editorDiv || this.isEmpty()) {
+      return null;
+    }
+    const rect = this.editorDiv.getBoundingClientRect();    
+    const canvas = await html2canvas(this.editorDiv, {
+      backgroundColor: "#00000000",
+      width: rect.width,
+      height: rect.height,
+      scale: (1/this.parentScale),
+    });        
+    const uniqueId = `texttoimage_${Date.now()}`;
+    return this._uiManager.imageManager.getFromCanvas(uniqueId, canvas, true);
+  }
+
+  async convertToStamp() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    
+    try {
+      const imageData = await this.#textToImage();      
+      if (!imageData) {
+        console.warn("无法转换FreeText为Stamp", this);
+        return null;
+      }
+      const [parentWidth, parentHeight] = this.parentDimensions;
+      const currentX = this.x * parentWidth;
+      const currentY = this.y * parentHeight;
+
+      const stampData = {
+        annotationType: AnnotationEditorType.STAMP,
+        bitmapId: imageData.id,        
+        pageIndex: this.pageIndex,        
+        rotation: this.rotation,
+        structTreeParentId: this._structTreeParentId
+      };    
+            
+      var editor = this.parent.createAndAddNewEditor(
+        {offsetX: currentX, offsetY: currentY},
+        false,
+        stampData
+      );
+      return editor;
+    } catch (error) {
+      console.error("转换FreeText为STAMP时出错:", error);      
+    }
+    return null;
   }
 }
 

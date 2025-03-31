@@ -77,6 +77,7 @@ class SecondaryToolbar {
       { element: options.viewBookmarkButton, eventName: null, close: true },
       { element: options.firstPageButton, eventName: "firstpage", close: true },
       { element: options.lastPageButton, eventName: "lastpage", close: true },
+      { element: options.sharePdfButton, eventName: "sharepdf", close: true },
       {
         element: options.pageRotateCwButton,
         eventName: "rotatecw",

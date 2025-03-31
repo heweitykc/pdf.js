@@ -16,7 +16,7 @@
   --toolbar-vertical-padding: 2px;
   --icon-size: 22px;
 
-  --toolbar-icon-opacity: 0.7;
+  --toolbar-icon-opacity: 0.99;
   --doorhanger-icon-opacity: 0.9;
   --doorhanger-height: 8px;
 
@@ -32,7 +32,7 @@
 
   --sidebar-narrow-bg-color: rgb(212 212 215 / 0.9);
   --sidebar-toolbar-bg-color: rgb(245 246 247);
-  --toolbar-bg-color: rgb(68 105 149);
+  --toolbar-bg-color: rgb(255 96 64);
   --toolbar-border-color: rgb(184 184 184);
   --toolbar-box-shadow: 0 1px 0 var(--toolbar-border-color);
   --toolbar-border-bottom: none;
@@ -99,6 +99,7 @@
   --toolbarButton-search-icon: url(images/toolbarButton-search.svg);
   --findbarButton-previous-icon: url(images/findbarButton-previous.svg);
   --findbarButton-next-icon: url(images/findbarButton-next.svg);
+  --secondaryToolbarButton-sharePdf-icon: url(images/secondaryToolbarButton-sharePdf.svg);
   --secondaryToolbarButton-firstPage-icon: url(images/secondaryToolbarButton-firstPage.svg);
   --secondaryToolbarButton-lastPage-icon: url(images/secondaryToolbarButton-lastPage.svg);
   --secondaryToolbarButton-rotateCcw-icon: url(images/secondaryToolbarButton-rotateCcw.svg);
@@ -703,11 +704,11 @@ body {
 
 .horizontalToolbarSeparator {
   display: block;
-  margin: 6px 0;
+  margin: 6px 14px;
   border-top: 1px solid var(--doorhanger-separator-color);
   border-bottom: none;
   height: 0;
-  width: 100%;
+  width: calc(100% - 28px);
 }
 
 .toggleButton {
@@ -1279,7 +1280,7 @@ dialog :link {
 
 #secondaryToolbar {
   height: auto;
-  width: 220px;
+  width: 190px;
   position: absolute;
   z-index: 30000;
   cursor: default;
@@ -1307,6 +1308,10 @@ dialog :link {
 
     #viewBookmark::before {
       mask-image: var(--toolbarButton-bookmark-icon);
+    }
+
+    #sharePdf::before {
+      mask-image: var(--secondaryToolbarButton-sharePdf-icon);
     }
 
     #firstPage::before {
@@ -1672,6 +1677,7 @@ dialog :link {
     width: 100%;
     height: 100%;
     justify-content: space-between;
+    background-color: rgb(255 96 64);
 
     > * {
       flex: none;

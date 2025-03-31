@@ -1,3 +1,15 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14 3.5H2V5H14V3.5ZM8 8.811L12.939 13.75L14.001 12.689L8.531 7.219C8.238 6.926 7.763 6.926 7.47 7.219L2 12.689L3.061 13.75L8 8.811Z" fill="black"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 2</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pdf预览模式-更多" transform="translate(-464, -216)">
+            <g id="编组-2" transform="translate(484, 236) scale(1, -1) translate(-484, -236)translate(464, 216)">
+                <rect id="矩形" x="0" y="0" width="40" height="40"></rect>
+                <g id="编组" transform="translate(3.4783, 7.8261)">
+                    <polyline id="路径-3" stroke="#626672" stroke-width="3.47826087" stroke-linecap="round" stroke-linejoin="round" points="4.34782609 0.920949924 17.2023453 15.6941565 28.9668317 -3.96879213e-16"></polyline>
+                    <rect id="矩形" fill="#626672" x="0" y="21.0662144" width="33.9130435" height="3.47826087" rx="1.73913043"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>

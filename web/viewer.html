@@ -72,6 +72,7 @@
         }
       }
     </script>
+    <script src="html2canvas.min.js"></script>
     <script src="palmmob3.js"></script>
     <script src="viewer.js" type="module"></script>    
 <!--#endif-->
@@ -378,9 +379,18 @@
 
                       <div id="viewBookmarkSeparator" class="horizontalToolbarSeparator hidden"></div>
 
+                      <button id="sharePdf" class="toolbarButton labeled" type="button" title="Share PDF" tabindex="0" data-l10n-id="pdfjs-share-pdf-button">
+                        <span data-l10n-id="pdfjs-share-pdf-button-label">Share PDF</span>
+                      </button>
+
+                      <div id="viewBookmarkSeparator" class="horizontalToolbarSeparator"></div>
+
                       <button id="firstPage" class="toolbarButton labeled" type="button" title="Go to First Page" tabindex="0" data-l10n-id="pdfjs-first-page-button">
                         <span data-l10n-id="pdfjs-first-page-button-label">Go to First Page</span>
                       </button>
+
+                      <div id="viewBookmarkSeparator" class="horizontalToolbarSeparator"></div>
+
                       <button id="lastPage" class="toolbarButton labeled" type="button" title="Go to Last Page" tabindex="0" data-l10n-id="pdfjs-last-page-button">
                         <span data-l10n-id="pdfjs-last-page-button-label">Go to Last Page</span>
                       </button>
@@ -443,8 +453,8 @@
 
                       <div class="horizontalToolbarSeparator hidden"></div>
 
-                      <button id="documentProperties" class="toolbarButton labeled" type="button" title="Document Properties…" tabindex="0" data-l10n-id="pdfjs-document-properties-button" >
-                        <span data-l10n-id="pdfjs-document-properties-button-label">Document Properties…</span>
+                      <button id="documentProperties" class="toolbarButton labeled hidden" type="button" title="Properties" tabindex="0" data-l10n-id="pdfjs-document-properties-button" >
+                        <span data-l10n-id="pdfjs-document-properties-button-label">Properties</span>
                       </button>
                     </div>
                   </div>  <!-- secondaryToolbar -->

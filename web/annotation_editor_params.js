@@ -91,8 +91,7 @@ class AnnotationEditorParams {
       dispatchEvent("HIGHLIGHT_SHOW_ALL", !checked);
     });
 
-    this.eventBus._on("annotationeditorparamschanged", evt => {
-      console.log("annotationeditorparamschanged", evt);
+    this.eventBus._on("annotationeditorparamschanged", evt => {      
       for (const [type, value] of evt.details) {
         switch (type) {
           case AnnotationEditorParamsType.FREETEXT_SIZE:

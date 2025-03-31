@@ -85,8 +85,8 @@ pdfjs-spread-even-button-label = Even Spreids
 ## Document properties dialog
 
 pdfjs-document-properties-button =
-    .title = Document Properties…
-pdfjs-document-properties-button-label = Document Properties…
+    .title = Properties
+pdfjs-document-properties-button-label = Properties
 pdfjs-document-properties-file-name = File nemme:
 pdfjs-document-properties-file-size = File size:
 # Variables:

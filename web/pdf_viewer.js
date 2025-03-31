@@ -813,8 +813,7 @@ class PDFViewer {
   /**
    * @param {PDFDocumentProxy} pdfDocument
    */
-  setDocument(pdfDocument) {
-    console.log("setDocument", pdfDocument);
+  setDocument(pdfDocument) {    
     if (this.pdfDocument) {
       this.eventBus.dispatch("pagesdestroy", { source: this });
 
@@ -934,8 +933,7 @@ class PDFViewer {
               this.#mlManager,
               this.#editorUndoBar,
               this.#supportsPinchToZoom
-            );
-            console.log("mlManager", this.#mlManager);
+            );            
             eventBus.dispatch("annotationeditoruimanager", {
               source: this,
               uiManager: this.#annotationEditorUIManager,
@@ -2425,6 +2423,10 @@ class PDFViewer {
     if (!noUpdate) {
       this.update();
     }
+  }
+  
+  async convertAllFreeTextToStamp() {
+    return this.#annotationEditorUIManager.convertAllFreeTextToStamp();
   }
 }
 

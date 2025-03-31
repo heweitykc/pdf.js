@@ -101,7 +101,7 @@ pdfjs-spread-even-button-label = 偶數跨頁
 
 pdfjs-document-properties-button =
     .title = 文件內容…
-pdfjs-document-properties-button-label = 文件內容…
+pdfjs-document-properties-button-label = 文件內容
 pdfjs-document-properties-file-name = 檔案名稱：
 pdfjs-document-properties-file-size = 檔案大小：
 # Variables:

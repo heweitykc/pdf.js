@@ -295,8 +295,7 @@ class Toolbar {
     );    
   }
 
-  #editorModeChanged({ mode }) {
-    console.log("editorModeChanged", mode);
+  #editorModeChanged({ mode }) {    
     const {
       editorFreeTextButton,
       editorFreeTextParamsToolbar,
@@ -343,8 +342,7 @@ class Toolbar {
     editorInkButton.disabled = isDisable;
     editorStampButton.disabled = isDisable;
 
-    //加入编辑/完成按钮, 点击"编辑"默认AnnotationEditorType.STAMP状态, 点击"完成"默认AnnotationEditorType.NONE状态
-    console.log("mode", mode);
+    //加入编辑/完成按钮, 点击"编辑"默认AnnotationEditorType.STAMP状态, 点击"完成"默认AnnotationEditorType.NONE状态    
     if(mode > AnnotationEditorType.NONE){
       editorEditButton.hidden  = true;
       editorSaveButton.hidden  = true;
@@ -373,6 +371,21 @@ class Toolbar {
       editorHighlightButton.hidden = true;
       editorInkButton.hidden = true;
       editorStampButton.hidden = true;      
+    }
+
+    editorFreeTextButton.disabled = false;
+    editorHighlightButton.disabled = false;
+    editorInkButton.disabled = false;
+    editorStampButton.disabled = false;
+
+    if(mode === AnnotationEditorType.FREETEXT){      
+      editorStampButton.disabled = true;      
+      editorInkButton.disabled = true;
+    }
+
+    if(mode === AnnotationEditorType.INK){      
+      editorStampButton.disabled = true;
+      editorFreeTextButton.disabled = true;      
     }
   }
 

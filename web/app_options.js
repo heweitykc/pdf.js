@@ -93,6 +93,7 @@ const defaultOptions = {
     value:
       typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")
         ? { lang: navigator.language || "en-US" }
+        // ? { lang: "zh-CN" }
         : null,
     kind: OptionKind.BROWSER,
   },
