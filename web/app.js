@@ -1142,10 +1142,8 @@ const PDFViewerApplication = {
     }
     this._saveInProgress = true;
     await this.pdfScriptingManager.dispatchWillSave();
-    let tmpStamps = [];
-    // if(Palmmob_in_sharing) {
-      tmpStamps = await this.pdfViewer.convertAllFreeTextToStamp();      
-    // }    
+    let tmpStamps = [];    
+    tmpStamps = await this.pdfViewer.convertAllFreeTextToStamp();        
 
     try {
       const data = await this.pdfDocument.saveDocument();
@@ -1163,11 +1161,6 @@ const PDFViewerApplication = {
       this._saveInProgress = false;
     }
 
-    // for (const stampEditor of tmpStamps) {
-    //   stampEditor.remove();
-    // }
-    // Palmmob_in_sharing = true;
-
     if (this._hasAnnotationEditors) {
       this.externalServices.reportTelemetry({
         type: "editing",
@@ -1179,8 +1172,7 @@ const PDFViewerApplication = {
     }
   },
 
-  editingEnd() {
-    console.log("editingEnd", this.pdfViewer);
+  editingEnd() {    
     for(let i = 0; i < this.pdfViewer.pagesCount; i++) {
       const pageView = this.pdfViewer.getPageView(i);
       pageView.annotationEditorLayer?.commitOrRemove();
@@ -1204,17 +1196,17 @@ const PDFViewerApplication = {
     Palmmob_quit();
   },
 
-  annotationEdit() {
-    console.log("annotationEdit");
+  annotationEdit() {    
     this.eventBus.dispatch("switchannotationeditormode", {
       source: this,
       mode: AnnotationEditorType.STAMP,
     });
   },
 
-  sharePdf(){
-    // Palmmob_in_sharing = true;
-    // this.downloadOrSave();
+  async sharePdf(){    
+    if(this.pdfDocument?.annotationStorage.size > 0){
+      await this.save();
+    }
     Palmmob_sharePdf();
   },
 
@@ -1786,6 +1778,7 @@ const PDFViewerApplication = {
 
       if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
         this._annotationStorageModified = true;
+        window.Palmmob_docChanged();
       }
     };
     annotationStorage.onResetModified = () => {

@@ -2,7 +2,6 @@ var isIOS = !!navigator.userAgent.toLowerCase().match(/iphone|macintosh|ipad/g)
 var baidu_stat="a22e57e3af6919a0e515b1b00a399422", baidu_stat_ios="382d50f21a0139781907e7c434fb71a6"
 var editorWin = window
 var Palmmob_direct_download = false;  //是否直接浏览器下载
-var Palmmob_in_sharing = true;       //是否正在分享
 
 function Palmmob_Func(FuncName, defaultVal){
     // console.log("Palmmob_Func", FuncName)
@@ -39,6 +38,13 @@ function postMsg(cmd) {
     console.log("cmddata", cmddata);
     Palmmob_Func1('postMessage', cmddata)
 }
+function sendMenuCmd(type) {
+    var cmd = {
+        'action' : 'menuclick',
+        'type'   : type
+    };
+    postMsg(cmd);
+}
 
 function Palmmob_raiseEditor(inputMethodHeight){
 
@@ -65,20 +71,25 @@ function Palmmob_docReady(){
     });
 }
 
+// 通知用户修改了文档
+var Palmmob_docChanged = function (){
+    console.log("Palmmob_docChanged");
+    Palmmob_Func("docChanged");
+}
+
 function Palmmob_quit(){
     postMsg({
         "action":"quit"
     });
 }
 
-function Palmmob_sharePdf(){
-    postMsg({
-        "action":"shareaspdf"
-    });
+function Palmmob_sharePdf(){    
+    sendMenuCmd("shareaspdf");
 }
 
 function Palmmob_savefile(data) {
-    Palmmob_Func1('startSaveBlob', Palmmob_in_sharing);
+    console.log("Palmmob_savefile");
+    Palmmob_Func1('startSaveBlob', false);
         
     const chunkSize = 50 * 1024;
     let offset = 0;

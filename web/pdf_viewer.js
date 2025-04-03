@@ -904,9 +904,7 @@ class PDFViewer {
             document.createElement("div"));
           element.id = "hiddenCopyElement";
           viewer.before(element);
-        }
-
-        console.log("annotationEditorMode="+annotationEditorMode);
+        }        
 
         if (
           ((typeof PDFJSDev !== "undefined" && PDFJSDev.test("MOZCENTRAL")) ||
@@ -917,8 +915,7 @@ class PDFViewer {
 
           if (pdfDocument.isPureXfa) {
             console.warn("Warning: XFA-editing is not implemented.");
-          } else if (isValidAnnotationEditorMode(mode)) {
-            console.log("AnnotationEditorUIManager inited");
+          } else if (isValidAnnotationEditorMode(mode)) {            
             this.#annotationEditorUIManager = new AnnotationEditorUIManager(
               this.container,
               viewer,
@@ -2350,8 +2347,7 @@ class PDFViewer {
     if (!this.pdfDocument) {
       return;
     }
-    if (mode === AnnotationEditorType.STAMP) {
-      console.log("loadModel");
+    if (mode === AnnotationEditorType.STAMP) {      
       this.#mlManager?.loadModel("altText");
     }
 
