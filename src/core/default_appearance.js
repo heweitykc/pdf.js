@@ -383,6 +383,7 @@ class FakeUnicodeFont {
   }
 
   createAppearance(text, rect, rotation, fontSize, bgColor, strokeAlpha) {
+    console.log("createAppearance", text);
     const ctx = this._createContext();
     const lines = [];
     let maxWidth = -Infinity;
@@ -404,6 +405,7 @@ class FakeUnicodeFont {
         }
       }
     }
+    console.log("lines", lines);
     maxWidth *= fontSize / 1000;
 
     const [x1, y1, x2, y2] = rect;

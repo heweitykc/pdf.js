@@ -158,5 +158,5 @@ function errWatch(){
 }
 
 
-errWatch()
+// errWatch()
 initBDStat()

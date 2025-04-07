@@ -344,6 +344,7 @@ class AnnotationFactory {
     const promises = [];
     const { isOffscreenCanvasSupported } = evaluator.options;
 
+    console.log("saveNewAnnotations", annotations);
     for (const annotation of annotations) {
       if (annotation.deleted) {
         continue;
@@ -352,10 +353,11 @@ class AnnotationFactory {
         case AnnotationEditorType.FREETEXT:
           if (!baseFontRef) {
             const baseFont = new Dict(xref);
-            baseFont.set("BaseFont", Name.get("Helvetica"));
+            baseFont.set("BaseFont", Name.get("SimSun"));
             baseFont.set("Type", Name.get("Font"));
             baseFont.set("Subtype", Name.get("Type1"));
             baseFont.set("Encoding", Name.get("WinAnsiEncoding"));
+            console.log("baseFont", baseFont);
             baseFontRef = xref.getNewTemporaryRef();
             changes.put(baseFontRef, {
               data: baseFont,
@@ -1582,6 +1584,8 @@ class MarkupAnnotation extends Annotation {
     super(params);
 
     const { dict } = params;
+
+    console.log("dict", dict);
 
     if (dict.has("IRT")) {
       const rawIRT = dict.getRaw("IRT");
@@ -3874,6 +3878,8 @@ class FreeTextAnnotation extends MarkupAnnotation {
   constructor(params) {
     super(params);
 
+    console.log("FreeTextAnnotation", params);
+
     // It uses its own canvas in order to be hidden if edited.
     // But if it has the noHTML flag, it means that we don't want to be able
     // to modify it so we can just draw it on the main canvas.
@@ -3886,6 +3892,8 @@ class FreeTextAnnotation extends MarkupAnnotation {
     this.data.annotationType = AnnotationType.FREETEXT;
     this.setDefaultAppearance(params);
     this._hasAppearance = !!this.appearance;
+
+    console.log("this.appearance", this.appearance);
 
     if (this._hasAppearance) {
       const { fontColor, fontSize } = parseAppearanceStream(
@@ -3911,7 +3919,7 @@ class FreeTextAnnotation extends MarkupAnnotation {
       }
       if (this._isOffscreenCanvasSupported) {
         const strokeAlpha = params.dict.get("CA");
-        const fakeUnicodeFont = new FakeUnicodeFont(xref, "sans-serif");
+        const fakeUnicodeFont = new FakeUnicodeFont(xref, "SimSun");
         this.appearance = fakeUnicodeFont.createAppearance(
           this._contents.str,
           this.rectangle,
@@ -3939,6 +3947,30 @@ class FreeTextAnnotation extends MarkupAnnotation {
     const freetext = oldAnnotation || new Dict(xref);
     freetext.set("Type", Name.get("Annot"));
     freetext.set("Subtype", Name.get("FreeText"));
+  
+    // 创建字体描述符
+    const fontDescriptor = new Dict(xref);
+    fontDescriptor.set("Type", Name.get("FontDescriptor"));
+    fontDescriptor.set("FontName", Name.get("SimSun"));
+    fontDescriptor.set("Flags", 4);
+    fontDescriptor.set("FontBBox", [-8, -145, 1000, 859]);
+    fontDescriptor.set("ItalicAngle", 0);
+    fontDescriptor.set("Ascent", 859);
+    fontDescriptor.set("Descent", -145);
+    fontDescriptor.set("CapHeight", 500);
+    fontDescriptor.set("StemV", 78);
+    
+    fontDict.set("FontDescriptor", fontDescriptor);
+    
+    // 创建Resources字典
+    const resources = new Dict(xref);
+    const fonts = new Dict(xref);
+    fonts.set("SimSun", fontDict);
+    resources.set("Font", fonts);    
+
+    freetext.set("Rect", rect);
+    freetext.set("Resources", resources);
+
     if (oldAnnotation) {
       freetext.set("M", `D:${getModificationDate()}`);
       // TODO: We should try to generate a new RC from the content we've.
@@ -3948,12 +3980,34 @@ class FreeTextAnnotation extends MarkupAnnotation {
       freetext.set("CreationDate", `D:${getModificationDate()}`);
     }
     freetext.set("Rect", rect);
-    const da = `/Helv ${fontSize} Tf ${getPdfColor(color, /* isFill */ true)}`;
+    const da = `/SimSun ${fontSize} Tf ${getPdfColor(color, /* isFill */ true)}`;
     freetext.set("DA", da);
     freetext.set("Contents", stringToAsciiOrUTF16BE(value));
     freetext.set("F", 4);
     freetext.set("Border", [0, 0, 0]);
     freetext.set("Rotate", rotation);
+
+    // 将中文字符转换为Unicode编码
+    const encodedValue = Array.from(value).map(char => {
+      const codePoint = char.codePointAt(0);
+      return `&#${codePoint};`;
+    }).join('');
+
+      // 构建RC字段内容
+      const richTextContent = `<?xml version="1.0"?>
+    <body xmlns="http://www.w3.org/1999/xhtml" xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/" xfa:APIVersion="Acrobat:11.0.0" xfa:spec="2.0.2">
+    <p dir="ltr"><span style="text-align:left;font-size:${fontSize}pt;font-style:normal;font-weight:normal;color:#0;font-family:SimSun;">${encodedValue}</span></p>
+    </body>`;
+
+    // 使用stringToUTF16String确保RC字段使用UTF-16编码
+    freetext.set("RC", richTextContent);
+
+    // 设置透明度
+    freetext.set("CA", 1);
+
+    // 设置唯一标识符
+    freetext.set("NM", `{${crypto.randomUUID()}}`);
+
 
     if (user) {
       freetext.set("T", stringToAsciiOrUTF16BE(user));
@@ -3973,6 +4027,7 @@ class FreeTextAnnotation extends MarkupAnnotation {
     return freetext;
   }
 
+  //创建FreeeText格式数据
   static async createNewAppearanceStream(annotation, xref, params) {
     const { baseFontRef, evaluator, task } = params;
     const { color, fontSize, rect, rotation, value } = annotation;
@@ -4001,6 +4056,8 @@ class FreeTextAnnotation extends MarkupAnnotation {
       },
       resources
     );
+
+    console.log("helv", helv);
 
     const [x1, y1, x2, y2] = rect;
     let w = x2 - x1;
