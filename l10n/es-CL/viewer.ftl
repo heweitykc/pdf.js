@@ -518,3 +518,5 @@ pdfjs-editor-undo-bar-undo-button-label = Deshacer
 pdfjs-editor-undo-bar-close-button =
     .title = Cerrar
 pdfjs-editor-undo-bar-close-button-label = Cerrar
+pdfjs-share-pdf-button-label = Compartir
+pdfjs-more-button-label = Más

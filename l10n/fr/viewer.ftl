@@ -514,3 +514,5 @@ pdfjs-editor-undo-bar-undo-button-label = Annuler
 pdfjs-editor-undo-bar-close-button =
     .title = Fermer
 pdfjs-editor-undo-bar-close-button-label = Fermer
+pdfjs-share-pdf-button-label = Partager
+pdfjs-more-button-label = Plus

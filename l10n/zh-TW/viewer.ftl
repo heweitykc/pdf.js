@@ -506,3 +506,5 @@ pdfjs-editor-undo-bar-undo-button-label = 還原
 pdfjs-editor-undo-bar-close-button =
     .title = 關閉
 pdfjs-editor-undo-bar-close-button-label = 關閉
+pdfjs-share-pdf-button-label = 分享
+pdfjs-more-button-label = 更多

@@ -372,3 +372,5 @@ pdfjs-editor-alt-text-dialog-label = Pilih opsi
 
 ## Image alt-text settings
 
+pdfjs-share-pdf-button-label = Bagikan
+pdfjs-more-button-label = Lainnya

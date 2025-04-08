@@ -57,7 +57,6 @@ pdfjs-bookmark-button-label = Current Page
 pdfjs-tools-button =
     .title = Tools
 pdfjs-tools-button-label = Tools
-pdfjs-more-button-label = More
 pdfjs-first-page-button =
     .title = Go to First Page
 pdfjs-first-page-button-label = Go to First Page

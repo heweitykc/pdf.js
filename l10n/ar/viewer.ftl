@@ -428,3 +428,5 @@ pdfjs-editor-highlight-show-all-button =
 
 ## Image alt-text settings
 
+pdfjs-share-pdf-button-label = مشاركة
+pdfjs-more-button-label = المزيد
