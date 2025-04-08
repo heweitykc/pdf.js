@@ -1,6 +1,7 @@
 var isIOS = !!navigator.userAgent.toLowerCase().match(/iphone|macintosh|ipad/g)
 var baidu_stat="a22e57e3af6919a0e515b1b00a399422", baidu_stat_ios="382d50f21a0139781907e7c434fb71a6"
 var editorWin = window
+var Palmmob_version = "1.0.1"
 var Palmmob_direct_download = false;  //是否直接浏览器下载
 
 function Palmmob_Func(FuncName, defaultVal){
@@ -44,6 +45,11 @@ function sendMenuCmd(type) {
         'type'   : type
     };
     postMsg(cmd);
+}
+
+function Palmmob_language(){
+    // return "zh-CN";
+    return navigator.language || "en-US";
 }
 
 function Palmmob_raiseEditor(inputMethodHeight){
@@ -179,3 +185,4 @@ function errWatch(){
 
 errWatch()
 initBDStat()
+console.log("Palmmob_version=", Palmmob_version);

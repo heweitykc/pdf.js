@@ -38,8 +38,8 @@ class Preferences extends BasePreferences {
 }
 
 class ExternalServices extends BaseExternalServices {
-  async createL10n() {
-    return new GenericL10n(AppOptions.get("localeProperties")?.lang);
+  async createL10n() {    
+    return new GenericL10n(Palmmob_language());
   }
 
   createScripting() {
