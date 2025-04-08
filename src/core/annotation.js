@@ -3874,6 +3874,8 @@ class FreeTextAnnotation extends MarkupAnnotation {
   constructor(params) {
     super(params);
 
+    console.log("FreeTextAnnotation", params);
+
     // It uses its own canvas in order to be hidden if edited.
     // But if it has the noHTML flag, it means that we don't want to be able
     // to modify it so we can just draw it on the main canvas.

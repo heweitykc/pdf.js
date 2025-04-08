@@ -813,8 +813,7 @@ class PDFViewer {
   /**
    * @param {PDFDocumentProxy} pdfDocument
    */
-  setDocument(pdfDocument) {
-    console.log("setDocument", pdfDocument);
+  setDocument(pdfDocument) {    
     if (this.pdfDocument) {
       this.eventBus.dispatch("pagesdestroy", { source: this });
 
@@ -918,8 +917,7 @@ class PDFViewer {
 
           if (pdfDocument.isPureXfa) {
             console.warn("Warning: XFA-editing is not implemented.");
-          } else if (isValidAnnotationEditorMode(mode)) {
-            console.log("AnnotationEditorUIManager inited");
+          } else if (isValidAnnotationEditorMode(mode)) {            
             this.#annotationEditorUIManager = new AnnotationEditorUIManager(
               this.container,
               viewer,

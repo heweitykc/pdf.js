@@ -1189,8 +1189,7 @@ const PDFViewerApplication = {
     Palmmob_quit();
   },
 
-  annotationEdit() {
-    console.log("annotationEdit");
+  annotationEdit() {    
     this.eventBus.dispatch("switchannotationeditormode", {
       source: this,
       mode: AnnotationEditorType.STAMP,
@@ -1930,8 +1929,7 @@ const PDFViewerApplication = {
     // in the 'rotationchanging' event handler.
   },
 
-  annotationModeChanged(evt) {
-    console.log("annotationModeChanged", evt);
+  annotationModeChanged(evt) {    
     if(this.pdfViewer.annotationEditorMode === AnnotationEditorType.INK) {
       this.editingEnd();
     }

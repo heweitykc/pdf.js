@@ -77,8 +77,7 @@ class ColorPicker {
     // }
     this.#isMainColorPicker = false;
     this.#type = type;
-    this.#editor = editor;
-    console.log("colorpicker constructor", this.#type);
+    this.#editor = editor;    
     this.#uiManager = editor?._uiManager || uiManager;
     this.#eventBus = this.#uiManager._eventBus;
     this.#defaultColor =
