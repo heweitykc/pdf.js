@@ -1140,18 +1140,18 @@ const PDFViewerApplication = {
     this._saveInProgress = true;
     await this.pdfScriptingManager.dispatchWillSave();
 
-    try {
+    // try {
       const data = await this.pdfDocument.saveDocument();      
       this.downloadManager.download(data, this._downloadUrl, this._docFilename);
       // await Palmmob_savefile(data);
-    } catch (reason) {
-      // When the PDF document isn't ready, fallback to a "regular" download.
-      console.error(`Error when saving the document:`, reason);
-      await this.download();
-    } finally {
-      await this.pdfScriptingManager.dispatchDidSave();
-      this._saveInProgress = false;
-    }
+    // } catch (reason) {
+    //   // When the PDF document isn't ready, fallback to a "regular" download.
+    //   console.error(`Error when saving the document:`, reason);
+    //   await this.download();
+    // } finally {
+    //   await this.pdfScriptingManager.dispatchDidSave();
+    //   this._saveInProgress = false;
+    // }
 
     if (this._hasAnnotationEditors) {
       this.externalServices.reportTelemetry({

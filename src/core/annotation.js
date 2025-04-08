@@ -3948,6 +3948,12 @@ class FreeTextAnnotation extends MarkupAnnotation {
     freetext.set("Type", Name.get("Annot"));
     freetext.set("Subtype", Name.get("FreeText"));
   
+    // 创建SimSun字体字典
+    const fontDict = new Dict(xref);
+    fontDict.set("Type", Name.get("Font"));
+    fontDict.set("Subtype", Name.get("Type1"));
+    fontDict.set("BaseFont", Name.get("SimSun"));
+
     // 创建字体描述符
     const fontDescriptor = new Dict(xref);
     fontDescriptor.set("Type", Name.get("FontDescriptor"));
