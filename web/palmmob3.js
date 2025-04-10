@@ -1,7 +1,7 @@
 var isIOS = !!navigator.userAgent.toLowerCase().match(/iphone|macintosh|ipad/g)
 var baidu_stat="a22e57e3af6919a0e515b1b00a399422", baidu_stat_ios="382d50f21a0139781907e7c434fb71a6"
 var editorWin = window
-var Palmmob_version = "1.0.1"
+var Palmmob_version = "1.0.2"
 var Palmmob_direct_download = false;  //是否直接浏览器下载
 
 function Palmmob_Func(FuncName, defaultVal){

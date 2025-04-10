@@ -304,6 +304,11 @@ pdfjs-web-fonts-disabled = Web fonts are disabled: unable to use embedded PDF fo
 
 ## Editing
 
+pdfjs-edit-button-label = Edit
+pdfjs-editor-undo-button-label = Undo
+pdfjs-editor-redo-button-label = Redo
+pdfjs-editor-insert-button-label = Insert
+
 pdfjs-editor-free-text-button =
     .title = Text
 pdfjs-editor-free-text-button-label = Text
@@ -524,3 +529,5 @@ pdfjs-editor-undo-bar-undo-button-label = Undo
 pdfjs-editor-undo-bar-close-button =
     .title = Close
 pdfjs-editor-undo-bar-close-button-label = Close
+pdfjs-share-pdf-button-label = Share
+pdfjs-more-button-label = More
