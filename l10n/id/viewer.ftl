@@ -292,6 +292,11 @@ pdfjs-web-fonts-disabled = Font web dinonaktifkan: tidak dapat menggunakan font 
 
 ## Editing
 
+pdfjs-edit-button-label = Edit
+pdfjs-editor-undo-button-label = Batalkan
+pdfjs-editor-redo-button-label = Ulangi
+pdfjs-editor-insert-button-label = Sisipkan
+
 pdfjs-editor-free-text-button =
     .title = Teks
 pdfjs-editor-free-text-button-label = Teks
