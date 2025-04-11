@@ -298,8 +298,8 @@ pdfjs-editor-redo-button-label = やり直し
 pdfjs-editor-insert-button-label = 挿入
 
 pdfjs-editor-free-text-button =
-    .title = フリーテキスト注釈を追加します
-pdfjs-editor-free-text-button-label = フリーテキスト注釈
+    .title = テキスト
+pdfjs-editor-free-text-button-label = テキスト
 pdfjs-editor-ink-button =
     .title = インク注釈を追加します
 pdfjs-editor-ink-button-label = インク注釈
@@ -506,3 +506,5 @@ pdfjs-editor-undo-bar-undo-button-label = 元に戻す
 pdfjs-editor-undo-bar-close-button =
     .title = 閉じる
 pdfjs-editor-undo-bar-close-button-label = 閉じる
+pdfjs-share-pdf-button-label = 共有
+pdfjs-more-button-label = その他

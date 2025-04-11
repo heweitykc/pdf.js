@@ -1148,6 +1148,9 @@ dialog :link {
     text-align: start;
     white-space: normal;
     cursor: default;
+    display: flex;
+    flex-direction: row;
+    align-items: center;    
 
     &:is(a) {
       text-decoration: none;
@@ -1160,6 +1163,7 @@ dialog :link {
 
     &::before {
       opacity: var(--doorhanger-icon-opacity);
+      margin-bottom: 0;
     }
 
     /* &:is(:hover, :focus-visible) {
@@ -1171,6 +1175,7 @@ dialog :link {
       display: inline-block;
       width: max-content;
       height: auto;
+      font-size: 15px;
     }
   }
 }

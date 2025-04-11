@@ -40,8 +40,8 @@ pdfjs-print-button =
     .title = Drucken
 pdfjs-print-button-label = Drucken
 pdfjs-save-button =
-    .title = Speichern
-pdfjs-save-button-label = Speichern
+    .title = Sichern
+pdfjs-save-button-label = Sichern
 # Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Herunterladen
@@ -301,8 +301,8 @@ pdfjs-web-fonts-disabled = Web-Schriftarten sind deaktiviert: Eingebettete PDF-S
 ## Editing
 
 pdfjs-edit-button-label = Bearbeiten
-pdfjs-editor-undo-button-label = Rückgängig
-pdfjs-editor-redo-button-label = Wiederherstellen
+pdfjs-editor-undo-button-label = Zurück
+pdfjs-editor-redo-button-label = Vor
 pdfjs-editor-insert-button-label = Einfügen
 
 pdfjs-editor-free-text-button =
@@ -513,8 +513,8 @@ pdfjs-editor-undo-bar-message-multiple =
        *[other] { $count } Anmerkungen entfernt
     }
 pdfjs-editor-undo-bar-undo-button =
-    .title = Rückgängig
-pdfjs-editor-undo-bar-undo-button-label = Rückgängig
+    .title = Zurück
+pdfjs-editor-undo-bar-undo-button-label = Zurück
 pdfjs-editor-undo-bar-close-button =
     .title = Schließen
 pdfjs-editor-undo-bar-close-button-label = Schließen
