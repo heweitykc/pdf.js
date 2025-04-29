@@ -706,7 +706,7 @@ class PDFViewer {
       {
         signal:
             useAbortSignal_Any()
-            ? AbortSignal.any([signal, ac.signal])
+            ? abortSignalAny([signal, ac.signal])
             : signal,
       }
     );
@@ -2378,7 +2378,7 @@ class PDFViewer {
         // done.
         this.#cleanupSwitchAnnotationEditorMode();
         this.#switchAnnotationEditorModeAC = new AbortController();
-        const signal = AbortSignal.any([
+        const signal = abortSignalAny([
           this.#eventAbortController.signal,
           this.#switchAnnotationEditorModeAC.signal,
         ]);

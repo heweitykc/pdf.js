@@ -55,7 +55,7 @@ class TouchManager {
     this.#onPinching = onPinching;
     this.#onPinchEnd = onPinchEnd;
     this.#touchManagerAC = new AbortController();
-    this.#signal = AbortSignal.any([signal, this.#touchManagerAC.signal]);
+    this.#signal = abortSignalAny([signal, this.#touchManagerAC.signal]);
 
     container.addEventListener("touchstart", this.#onTouchStart.bind(this), {
       passive: false,
@@ -84,7 +84,7 @@ class TouchManager {
 
     if (!this.#touchMoveAC) {
       this.#touchMoveAC = new AbortController();
-      const signal = AbortSignal.any([this.#signal, this.#touchMoveAC.signal]);
+      const signal = abortSignalAny([this.#signal, this.#touchMoveAC.signal]);
       const container = this.#container;
       const opt = { signal, passive: false };
       container.addEventListener(

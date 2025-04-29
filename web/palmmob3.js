@@ -187,6 +187,27 @@ function useAbortSignal_Any(){
           typeof AbortSignal.any === "function"
 }
 
+function abortSignalAny(signals) {
+    if(typeof AbortSignal.any === "function"){
+        return AbortSignal.any(signals);
+    }
+    const controller = new AbortController();
+  
+    function onAbort(signal) {
+      if (controller.signal.aborted) return;
+      controller.abort(signal.reason); // 可选：传递触发者的中止原因
+    }
+  
+    for (const signal of signals) {
+      if (signal.aborted) {
+        controller.abort(signal.reason);
+        break;
+      }
+      signal.addEventListener('abort', () => onAbort(signal), { once: true });
+    }
+  
+    return controller.signal;
+  }
 
 // errWatch()
 initBDStat()
