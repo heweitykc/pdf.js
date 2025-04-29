@@ -182,7 +182,12 @@ function errWatch(){
     }, true);
 }
 
+function useAbortSignal_Any(){
+    return (typeof PDFJSDev !== "undefined" && PDFJSDev.test("MOZCENTRAL")) ||
+          typeof AbortSignal.any === "function"
+}
 
-errWatch()
+
+// errWatch()
 initBDStat()
 console.log("Palmmob_version=", Palmmob_version);
