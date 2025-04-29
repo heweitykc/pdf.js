@@ -918,7 +918,7 @@ class AnnotationEditorUIManager {
   }
 
   combinedSignal(ac) {
-    return AbortSignal.any([this._signal, ac.signal]);
+    return abortSignalAny([this._signal, ac.signal]);
   }
 
   get mlManager() {

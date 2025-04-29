@@ -532,9 +532,7 @@ const PDFViewerApplication = {
     }
 
     if (appConfig.annotationEditorParams) {
-      if (
-        ((typeof PDFJSDev !== "undefined" && PDFJSDev.test("MOZCENTRAL")) ||
-          typeof AbortSignal.any === "function") &&
+      if (useAbortSignal_Any &&
         annotationEditorMode !== AnnotationEditorType.DISABLE
       ) {
         this.annotationEditorParams = new AnnotationEditorParams(
@@ -2114,10 +2112,7 @@ const PDFViewerApplication = {
       _windowAbortController: { signal },
     } = this;
 
-    if (
-      (typeof PDFJSDev !== "undefined" && PDFJSDev.test("MOZCENTRAL")) ||
-      typeof AbortSignal.any === "function"
-    ) {
+    if (useAbortSignal_Any()) {
       this._touchManager = new TouchManager({
         container: window,
         isPinchingDisabled: () => pdfViewer.isInPresentationMode,

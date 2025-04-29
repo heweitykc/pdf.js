@@ -3,6 +3,7 @@ var baidu_stat="a22e57e3af6919a0e515b1b00a399422", baidu_stat_ios="382d50f21a013
 var editorWin = window
 var Palmmob_version = "1.0.2"
 var Palmmob_direct_download = false;  //是否直接浏览器下载
+var Palmmob_appChannel  = Palmmob_Func("appChannel","huawei");
 
 function Palmmob_Func(FuncName, defaultVal){
     // console.log("Palmmob_Func", FuncName)
@@ -182,7 +183,42 @@ function errWatch(){
     }, true);
 }
 
+function useAbortSignal_Any(){
+    return (typeof PDFJSDev !== "undefined" && PDFJSDev.test("MOZCENTRAL")) ||
+          typeof AbortSignal.any === "function"
+}
 
-errWatch()
+function abortSignalAny(signals) {
+    if(typeof AbortSignal.any === "function"){
+        return AbortSignal.any(signals);
+    }
+    const controller = new AbortController();
+  
+    function onAbort(signal) {
+      if (controller.signal.aborted) return;
+      controller.abort(signal.reason); // 可选：传递触发者的中止原因
+    }
+  
+    for (const signal of signals) {
+      if (signal.aborted) {
+        controller.abort(signal.reason);
+        break;
+      }
+      signal.addEventListener('abort', () => onAbort(signal), { once: true });
+    }
+  
+    return controller.signal;
+  }
+
+// errWatch()
 initBDStat()
 console.log("Palmmob_version=", Palmmob_version);
+console.log("Palmmob_appChannel=", Palmmob_appChannel);
+
+function lock_ink_scroll(lock) {
+    if(Palmmob_appChannel != "huawei"){
+        return;
+    }
+    const viewerContainer = document.getElementById("viewerContainer");    
+    viewerContainer.style.touchAction = lock ? "none" : "";
+}

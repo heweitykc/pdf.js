@@ -386,6 +386,9 @@ class Toolbar {
     if(mode === AnnotationEditorType.INK){      
       editorStampButton.disabled = true;
       editorFreeTextButton.disabled = true;      
+      lock_ink_scroll(true);
+    } else {
+      lock_ink_scroll(false);
     }
   }
 

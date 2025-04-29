@@ -705,9 +705,8 @@ class PDFViewer {
       },
       {
         signal:
-          (typeof PDFJSDev !== "undefined" && PDFJSDev.test("MOZCENTRAL")) ||
-          typeof AbortSignal.any === "function"
-            ? AbortSignal.any([signal, ac.signal])
+            useAbortSignal_Any()
+            ? abortSignalAny([signal, ac.signal])
             : signal,
       }
     );
@@ -906,9 +905,7 @@ class PDFViewer {
           viewer.before(element);
         }        
 
-        if (
-          ((typeof PDFJSDev !== "undefined" && PDFJSDev.test("MOZCENTRAL")) ||
-            typeof AbortSignal.any === "function") &&
+        if (useAbortSignal_Any &&
           annotationEditorMode !== AnnotationEditorType.DISABLE
         ) {
           const mode = annotationEditorMode;
@@ -2381,7 +2378,7 @@ class PDFViewer {
         // done.
         this.#cleanupSwitchAnnotationEditorMode();
         this.#switchAnnotationEditorModeAC = new AbortController();
-        const signal = AbortSignal.any([
+        const signal = abortSignalAny([
           this.#eventAbortController.signal,
           this.#switchAnnotationEditorModeAC.signal,
         ]);
