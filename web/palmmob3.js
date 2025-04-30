@@ -5,6 +5,9 @@ var Palmmob_version = "1.0.2"
 var Palmmob_direct_download = false;  //是否直接浏览器下载
 var Palmmob_appChannel  = Palmmob_Func("appChannel","huawei");
 
+console.log("Palmmob_version=", Palmmob_version);
+console.log("Palmmob_appChannel=", Palmmob_appChannel);
+
 function Palmmob_Func(FuncName, defaultVal){
     // console.log("Palmmob_Func", FuncName)
     if(window.ReactNativeWebView){
@@ -210,11 +213,6 @@ function abortSignalAny(signals) {
     return controller.signal;
   }
 
-// errWatch()
-initBDStat()
-console.log("Palmmob_version=", Palmmob_version);
-console.log("Palmmob_appChannel=", Palmmob_appChannel);
-
 function lock_ink_scroll(lock) {
     if(Palmmob_appChannel != "huawei"){
         return;
@@ -222,3 +220,7 @@ function lock_ink_scroll(lock) {
     const viewerContainer = document.getElementById("viewerContainer");    
     viewerContainer.style.touchAction = lock ? "none" : "";
 }
+
+errWatch()
+initBDStat()
+
