@@ -1220,6 +1220,14 @@ dialog :link {
       mask-image: var(--editorParams-stampAddImage-icon);
     }
 
+    #editorStampAddSign::before {
+      mask-image: var(--editorParams-stampAddSign-icon);
+    }
+
+    #editorStampAddWatermark::before {
+      mask-image: var(--editorParams-stampAddWatermark-icon);
+    }
+    
     .editorParamsLabel {
       flex: none;
       font: menu;

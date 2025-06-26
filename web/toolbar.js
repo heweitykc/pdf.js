@@ -22,6 +22,7 @@ import {
   MAX_SCALE,
   MIN_SCALE,
   toggleExpandedBtn,
+  toggleMenu,
 } from "./ui_utils.js";
 
 /**
@@ -202,6 +203,7 @@ class Toolbar {
     const {
       editorHighlightButton,
       editorStampButton,
+      editorStampParamsToolbar,
       pageNumber,
       scaleSelect,
     } = this.#opts;
@@ -228,11 +230,14 @@ class Toolbar {
     }
 
     editorStampButton.addEventListener("click", () => {
-      this.eventBus.dispatch("switchannotationeditorparams", {
-        source: this,
-        type: AnnotationEditorParamsType["CREATE"],
-        value: undefined,
-      });
+      // this.eventBus.dispatch("switchannotationeditorparams", {
+      //   source: this,
+      //   type: AnnotationEditorParamsType["CREATE"],
+      //   value: undefined,
+      // });
+
+      //显示菜单
+      toggleMenu(editorStampParamsToolbar);
     });
 
     // The non-button elements within the toolbar.
@@ -304,7 +309,7 @@ class Toolbar {
       editorInkButton,
       editorInkParamsToolbar,
       editorStampButton,
-      editorStampParamsToolbar,
+      // editorStampParamsToolbar,
       editorModeButtons,
       editorOKButton,
       editorExitButton,
@@ -330,11 +335,11 @@ class Toolbar {
       mode === AnnotationEditorType.INK,
       editorInkParamsToolbar
     );
-    toggleExpandedBtn(
-      editorStampButton,
-      mode === AnnotationEditorType.STAMP,
-      editorStampParamsToolbar
-    );
+    // toggleExpandedBtn(
+    //   editorStampButton,
+    //   mode === AnnotationEditorType.STAMP,
+    //   editorStampParamsToolbar
+    // );
 
     const isDisable = mode === AnnotationEditorType.DISABLE;
     editorFreeTextButton.disabled = isDisable;

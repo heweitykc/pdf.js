@@ -49,6 +49,8 @@ class AnnotationEditorParams {
     editorInkThickness,
     editorInkOpacity,
     editorStampAddImage,
+    editorStampAddSign,
+    editorStampAddWatermark,
     editorFreeHighlightThickness,
     editorHighlightShowAll,
   }) {
@@ -74,16 +76,15 @@ class AnnotationEditorParams {
     editorInkOpacity.addEventListener("input", function () {
       dispatchEvent("INK_OPACITY", this.valueAsNumber);
     });
-    // editorStampAddImage.addEventListener("click", () => {
-    //   this.eventBus.dispatch("reporttelemetry", {
-    //     source: this,
-    //     details: {
-    //       type: "editing",
-    //       data: { action: "pdfjs.image.add_image_click" },
-    //     },
-    //   });
-    //   dispatchEvent("CREATE");
-    // });
+    editorStampAddImage.addEventListener("click", () => {
+      dispatchEvent("CREATE");
+    });
+    editorStampAddSign.addEventListener("click", () => {
+      console.log("editorStampAddSign");
+    });
+    editorStampAddWatermark.addEventListener("click", () => {
+      console.log("editorStampAddWatermark");
+    });
     editorFreeHighlightThickness.addEventListener("input", function () {
       dispatchEvent("HIGHLIGHT_THICKNESS", this.valueAsNumber);
     });

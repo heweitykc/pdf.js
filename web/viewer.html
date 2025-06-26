@@ -275,7 +275,24 @@
                 <div id="editorStamp" class="toolbarButtonWithContainer">
                   <button id="editorStampButton" class="toolbarButton" type="button" disabled="disabled" title="Add or edit images" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-stamp-button"  style="display:flex;gap:4px;" hidden >
                     <span data-l10n-id="pdfjs-editor-insert-button-label" class="bottomText" >Insert</span>
-                  </button>                  
+                  </button>
+                  <div class="editorParamsToolbar hidden doorHangerMiddle menu" id="editorStampParamsToolbar">
+                    <div class="menuContainer">
+                      <button id="editorStampAddImage" class="toolbarButton labeled" type="button" title="Add image" tabindex="0" data-l10n-id="pdfjs-editor-stamp-add-image-button">
+                        <span class="editorParamsLabel" data-l10n-id="pdfjs-editor-stamp-add-image-button-label">Add image</span>
+                      </button>
+                    </div>
+                    <div class="menuContainer">
+                      <button id="editorStampAddSign" class="toolbarButton labeled" type="button" title="Add sign" tabindex="0" data-l10n-id="pdfjs-editor-stamp-add-sign-button">
+                        <span class="editorParamsLabel" data-l10n-id="pdfjs-editor-stamp-add-sign-button-label">Add sign</span>
+                      </button>
+                    </div>
+                    <div class="menuContainer">
+                      <button id="editorStampAddWatermark" class="toolbarButton labeled" type="button" title="Add watermark" tabindex="0" data-l10n-id="pdfjs-editor-stamp-add-watermark-button">
+                        <span class="editorParamsLabel" data-l10n-id="pdfjs-editor-stamp-add-watermark-button-label">Add watermark</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>                
                 <div id="editorFreeText" class="toolbarButtonWithContainer">
                   <button id="editorFreeTextButton" class="toolbarButton" type="button" disabled="disabled" title="Text" role="radio"  tabindex="0" data-l10n-id="pdfjs-editor-free-text-button"  style="display:flex;gap:4px;" hidden >
