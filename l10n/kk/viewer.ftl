@@ -339,6 +339,9 @@ pdfjs-editor-ink-opacity-input = Мөлдірсіздігі
 pdfjs-editor-stamp-add-image-button =
     .title = Суретті қосу
 pdfjs-editor-stamp-add-image-button-label = Суретті қосу
+pdfjs-editor-stamp-add-sign-button-label = Қолтаңба қосу
+pdfjs-editor-stamp-add-watermark-button-label = Су бейнесі қосу
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Қалыңдығы
 pdfjs-editor-free-highlight-thickness-title =

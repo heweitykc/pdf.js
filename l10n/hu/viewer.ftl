@@ -339,6 +339,9 @@ pdfjs-editor-ink-opacity-input = Átlátszatlanság
 pdfjs-editor-stamp-add-image-button =
     .title = Kép hozzáadása
 pdfjs-editor-stamp-add-image-button-label = Kép hozzáadása
+pdfjs-editor-stamp-add-sign-button-label = Aláírás hozzáadása
+pdfjs-editor-stamp-add-watermark-button-label = Vízjel hozzáadása
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Vastagság
 pdfjs-editor-free-highlight-thickness-title =

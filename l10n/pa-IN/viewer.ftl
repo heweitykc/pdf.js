@@ -344,6 +344,9 @@ pdfjs-editor-ink-opacity-input = ਧੁੰਦਲਾਪਨ
 pdfjs-editor-stamp-add-image-button =
     .title = ਚਿੱਤਰ ਜੋੜੋ
 pdfjs-editor-stamp-add-image-button-label = ਚਿੱਤਰ ਜੋੜੋ
+pdfjs-editor-stamp-add-sign-button-label = ਦਸਤਖਤ ਜੋੜੋ
+pdfjs-editor-stamp-add-watermark-button-label = ਵਾਟਰਮਾਰਕ ਜੋੜੋ
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = ਮੋਟਾਈ
 pdfjs-editor-free-highlight-thickness-title =

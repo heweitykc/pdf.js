@@ -344,6 +344,9 @@ pdfjs-editor-ink-opacity-input = Шаффофӣ
 pdfjs-editor-stamp-add-image-button =
     .title = Илова кардани тасвир
 pdfjs-editor-stamp-add-image-button-label = Илова кардани тасвир
+pdfjs-editor-stamp-add-sign-button-label = Илова кардани имзо
+pdfjs-editor-stamp-add-watermark-button-label = Илова кардани аломати обӣ
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Ғафсӣ
 pdfjs-editor-free-highlight-thickness-title =

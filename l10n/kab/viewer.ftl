@@ -339,6 +339,9 @@ pdfjs-editor-ink-opacity-input = Tebrek
 pdfjs-editor-stamp-add-image-button =
     .title = Rnu tawlaft
 pdfjs-editor-stamp-add-image-button-label = Rnu tawlaft
+pdfjs-editor-stamp-add-sign-button-label = Rnu asekni
+pdfjs-editor-stamp-add-watermark-button-label = Rnu ameskar
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Tuzert
 pdfjs-editor-free-highlight-thickness-title =

@@ -315,6 +315,9 @@ pdfjs-editor-ink-opacity-input = Опацитет
 pdfjs-editor-stamp-add-image-button =
     .title = Додај слику
 pdfjs-editor-stamp-add-image-button-label = Додај слику
+pdfjs-editor-stamp-add-sign-button-label = Додај потпис
+pdfjs-editor-stamp-add-watermark-button-label = Додај водени печат
+
 pdfjs-editor-free-highlight-thickness-title =
     .title = Промени дебљину при означавању других ставки сем текста
 # .default-content is used as a placeholder in an empty text editor.

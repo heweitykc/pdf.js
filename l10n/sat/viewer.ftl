@@ -295,6 +295,9 @@ pdfjs-editor-ink-opacity-input = ᱟᱨᱯᱟᱨ
 pdfjs-editor-stamp-add-image-button =
     .title = ᱪᱤᱛᱟᱹᱨ ᱥᱮᱞᱮᱫ ᱢᱮ
 pdfjs-editor-stamp-add-image-button-label = ᱪᱤᱛᱟᱹᱨ ᱥᱮᱞᱮᱫ ᱢᱮ
+pdfjs-editor-stamp-add-sign-button-label = ᱪᱷᱟᱯᱟ ᱥᱮᱞᱮᱫ ᱢᱮ
+pdfjs-editor-stamp-add-watermark-button-label = ᱫᱟᱜ ᱪᱤᱱᱦᱟᱹ ᱥᱮᱞᱮᱫ ᱢᱮ
+
 pdfjs-free-text =
     .aria-label = ᱚᱞ ᱥᱟᱯᱲᱟᱣᱤᱭᱟᱹ
 pdfjs-free-text-default-content = ᱚᱞ ᱮᱛᱦᱚᱵ ᱢᱮ …

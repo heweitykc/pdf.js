@@ -339,6 +339,9 @@ pdfjs-editor-ink-opacity-input = Opakutasuna
 pdfjs-editor-stamp-add-image-button =
     .title = Gehitu irudia
 pdfjs-editor-stamp-add-image-button-label = Gehitu irudia
+pdfjs-editor-stamp-add-sign-button-label = Gehitu sinadura
+pdfjs-editor-stamp-add-watermark-button-label = Gehitu ur-marka
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Loditasuna
 pdfjs-editor-free-highlight-thickness-title =

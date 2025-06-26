@@ -343,6 +343,9 @@ pdfjs-editor-ink-opacity-input = Průhlednost
 pdfjs-editor-stamp-add-image-button =
     .title = Přidat obrázek
 pdfjs-editor-stamp-add-image-button-label = Přidat obrázek
+pdfjs-editor-stamp-add-sign-button-label = Přidat podpis
+pdfjs-editor-stamp-add-watermark-button-label = Přidat vodoznak
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Tloušťka
 pdfjs-editor-free-highlight-thickness-title =

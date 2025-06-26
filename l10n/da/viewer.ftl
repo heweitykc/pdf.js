@@ -339,6 +339,9 @@ pdfjs-editor-ink-opacity-input = Uigennemsigtighed
 pdfjs-editor-stamp-add-image-button =
     .title = Tilføj billede
 pdfjs-editor-stamp-add-image-button-label = Tilføj billede
+pdfjs-editor-stamp-add-sign-button-label = Tilføj underskrift
+pdfjs-editor-stamp-add-watermark-button-label = Tilføj vandmærke
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Tykkelse
 pdfjs-editor-free-highlight-thickness-title =

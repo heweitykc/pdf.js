@@ -339,6 +339,9 @@ pdfjs-editor-ink-opacity-input = Maldiafaneco
 pdfjs-editor-stamp-add-image-button =
     .title = Aldoni bildon
 pdfjs-editor-stamp-add-image-button-label = Aldoni bildon
+pdfjs-editor-stamp-add-sign-button-label = Aldoni subskribon
+pdfjs-editor-stamp-add-watermark-button-label = Aldoni akvomarkon
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Dikeco
 pdfjs-editor-free-highlight-thickness-title =

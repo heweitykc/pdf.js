@@ -328,6 +328,9 @@ pdfjs-editor-ink-opacity-input = Opacitat
 pdfjs-editor-stamp-add-image-button =
     .title = Apondre imatge
 pdfjs-editor-stamp-add-image-button-label = Apondre imatge
+pdfjs-editor-stamp-add-sign-button-label = Apondre signatura
+pdfjs-editor-stamp-add-watermark-button-label = Apondre filigrana
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Espessor
 # .default-content is used as a placeholder in an empty text editor.

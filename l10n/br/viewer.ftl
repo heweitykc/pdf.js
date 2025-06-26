@@ -292,6 +292,9 @@ pdfjs-editor-ink-opacity-input = Boullder
 pdfjs-editor-stamp-add-image-button =
     .title = Ouzhpennañ ur skeudenn
 pdfjs-editor-stamp-add-image-button-label = Ouzhpennañ ur skeudenn
+pdfjs-editor-stamp-add-sign-button-label = Ouzhpennañ un sinadur
+pdfjs-editor-stamp-add-watermark-button-label = Ouzhpennañ ur merkoù-dour
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Tevded
 pdfjs-free-text =

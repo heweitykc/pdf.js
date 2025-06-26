@@ -344,6 +344,9 @@ pdfjs-editor-ink-opacity-input = دھندلاپن
 pdfjs-editor-stamp-add-image-button =
     .title = تصویر شامل کرو
 pdfjs-editor-stamp-add-image-button-label = تصویر شامل کرو
+pdfjs-editor-stamp-add-sign-button-label = دستخط شامل کرو
+pdfjs-editor-stamp-add-watermark-button-label = واٹر مارک شامل کرو
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = مُٹاݨ
 pdfjs-editor-free-highlight-thickness-title =

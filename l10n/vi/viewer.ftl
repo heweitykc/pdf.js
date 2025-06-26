@@ -336,6 +336,9 @@ pdfjs-editor-ink-opacity-input = Độ mờ
 pdfjs-editor-stamp-add-image-button =
     .title = Thêm hình ảnh
 pdfjs-editor-stamp-add-image-button-label = Thêm hình ảnh
+pdfjs-editor-stamp-add-sign-button-label = Thêm chữ ký
+pdfjs-editor-stamp-add-watermark-button-label = Thêm watermark
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Độ dày
 pdfjs-editor-free-highlight-thickness-title =

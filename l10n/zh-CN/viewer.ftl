@@ -333,9 +333,10 @@ pdfjs-editor-free-text-size-input = 字号
 pdfjs-editor-ink-color-input = 颜色
 pdfjs-editor-ink-thickness-input = 粗细
 pdfjs-editor-ink-opacity-input = 不透明度
-pdfjs-editor-stamp-add-image-button =
-    .title = 添加图像
 pdfjs-editor-stamp-add-image-button-label = 添加图像
+pdfjs-editor-stamp-add-sign-button-label = 添加签名
+pdfjs-editor-stamp-add-watermark-button-label = 添加水印
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = 粗细
 pdfjs-editor-free-highlight-thickness-title =

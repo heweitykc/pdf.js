@@ -344,6 +344,9 @@ pdfjs-editor-ink-opacity-input = გაუმჭვირვალობა
 pdfjs-editor-stamp-add-image-button =
     .title = სურათის დამატება
 pdfjs-editor-stamp-add-image-button-label = სურათის დამატება
+pdfjs-editor-stamp-add-sign-button-label = ხელმოწერის დამატება
+pdfjs-editor-stamp-add-watermark-button-label = ჭვირნიშნის დამატება
+
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = სისქე
 pdfjs-editor-free-highlight-thickness-title =

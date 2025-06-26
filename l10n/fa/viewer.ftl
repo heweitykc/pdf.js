@@ -291,6 +291,9 @@ pdfjs-editor-ink-color-input = رنگ
 pdfjs-editor-stamp-add-image-button =
     .title = افزودن تصویر
 pdfjs-editor-stamp-add-image-button-label = افزودن تصویر
+pdfjs-editor-stamp-add-sign-button-label = افزودن امضا
+pdfjs-editor-stamp-add-watermark-button-label = افزودن واترمارک
+
 # .default-content is used as a placeholder in an empty text editor.
 pdfjs-free-text2 =
     .aria-label = ویرایشگر متن

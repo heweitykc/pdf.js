@@ -332,6 +332,9 @@ pdfjs-editor-ink-opacity-input = Прозрачност
 pdfjs-editor-stamp-add-image-button =
     .title = Добавяне на изображение
 pdfjs-editor-stamp-add-image-button-label = Добавяне на изображение
+pdfjs-editor-stamp-add-sign-button-label = Добавяне на подпис
+pdfjs-editor-stamp-add-watermark-button-label = Добавяне на воден знак
+
 pdfjs-free-text =
     .aria-label = Текстов редактор
 pdfjs-free-text-default-content = Започнете да пишете…
