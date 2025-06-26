@@ -9,13 +9,7 @@
     <link rel="icon" href="data:," />
     <title>PDF Editor</title>
 
-<!--#if MOZCENTRAL-->
-<!--#include viewer-snippet-firefox-extension.html-->
-<!--#elif CHROME-->
-<!--#include viewer-snippet-chrome-extension.html-->
-<!--#else-->
 <!--#include viewer-snippet.html-->
-<!--#endif-->
 
 <!--#if MOZCENTRAL-->
 <!--<link rel="stylesheet" href="resource://pdf.js/web/viewer.css">-->
@@ -24,10 +18,12 @@
     <link rel="stylesheet" href="viewer.css">
 <!--#endif-->
 
+<script src="html2canvas.min.js"></script>
+<script src="signature_pad.umd.min.js"></script>
+
 <!--#if MOZCENTRAL-->
 <!--<script src="resource://pdf.js/web/viewer.mjs" type="module"></script>-->
 <!--#elif !MOZCENTRAL-->
-<!--<script src="html2canvas.min.js"></script>-->
 <!--<script src="palmmob3.js"></script>-->
 <!--<script src="viewer.mjs" type="module"></script>-->
 <!--#elif /* Development mode. */-->
@@ -60,6 +56,7 @@
           "web-pdf_attachment_viewer": "./pdf_attachment_viewer.js",
           "web-pdf_cursor_tools": "./pdf_cursor_tools.js",
           "web-pdf_document_properties": "./pdf_document_properties.js",
+          "web-pdf_signature_viewer": "./pdf_signature_viewer.js",
           "web-pdf_find_bar": "./pdf_find_bar.js",
           "web-pdf_layer_viewer": "./pdf_layer_viewer.js",
           "web-pdf_outline_viewer": "./pdf_outline_viewer.js",
@@ -72,8 +69,7 @@
           "web-toolbar": "./toolbar.js"
         }
       }
-    </script>
-    <script src="html2canvas.min.js"></script>
+    </script>    
     <script src="palmmob3.js"></script>
     <script src="viewer.js" type="module"></script>    
 <!--#endif-->
@@ -471,7 +467,7 @@
 
                       <div class="horizontalToolbarSeparator hidden"></div>
 
-                      <button id="documentProperties" class="toolbarButton labeled hidden" type="button" title="Properties" tabindex="0" data-l10n-id="pdfjs-document-properties-button" >
+                      <button id="documentProperties" class="toolbarButton labeled " type="button" title="Properties" tabindex="0" data-l10n-id="pdfjs-document-properties-button" >
                         <span data-l10n-id="pdfjs-document-properties-button-label">Properties</span>
                       </button>
                     </div>
@@ -703,7 +699,7 @@
             </div>
           </div>
         </dialog>
-<!--#if !MOZCENTRAL-->
+
         <dialog id="printServiceDialog" style="min-width: 200px;">
           <div class="row">
             <span data-l10n-id="pdfjs-print-progress-message">Preparing document for printing…</span>
@@ -716,10 +712,11 @@
             <button id="printCancel" class="dialogButton" type="button"><span data-l10n-id="pdfjs-print-progress-close-button">Cancel</span></button>
           </div>
         </dialog>
-<!--#endif-->
-<!--#if CHROME-->
-<!--#include viewer-snippet-chrome-overlays.html-->
-<!--#endif-->
+
+        <dialog id="signViewerDialog">
+          <canvas id="signatureCanvas" ></canvas>
+        </dialog>
+
       </div>  <!-- dialogContainer -->
 
       <div id="editorUndoBar" class="messageBar" role="status" tabindex="-1" hidden>

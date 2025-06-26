@@ -165,6 +165,10 @@ function getViewerConfiguration() {
         linearized: document.getElementById("linearizedField"),
       },
     },
+    signViewer: {
+      dialog: document.getElementById("signViewerDialog"),
+      canvas: document.getElementById("signatureCanvas"),
+    },
     altTextDialog: {
       dialog: document.getElementById("altTextDialog"),
       optionDescription: document.getElementById("descriptionButton"),

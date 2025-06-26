@@ -76,6 +76,7 @@ import { PasswordPrompt } from "./password_prompt.js";
 import { PDFAttachmentViewer } from "web-pdf_attachment_viewer";
 import { PDFCursorTools } from "web-pdf_cursor_tools";
 import { PDFDocumentProperties } from "web-pdf_document_properties";
+import { PDFSignViewer } from "web-pdf_signature_viewer";
 import { PDFFindBar } from "web-pdf_find_bar";
 import { PDFFindController } from "./pdf_find_controller.js";
 import { PDFHistory } from "./pdf_history.js";
@@ -123,6 +124,8 @@ const PDFViewerApplication = {
   pdfPresentationMode: null,
   /** @type {PDFDocumentProperties} */
   pdfDocumentProperties: null,
+  /** @type {PDFSignViewer} */
+  pdfSignViewer: null,
   /** @type {PDFLinkService} */
   pdfLinkService: null,
   /** @type {PDFHistory} */
@@ -565,6 +568,14 @@ const PDFViewerApplication = {
         eventBus,
         l10n,
         /* fileNameLookup = */ () => this._docFilename
+      );
+    }
+
+    if (appConfig.signViewer) {
+      this.pdfSignViewer = new PDFSignViewer(
+        appConfig.signViewer,
+        this.overlayManager,
+        eventBus
       );
     }
 
@@ -1970,6 +1981,7 @@ const PDFViewerApplication = {
       eventBus,
       externalServices,
       pdfDocumentProperties,
+      pdfSignViewer,
       pdfViewer,
       preferences,
     } = this;
@@ -2057,6 +2069,11 @@ const PDFViewerApplication = {
     eventBus._on(
       "documentproperties",
       () => pdfDocumentProperties?.open(),
+      opts
+    );
+    eventBus._on(
+      "create_signature",
+      () => pdfSignViewer?.open(),
       opts
     );
     eventBus._on("findfromurlhash", onFindFromUrlHash.bind(this), opts);

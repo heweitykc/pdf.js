@@ -79,8 +79,8 @@ class AnnotationEditorParams {
     editorStampAddImage.addEventListener("click", () => {
       dispatchEvent("CREATE");
     });
-    editorStampAddSign.addEventListener("click", () => {
-      console.log("editorStampAddSign");
+    editorStampAddSign.addEventListener("click", () => {      
+      this.eventBus.dispatch("create_signature");
     });
     editorStampAddWatermark.addEventListener("click", () => {
       console.log("editorStampAddWatermark");

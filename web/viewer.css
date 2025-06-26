@@ -1038,6 +1038,10 @@ dialog :link {
   margin-top: 10px;
 }
 
+#signViewerDialog {
+  text-align: left;
+}
+
 .grab-to-pan-grab {
   cursor: grab !important;
 }

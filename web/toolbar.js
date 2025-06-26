@@ -108,22 +108,6 @@ class Toolbar {
           },
         },
       },
-      // {
-      //   element: options.editorStampButton,
-      //   eventName: "switchannotationeditormode",
-      //   eventDetails: {
-      //     get mode() {
-      //       const { classList } = options.editorStampButton;
-      //       return classList.contains("toggled")
-      //         ? AnnotationEditorType.NONE
-      //         : AnnotationEditorType.STAMP;
-      //     },
-      //   },
-      //   telemetry: {
-      //     type: "editing",
-      //     data: { action: "pdfjs.image.icon_click" },
-      //   },
-      // },
     ];
 
     // Bind the event listeners for click and various other actions.
@@ -230,12 +214,6 @@ class Toolbar {
     }
 
     editorStampButton.addEventListener("click", () => {
-      // this.eventBus.dispatch("switchannotationeditorparams", {
-      //   source: this,
-      //   type: AnnotationEditorParamsType["CREATE"],
-      //   value: undefined,
-      // });
-
       //显示菜单
       toggleMenu(editorStampParamsToolbar);
     });
@@ -309,7 +287,6 @@ class Toolbar {
       editorInkButton,
       editorInkParamsToolbar,
       editorStampButton,
-      // editorStampParamsToolbar,
       editorModeButtons,
       editorOKButton,
       editorExitButton,
@@ -335,11 +312,6 @@ class Toolbar {
       mode === AnnotationEditorType.INK,
       editorInkParamsToolbar
     );
-    // toggleExpandedBtn(
-    //   editorStampButton,
-    //   mode === AnnotationEditorType.STAMP,
-    //   editorStampParamsToolbar
-    // );
 
     const isDisable = mode === AnnotationEditorType.DISABLE;
     editorFreeTextButton.disabled = isDisable;
