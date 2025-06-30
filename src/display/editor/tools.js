@@ -1753,8 +1753,12 @@ class AnnotationEditorUIManager {
     }
 
     switch (type) {
-      case AnnotationEditorParamsType.CREATE:
-        this.currentLayer.addNewEditor();
+      case AnnotationEditorParamsType.CREATE:        
+        if (value && value.type === "signature") {
+          this.#handleSignatureData(value);
+        } else {          
+          this.currentLayer.addNewEditor();
+        }
         return;
       case AnnotationEditorParamsType.HIGHLIGHT_DEFAULT_COLOR:
         this.#mainHighlightColorPicker?.updateColor(value);
@@ -1787,6 +1791,42 @@ class AnnotationEditorUIManager {
 
     for (const editorType of this.#editorTypes) {
       editorType.updateDefaultParams(type, value);
+    }
+  }
+  
+  async #handleSignatureData(signatureData) {
+    try {
+      // 使用SVG数据创建STAMP
+      const svgBlob = new Blob([signatureData.svgString], { type: 'image/svg+xml' });
+      const svgUrl = URL.createObjectURL(svgBlob);
+      
+      const imageData = await this.imageManager.getFromUrl(svgUrl);
+      
+      if (!imageData) {
+        console.error("无法创建SVG签名数据");
+        URL.revokeObjectURL(svgUrl);
+        return;
+      }
+
+      const stampData = {
+        annotationType: AnnotationEditorType.STAMP,
+        bitmapId: imageData.id,
+        pageIndex: this.currentPageIndex,
+        rotation: 0,
+        structTreeParentId: null,
+        isSvg: true
+      };
+            
+      const editor = this.currentLayer.createAndAddNewEditor(
+        { offsetX: 0, offsetY: 0 },
+        false,
+        stampData
+      );
+      
+      // 清理URL对象
+      URL.revokeObjectURL(svgUrl);
+    } catch (error) {
+      console.error("处理SVG签名数据失败:", error);
     }
   }
 

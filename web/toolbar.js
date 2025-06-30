@@ -23,6 +23,7 @@ import {
   MIN_SCALE,
   toggleExpandedBtn,
   toggleMenu,
+  hideMenu,
 } from "./ui_utils.js";
 
 /**
@@ -214,7 +215,6 @@ class Toolbar {
     }
 
     editorStampButton.addEventListener("click", () => {
-      //显示菜单
       toggleMenu(editorStampParamsToolbar);
     });
 
@@ -275,7 +275,14 @@ class Toolbar {
       },
       // Once the color picker has been added, we don't want to add it again.
       { once: true }
-    );    
+    );
+
+    eventBus._on(
+      "closeeditorstampparamstoolbar",
+      () => {        
+        hideMenu(editorStampParamsToolbar);
+      }
+    );
   }
 
   #editorModeChanged({ mode }) {    
@@ -355,18 +362,20 @@ class Toolbar {
     editorInkButton.disabled = false;
     editorStampButton.disabled = false;
 
-    if(mode === AnnotationEditorType.FREETEXT){      
+    if(mode === AnnotationEditorType.FREETEXT){
+      hideMenu(editorStampParamsToolbar);
       editorStampButton.disabled = true;      
       editorInkButton.disabled = true;
     }
 
-    if(mode === AnnotationEditorType.INK){      
+    if(mode === AnnotationEditorType.INK){
+      hideMenu(editorStampParamsToolbar);
       editorStampButton.disabled = true;
       editorFreeTextButton.disabled = true;      
       lock_ink_scroll(true);
     } else {
       lock_ink_scroll(false);
-    }
+    }    
   }
 
   #updateUIState(resetNumPages = false) {

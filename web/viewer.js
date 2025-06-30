@@ -166,8 +166,7 @@ function getViewerConfiguration() {
       },
     },
     signViewer: {
-      dialog: document.getElementById("signViewerDialog"),
-      canvas: document.getElementById("signatureCanvas"),
+      dialog: document.getElementById("signViewerDialog")
     },
     altTextDialog: {
       dialog: document.getElementById("altTextDialog"),

@@ -740,18 +740,23 @@ class AnnotationEditor {
     // When the resizers are used with the keyboard, they're focusable, hence
     // we want to have them in this order (top left, top middle, top right, ...)
     // in the DOM to have the focus order correct.
+    // const classes = this._willKeepAspectRatio
+    //   ? ["topLeft", "topRight", "bottomRight", "bottomLeft"]
+    //   : [
+    //        "topLeft",
+    //       "topMiddle",
+    //       "topRight",
+    //       "middleRight",
+    //       "bottomRight",
+    //       "bottomMiddle",
+    //       "bottomLeft",
+    //       "middleLeft",
+    //     ];
+
     const classes = this._willKeepAspectRatio
-      ? ["topLeft", "topRight", "bottomRight", "bottomLeft"]
-      : [
-          "topLeft",
-          "topMiddle",
-          "topRight",
-          "middleRight",
-          "bottomRight",
-          "bottomMiddle",
-          "bottomLeft",
-          "middleLeft",
-        ];
+    ? [ "bottomRight"]
+    : [ "topMiddle","bottomRight","middleLeft"];
+
     const signal = this._uiManager._signal;
     for (const name of classes) {
       const div = document.createElement("div");
@@ -766,7 +771,7 @@ class AnnotationEditor {
       div.addEventListener("contextmenu", noContextMenu, { signal });
       div.tabIndex = -1;
     }
-    this.div.prepend(this.#resizersDiv);
+    this.div.append(this.#resizersDiv);
   }
 
   #resizerPointerdown(name, event) {

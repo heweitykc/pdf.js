@@ -33,7 +33,7 @@
   --freetext-line-height: 1.35;
   --freetext-padding: 2px;
   --resizer-bg-color: var(--outline-color);
-  --resizer-size: 6px;
+  --resizer-size: 10px;
   --resizer-shift: calc(
     0px - (var(--outline-width) + var(--resizer-size)) / 2 -
       var(--outline-around-width)
@@ -280,7 +280,7 @@
     padding: var(--editor-toolbar-padding);
 
     position: absolute;
-    inset-inline-end: 0;
+    /* inset-inline-end: 0; */
     inset-block-start: calc(100% + var(--editor-toolbar-vert-offset));
 
     border-radius: 6px;
@@ -637,7 +637,7 @@
         height: var(--resizer-size);
         background: content-box var(--resizer-bg-color);
         border: var(--focus-outline-around);
-        border-radius: 2px;
+        border-radius: 6px;
         position: absolute;
 
         &.topLeft {

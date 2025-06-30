@@ -838,6 +838,10 @@ function toggleMenu(view) {
   view?.classList.toggle("hidden");
 }
 
+function hideMenu(view) {
+  view?.classList.add("hidden");
+}
+
 // In Firefox, the css calc function uses f32 precision but the Chrome or Safari
 // are using f64 one. So in order to have the same rendering in all browsers, we
 // need to use the right precision in order to have correct dimensions.
@@ -898,6 +902,7 @@ export {
   toggleCheckedBtn,
   toggleExpandedBtn,
   toggleMenu,
+  hideMenu,
   UNKNOWN_SCALE,
   VERTICAL_PADDING,
   watchScroll,

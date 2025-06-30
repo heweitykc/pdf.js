@@ -274,17 +274,17 @@
                   </button>
                   <div class="editorParamsToolbar hidden doorHangerMiddle menu" id="editorStampParamsToolbar">
                     <div class="menuContainer">
-                      <button id="editorStampAddImage" class="toolbarButton labeled" type="button" tabindex="0" data-l10n-id="pdfjs-editor-stamp-add-image-button">
+                      <button id="editorStampAddImage" class="toolbarButton labeled" type="button" tabindex="0">
                         <span class="editorParamsLabel" data-l10n-id="pdfjs-editor-stamp-add-image-button-label">Add image</span>
                       </button>
                     </div>
                     <div class="menuContainer">
-                      <button id="editorStampAddSign" class="toolbarButton labeled" type="button" tabindex="0" data-l10n-id="pdfjs-editor-stamp-add-sign-button">
+                      <button id="editorStampAddSign" class="toolbarButton labeled" type="button" tabindex="0" >
                         <span class="editorParamsLabel" data-l10n-id="pdfjs-editor-stamp-add-sign-button-label">Add sign</span>
                       </button>
                     </div>
                     <div class="menuContainer">
-                      <button id="editorStampAddWatermark" class="toolbarButton labeled" type="button" tabindex="0" data-l10n-id="pdfjs-editor-stamp-add-watermark-button">
+                      <button id="editorStampAddWatermark" class="toolbarButton labeled" type="button" tabindex="0">
                         <span class="editorParamsLabel" data-l10n-id="pdfjs-editor-stamp-add-watermark-button-label">Add watermark</span>
                       </button>
                     </div>
@@ -714,7 +714,25 @@
         </dialog>
 
         <dialog id="signViewerDialog">
-          <canvas id="signatureCanvas" ></canvas>
+          <div class="sign-dialog-container">
+            <div class="sign-canvas-wrapper">
+              <canvas id="signatureCanvas"></canvas>
+            </div>            
+            <div class="sign-header">
+              <div id="signCancelButton" >取消</div>
+              <div style="flex: 1;"></div>
+              <div id="signAddButton">插入签名</div>
+            </div>
+            <div class="sign-tips">
+              <div class="sign-tip-text">
+                <img src="images/sign_xxx.svg" />
+                <div class="horizontal-line"></div>
+              </div>              
+            </div>
+            <div class="sign-footer">
+              <div id="signClearButton"><img src="images/sign_clear.svg" />清除</div>              
+            </div>
+          </div>
         </dialog>
 
       </div>  <!-- dialogContainer -->

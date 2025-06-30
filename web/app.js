@@ -567,7 +567,7 @@ const PDFViewerApplication = {
         this.overlayManager,
         eventBus,
         l10n,
-        /* fileNameLookup = */ () => this._docFilename
+        () => this._docFilename
       );
     }
 
@@ -575,7 +575,8 @@ const PDFViewerApplication = {
       this.pdfSignViewer = new PDFSignViewer(
         appConfig.signViewer,
         this.overlayManager,
-        eventBus
+        eventBus,
+        l10n,
       );
     }
 
@@ -1138,7 +1139,7 @@ const PDFViewerApplication = {
     } catch {
       // When the PDF document isn't ready, simply download using the URL.
     }
-    if(Palmmob_direct_download){
+    if(palmmob_debug){
       this.downloadManager.download(data, this._downloadUrl, this._docFilename);
     } else {
       await Palmmob_savefile(data, false);
@@ -1156,7 +1157,7 @@ const PDFViewerApplication = {
 
     try {
       const data = await this.pdfDocument.saveDocument();
-      if(Palmmob_direct_download){
+      if(palmmob_debug){
         this.downloadManager.download(data, this._downloadUrl, this._docFilename);
       } else {
         await Palmmob_savefile(data, false);

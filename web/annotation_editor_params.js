@@ -78,12 +78,15 @@ class AnnotationEditorParams {
     });
     editorStampAddImage.addEventListener("click", () => {
       dispatchEvent("CREATE");
+      this.eventBus.dispatch("closeeditorstampparamstoolbar");
     });
     editorStampAddSign.addEventListener("click", () => {      
       this.eventBus.dispatch("create_signature");
+      this.eventBus.dispatch("closeeditorstampparamstoolbar");
     });
     editorStampAddWatermark.addEventListener("click", () => {
       console.log("editorStampAddWatermark");
+      this.eventBus.dispatch("closeeditorstampparamstoolbar");
     });
     editorFreeHighlightThickness.addEventListener("input", function () {
       dispatchEvent("HIGHLIGHT_THICKNESS", this.valueAsNumber);

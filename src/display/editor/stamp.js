@@ -54,7 +54,8 @@ class StampEditor extends AnnotationEditor {
     super({ ...params, name: "stampEditor" });
     this.#bitmapUrl = params.bitmapUrl;
     this.#bitmapFile = params.bitmapFile;
-    this.#bitmapId = params.bitmapId;    
+    this.#bitmapId = params.bitmapId;
+    this.#isSvg = params.isSvg || false;
   }
 
   /** @inheritdoc */
@@ -155,67 +156,7 @@ class StampEditor extends AnnotationEditor {
       return;
     }
 
-    if (
-      !this._uiManager.useNewAltTextWhenAddingImage &&
-      this._uiManager.useNewAltTextFlow &&
-      this.#bitmap
-    ) {
-      this._reportTelemetry({
-        action: "pdfjs.image.image_added",
-        data: { alt_text_modal: false, alt_text_type: "empty" },
-      });
-      try {
-        // The alt-text dialog isn't opened but we still want to guess the alt
-        // text.
-        this.mlGuessAltText();
-      } catch {}
-    }
-
     this.div.focus();
-  }
-
-  async mlGuessAltText(imageData = null, updateAltTextData = true) {
-    if (this.hasAltTextData()) {
-      return null;
-    }
-
-    const { mlManager } = this._uiManager;
-    if (!mlManager) {
-      throw new Error("No ML.");
-    }
-    if (!(await mlManager.isEnabledFor("altText"))) {
-      throw new Error("ML isn't enabled for alt text.");
-    }
-    const { data, width, height } =
-      imageData ||
-      this.copyCanvas(null, null, /* createImageData = */ true).imageData;
-    const response = await mlManager.guess({
-      name: "altText",
-      request: {
-        data,
-        width,
-        height,
-        channels: data.length / (width * height),
-      },
-    });
-    if (!response) {
-      throw new Error("No response from the AI service.");
-    }
-    if (response.error) {
-      throw new Error("Error from the AI service.");
-    }
-    if (response.cancel) {
-      return null;
-    }
-    if (!response.output) {
-      throw new Error("No valid response from the AI service.");
-    }
-    const altText = response.output;
-    await this.setGuessedAltText(altText);
-    if (updateAltTextData && !this.hasAltTextData()) {
-      this.altTextData = { alt: altText, decorative: false };
-    }
-    return altText;
   }
 
   #getBitmap() {

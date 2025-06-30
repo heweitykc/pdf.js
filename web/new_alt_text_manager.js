@@ -170,7 +170,6 @@ class NewAltTextManager {
       if (altTextLearnMoreUrl) {
         this.#learnMore.href = altTextLearnMoreUrl;
       }
-      this.#mlGuessAltText(isInitial);
     } else {
       this.#toggleLoading(false);
       this.#isAILoading = false;
@@ -212,61 +211,6 @@ class NewAltTextManager {
         ? "pdfjs-editor-new-alt-text-dialog-edit-label"
         : "pdfjs-editor-new-alt-text-dialog-add-label"
     );
-  }
-
-  async #mlGuessAltText(isInitial) {
-    if (this.#isAILoading) {
-      // We're still loading the previous guess.
-      return;
-    }
-
-    if (this.#textarea.value) {
-      // The user has already set an alt text.
-      return;
-    }
-
-    if (isInitial && this.#previousAltText !== null) {
-      // The user has already set an alt text (empty or not).
-      return;
-    }
-
-    this.#guessedAltText = this.#currentEditor.guessedAltText;
-    if (this.#previousAltText === null && this.#guessedAltText) {
-      // We have a guessed alt text and the user didn't change it.
-      this.#addAltText(this.#guessedAltText);
-      return;
-    }
-
-    this.#toggleLoading(true);
-    this.#toggleTitleAndDisclaimer();
-
-    let hasError = false;
-    try {
-      // When calling #mlGuessAltText we don't wait for it, so we must take care
-      // that the alt text dialog can have been closed before the response is.
-
-      const altText = await this.#currentEditor.mlGuessAltText(
-        this.#imageData,
-        /* updateAltTextData = */ false
-      );
-      if (altText) {
-        this.#guessedAltText = altText;
-        this.#wasAILoading = this.#isAILoading;
-        if (this.#isAILoading) {
-          this.#addAltText(altText);
-        }
-      }
-    } catch (e) {
-      console.error(e);
-      hasError = true;
-    }
-
-    this.#toggleLoading(false);
-    this.#toggleTitleAndDisclaimer();
-
-    if (hasError && this.#uiManager) {
-      this.#toggleError(true);
-    }
   }
 
   #addAltText(altText) {
