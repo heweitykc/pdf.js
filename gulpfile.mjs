@@ -207,6 +207,8 @@ function createWebpackAlias(defines) {
     "web-pdf_cursor_tools": "web/pdf_cursor_tools.js",
     "web-pdf_document_properties": "web/pdf_document_properties.js",
     "web-pdf_signature_viewer": "web/pdf_signature_viewer.js",
+    "web-pdf_stamplist_viewer": "web/pdf_stamplist_viewer.js",
+    "web-pdf_stampdata_storage": "web/pdf_stampdata_storage.js",
     "web-pdf_find_bar": "web/pdf_find_bar.js",
     "web-pdf_layer_viewer": "web/pdf_layer_viewer.js",
     "web-pdf_outline_viewer": "web/pdf_outline_viewer.js",

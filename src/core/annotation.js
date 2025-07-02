@@ -4952,13 +4952,9 @@ class StampAnnotation extends MarkupAnnotation {
         : x => (x & 0xff) !== 0xff
     );
 
-    if (hasAlpha) {
-      // Redraw the image on a white background in order to remove the thin gray
-      // line which can appear when exporting to jpeg.
-      ctx.fillStyle = "white";
-      ctx.fillRect(0, 0, width, height);
-      ctx.drawImage(bitmap, 0, 0);
-    }
+    // Remove the white background fill for SVG transparency preservation
+    // The original logic was causing SVG transparency to be reduced
+    // by filling with white background before redrawing
 
     const jpegBufferPromise = canvas
       .convertToBlob({ type: "image/jpeg", quality: 1 })

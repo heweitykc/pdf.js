@@ -664,11 +664,23 @@ class AnnotationEditorLayer {
    */
   createAndAddNewEditor(event, isCentered, data = {}) {
     const id = this.getNextId();
+    
+    // 当 isCentered 为 true 时，使用中心点坐标
+    let x, y;
+    if (isCentered) {
+      const centerPoint = this.#getCenterPoint();
+      x = centerPoint.offsetX;
+      y = centerPoint.offsetY;
+    } else {
+      x = event.offsetX;
+      y = event.offsetY;
+    }
+    
     const editor = this.#createNewEditor({
       parent: this,
       id,
-      x: event.offsetX,
-      y: event.offsetY,
+      x,
+      y,
       uiManager: this.#uiManager,
       isCentered,
       ...data,

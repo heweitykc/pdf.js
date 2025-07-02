@@ -77,6 +77,8 @@ import { PDFAttachmentViewer } from "web-pdf_attachment_viewer";
 import { PDFCursorTools } from "web-pdf_cursor_tools";
 import { PDFDocumentProperties } from "web-pdf_document_properties";
 import { PDFSignViewer } from "web-pdf_signature_viewer";
+import { PDFStampListViewer } from "web-pdf_stamplist_viewer";
+import { PDFStampDataStorage } from "web-pdf_stampdata_storage";
 import { PDFFindBar } from "web-pdf_find_bar";
 import { PDFFindController } from "./pdf_find_controller.js";
 import { PDFHistory } from "./pdf_history.js";
@@ -126,6 +128,10 @@ const PDFViewerApplication = {
   pdfDocumentProperties: null,
   /** @type {PDFSignViewer} */
   pdfSignViewer: null,
+  /** @type {PDFStampListViewer} */
+  pdfStampListViewer: null,
+  /** @type {PDFStampDataStorage} */
+  pdfStampDataStorage: null,
   /** @type {PDFLinkService} */
   pdfLinkService: null,
   /** @type {PDFHistory} */
@@ -427,6 +433,9 @@ const PDFViewerApplication = {
     });
     this.pdfScriptingManager = pdfScriptingManager;
 
+    const pdfStampDataStorage = new PDFStampDataStorage();
+    this.pdfStampDataStorage = pdfStampDataStorage;
+
     const container = appConfig.mainContainer,
       viewer = appConfig.viewerContainer;
     const annotationEditorMode = AppOptions.get("annotationEditorMode");
@@ -575,6 +584,17 @@ const PDFViewerApplication = {
       this.pdfSignViewer = new PDFSignViewer(
         appConfig.signViewer,
         this.overlayManager,
+        this.pdfStampDataStorage,
+        eventBus,
+        l10n,
+      );
+    }
+
+    if (appConfig.stampListViewer) {
+      this.pdfStampListViewer = new PDFStampListViewer(
+        appConfig.stampListViewer,
+        this.overlayManager,
+        this.pdfStampDataStorage,
         eventBus,
         l10n,
       );
@@ -1983,6 +2003,7 @@ const PDFViewerApplication = {
       externalServices,
       pdfDocumentProperties,
       pdfSignViewer,
+      pdfStampListViewer,
       pdfViewer,
       preferences,
     } = this;
@@ -2075,6 +2096,11 @@ const PDFViewerApplication = {
     eventBus._on(
       "create_signature",
       () => pdfSignViewer?.open(),
+      opts
+    );
+    eventBus._on(
+      "stamp_list_viewer",
+      (evt) => pdfStampListViewer?.open(evt.type),
       opts
     );
     eventBus._on("findfromurlhash", onFindFromUrlHash.bind(this), opts);

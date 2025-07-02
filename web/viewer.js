@@ -168,6 +168,9 @@ function getViewerConfiguration() {
     signViewer: {
       dialog: document.getElementById("signViewerDialog")
     },
+    stampListViewer: {
+      dialog: document.getElementById("stampListViewerDialog")
+    },
     altTextDialog: {
       dialog: document.getElementById("altTextDialog"),
       optionDescription: document.getElementById("descriptionButton"),

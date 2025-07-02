@@ -81,11 +81,11 @@ class AnnotationEditorParams {
       this.eventBus.dispatch("closeeditorstampparamstoolbar");
     });
     editorStampAddSign.addEventListener("click", () => {      
-      this.eventBus.dispatch("create_signature");
+      this.eventBus.dispatch("stamp_list_viewer", { type: "sign" });
       this.eventBus.dispatch("closeeditorstampparamstoolbar");
     });
     editorStampAddWatermark.addEventListener("click", () => {
-      console.log("editorStampAddWatermark");
+      this.eventBus.dispatch("stamp_list_viewer", { type: "watermark" });
       this.eventBus.dispatch("closeeditorstampparamstoolbar");
     });
     editorFreeHighlightThickness.addEventListener("input", function () {

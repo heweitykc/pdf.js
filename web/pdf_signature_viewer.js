@@ -5,18 +5,15 @@
 /** @typedef {import("../src/display/api.js").PDFDocumentProxy} PDFDocumentProxy */
 
 import { AnnotationEditorParamsType } from "pdfjs-lib";
-import { getPageSizeInches, isPortraitOrientation } from "./ui_utils.js";
-import { PDFDateString } from "pdfjs-lib";
 
-
-class PDFSignViewer {
-  #fieldData = null;
+class PDFSignViewer {  
 
   constructor(
     { dialog},
     overlayManager,
+    pdfStampDataStorage,
     eventBus,
-    l10n    
+    l10n
   ) {
     this.dialog = dialog;
     this.canvas = this.dialog.querySelector("canvas");
@@ -26,7 +23,9 @@ class PDFSignViewer {
     this.overlayManager = overlayManager;
     this.l10n = l10n;
     this.eventBus = eventBus;
+    this.pdfStampDataStorage = pdfStampDataStorage;
 
+    
     this.overlayManager.register(this.dialog);
 
     this.signaturePad = new SignaturePad(this.canvas, {
@@ -56,6 +55,8 @@ class PDFSignViewer {
         value: signatureData,
       });
       
+      this.pdfStampDataStorage.saveStamp(signatureData.svgString, "sign");
+
       this.close();
     });
 
@@ -110,9 +111,7 @@ class PDFSignViewer {
         
     return {
       type: "signature",
-      svgString: croppedSvg,
-      isEmpty: this.signaturePad.isEmpty(),
-      data: this.signaturePad.toData(),
+      svgString: croppedSvg,      
       timestamp: Date.now()
     };
   }

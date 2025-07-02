@@ -1796,9 +1796,13 @@ class AnnotationEditorUIManager {
   
   async #handleSignatureData(signatureData) {
     try {
-      // 使用SVG数据创建STAMP
-      const svgBlob = new Blob([signatureData.svgString], { type: 'image/svg+xml' });
-      const svgUrl = URL.createObjectURL(svgBlob);
+      let svgUrl = null;
+      if(signatureData.svgUrl) {
+        svgUrl = signatureData.svgUrl;
+      } else {
+        const svgBlob = new Blob([signatureData.svgString], { type: 'image/svg+xml' });
+        svgUrl = URL.createObjectURL(svgBlob);
+      }
       
       const imageData = await this.imageManager.getFromUrl(svgUrl);
       
@@ -1818,8 +1822,8 @@ class AnnotationEditorUIManager {
       };
             
       const editor = this.currentLayer.createAndAddNewEditor(
-        { offsetX: 0, offsetY: 0 },
-        false,
+        null,
+        true,
         stampData
       );
       
