@@ -32,7 +32,7 @@ class BaseExternalServices {
   initPassiveLoading() {}
 
   reportTelemetry(data) {
-    console.log("reportTelemetry", data);
+    palmmob_log("reportTelemetry", data);
   }
 
   /**

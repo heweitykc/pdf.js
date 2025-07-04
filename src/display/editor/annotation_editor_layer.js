@@ -479,11 +479,12 @@ class AnnotationEditorLayer {
     }
 
     if (editor.parent && editor.annotationElementId) {
-      this.#uiManager.addDeletedAnnotationElement(editor.annotationElementId);
+      this.#uiManager.addDeletedAnnotationElement(editor);
       AnnotationEditor.deleteAnnotationElement(editor);
       editor.annotationElementId = null;
     }
 
+    editor.deleted = false;
     this.attach(editor);
     editor.parent?.detach(editor);
     editor.setParent(this);

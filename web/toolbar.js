@@ -193,22 +193,19 @@ class Toolbar {
       scaleSelect,
     } = this.#opts;
     const self = this;
-
-    // The buttons within the toolbar.
-    for (const { element, eventName, eventDetails, telemetry } of buttons) {
-      element.addEventListener("click", evt => {
+    
+    for (const { element, eventName, eventDetails } of buttons) {
+      element.addEventListener("click", evt => {        
         if (eventName !== null) {
+          if(eventName === "switchannotationeditormode"){            
+            Palmmob_annotationUsage(eventDetails);
+          } else {
+            Palmmob_appUsage(eventName);
+          }
           eventBus.dispatch(eventName, {
             source: this,
             ...eventDetails,
-            // evt.detail is the number of clicks.
             isFromKeyboard: evt.detail === 0,
-          });
-        }
-        if (telemetry) {
-          eventBus.dispatch("reporttelemetry", {
-            source: this,
-            details: telemetry,
           });
         }
       });
@@ -325,6 +322,15 @@ class Toolbar {
     editorHighlightButton.disabled = isDisable;
     editorInkButton.disabled = isDisable;
     editorStampButton.disabled = isDisable;
+    editorEditButton.disabled = isDisable;
+    editorSaveButton.disabled = isDisable;
+    editorExitButton.disabled = isDisable;
+    editorUndoButton.disabled = isDisable;
+    editorRedoButton.disabled = isDisable;
+
+      // if(isDisable){
+      //   return;
+      // }
 
     //加入编辑/完成按钮, 点击"编辑"默认AnnotationEditorType.STAMP状态, 点击"完成"默认AnnotationEditorType.NONE状态    
     if(mode > AnnotationEditorType.NONE){

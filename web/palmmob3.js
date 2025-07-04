@@ -1,15 +1,21 @@
 var isIOS = !!navigator.userAgent.toLowerCase().match(/iphone|macintosh|ipad/g)
 var baidu_stat="a22e57e3af6919a0e515b1b00a399422", baidu_stat_ios="382d50f21a0139781907e7c434fb71a6"
 var editorWin = window
-var Palmmob_version = "1.0.2"
-var palmmob_debug = true;  //当前是否调试状态
+var Palmmob_version = "1.0.3"
+var palmmob_debug = false;  //当前是否调试状态
 var Palmmob_appChannel  = Palmmob_Func("appChannel","huawei");
 
 console.log("Palmmob_version=", Palmmob_version);
 console.log("Palmmob_appChannel=", Palmmob_appChannel);
 
+function palmmob_log(...args){
+    if(palmmob_debug){
+        console.log(...args);
+    }
+}
+
 function Palmmob_Func(FuncName, defaultVal){
-    // console.log("Palmmob_Func", FuncName)
+    palmmob_log("Palmmob_Func", FuncName)
     if(window.ReactNativeWebView){
         return window.ReactNativeWebView[FuncName]()
     } else if(window.webkit && window.webkit.messageHandlers){        
@@ -19,7 +25,7 @@ function Palmmob_Func(FuncName, defaultVal){
 }
 
 function Palmmob_Func1(FuncName, p0, defaultVal){
-    // console.log("Palmmob_Func1", FuncName)
+    palmmob_log("Palmmob_Func1", FuncName, p0)
     if(window.ReactNativeWebView){
         return window.ReactNativeWebView[FuncName](p0)
     } else if(window.webkit && window.webkit.messageHandlers.ReactNativeWebView){        
@@ -29,7 +35,7 @@ function Palmmob_Func1(FuncName, p0, defaultVal){
 }
 
 function Palmmob_Func2(FuncName, p0, p1, defaultVal){
-    // console.log("Palmmob_Func2", FuncName)
+    palmmob_log("Palmmob_Func2", FuncName, p0, p1)
     if(window.ReactNativeWebView){
         return window.ReactNativeWebView[FuncName](p0, p1)
     } else if(window.webkit && window.webkit.messageHandlers.ReactNativeWebView){        
@@ -38,9 +44,19 @@ function Palmmob_Func2(FuncName, p0, p1, defaultVal){
     return defaultVal
 }
 
+function Palmmob_Func3(FuncName, p0, p1, p2, defaultVal){
+    palmmob_log("Palmmob_Func3", FuncName, p0, p1, p2)
+    if(window.ReactNativeWebView){
+        return window.ReactNativeWebView[FuncName](p0, p1, p2)
+    } else if(window.webkit && window.webkit.messageHandlers.ReactNativeWebView){        
+        return prompt(JSON.stringify([FuncName, p0, p1, p2]))
+    }
+    return defaultVal
+}
+
 function postMsg(cmd) {
     var cmddata = JSON.stringify(cmd);
-    console.log("cmddata", cmddata);
+    palmmob_log("cmddata", cmddata);
     Palmmob_Func1('postMessage', cmddata)
 }
 function sendMenuCmd(type) {
@@ -72,6 +88,22 @@ function Palmmob_appErr(type, content){
     Palmmob_Func2("appErr", type, content, null)
 }
 
+function Palmmob_annotationUsage(eventDetails){
+    var appAction;
+    if(eventDetails.mode === 3){
+        appAction = "FreeText";
+    } else if(eventDetails.mode === 15){
+        appAction = "Ink";
+    }
+    if(appAction){
+        Palmmob_Func3("appUsage", appAction);
+    }    
+}
+
+function Palmmob_appUsage(appAction, type=0, p0=null){    
+    Palmmob_Func3("appUsage", appAction, type, p0, null)
+}
+
 function Palmmob_docReady(){
     postMsg({
         "action":"init"
@@ -79,11 +111,11 @@ function Palmmob_docReady(){
     postMsg({
         "action":"docloaded"
     });
+    Palmmob_appUsage("pdfReady", 0, document.location.search);
 }
 
 // 通知用户修改了文档
-var Palmmob_docChanged = function (){
-    console.log("Palmmob_docChanged");
+var Palmmob_docChanged = function (){    
     Palmmob_Func("docChanged");
 }
 
@@ -98,7 +130,7 @@ function Palmmob_sharePdf(){
 }
 
 function Palmmob_savefile(data) {
-    console.log("Palmmob_savefile");
+    palmmob_log("Palmmob_savefile");
     Palmmob_Func1('startSaveBlob', false);
         
     const chunkSize = 50 * 1024;
@@ -155,7 +187,7 @@ function initBDStat(){
 
 function errWatch(){
     window.addEventListener('error', function(event) {
-        console.log("error event:", event);
+        palmmob_log("error event:", event);
         if (event.error) {
             // 如果是普通的错误对象
             var errstr = `${event.error.message},${event.lineno},${event.colno},${event.error.stack || ''}`;
@@ -173,14 +205,14 @@ function errWatch(){
     }, true);
         
     window.addEventListener('unhandledrejection', function(event) {
-        console.log("unhandled promise rejection:", event);
+        palmmob_log("unhandled promise rejection:", event);
         var errstr = `Promise Error: ${event.reason ? (event.reason.stack || event.reason.toString()) : '未知Promise错误'}`;
         Palmmob_appErr(8883, errstr);
         event.preventDefault();
     }, true);
         
     window.addEventListener('rejectionhandled', function(event) {
-        console.log("handled promise rejection:", event);
+        palmmob_log("handled promise rejection:", event);
         var errstr = `Handled Promise Error: ${event.reason ? (event.reason.stack || event.reason.toString()) : '未知Promise错误'}`;
         Palmmob_appErr(8884, errstr);
     }, true);

@@ -752,8 +752,7 @@ body {
   }
 }
 
-#pageNumber {
-  -moz-appearance: textfield; /* hides the spinner in moz */
+#pageNumber {  
   text-align: end;
   width: 40px;
   background-size: 0 0;
@@ -1108,31 +1107,6 @@ dialog :link {
     margin-bottom: 2px;
   }
 
-  &.toggled {
-    /* background-color: var(--toggled-btn-bg-color);
-    color: var(--toggled-btn-color);
-
-    &::before {
-      background-color: var(--toggled-btn-color);
-    } */
-
-    /* &:hover {
-      outline: var(--toggled-hover-btn-outline) !important;
-
-      &:active {
-        background-color: var(--toggled-hover-active-btn-color);
-      }
-    } */
-  }
-
-  /* &:is(:hover, :focus-visible) {
-    background-color: var(--button-hover-color);
-
-    &::before {
-      background-color: var(--toolbar-icon-hover-bg-color);
-    }
-  } */
-
   &:is([disabled="disabled"], [disabled]) {
     opacity: 0.5;
     pointer-events: none;
@@ -1211,7 +1185,7 @@ dialog :link {
 
   .editorParamsToolbar {
     height: auto;
-    width: 180px;
+    width: 205px;
     position: absolute;
     z-index: 30000;
     cursor: default;

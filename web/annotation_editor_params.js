@@ -79,14 +79,17 @@ class AnnotationEditorParams {
     editorStampAddImage.addEventListener("click", () => {
       dispatchEvent("CREATE");
       this.eventBus.dispatch("closeeditorstampparamstoolbar");
+      Palmmob_appUsage("StampAddImage")
     });
     editorStampAddSign.addEventListener("click", () => {      
       this.eventBus.dispatch("stamp_list_viewer", { type: "sign" });
       this.eventBus.dispatch("closeeditorstampparamstoolbar");
+      Palmmob_appUsage("StampAddSign")
     });
     editorStampAddWatermark.addEventListener("click", () => {
       this.eventBus.dispatch("stamp_list_viewer", { type: "watermark" });
       this.eventBus.dispatch("closeeditorstampparamstoolbar");
+      Palmmob_appUsage("StampAddWatermark")
     });
     editorFreeHighlightThickness.addEventListener("input", function () {
       dispatchEvent("HIGHLIGHT_THICKNESS", this.valueAsNumber);
