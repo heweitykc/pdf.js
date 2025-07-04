@@ -51,6 +51,7 @@ import { TextAccessibilityManager } from "./text_accessibility.js";
 import { TextHighlighter } from "./text_highlighter.js";
 import { TextLayerBuilder } from "./text_layer_builder.js";
 import { XfaLayerBuilder } from "./xfa_layer_builder.js";
+import { WatermarkBackgroundManager } from "./watermark_background.js";
 
 /**
  * @typedef {Object} PDFPageViewOptions
@@ -149,6 +150,8 @@ class PDFPageView {
   };
 
   #layers = [null, null, null, null];
+  
+  #watermarkManager = null;
 
   /**
    * @param {PDFPageViewOptions} options
@@ -184,6 +187,9 @@ class PDFPageView {
     if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
       this.l10n ||= new GenericL10n();
     }
+
+    // 初始化水印管理器
+    this.#watermarkManager = options.watermarkManager || new WatermarkBackgroundManager();
 
     this.renderTask = null;
     this.resume = null;
@@ -1056,6 +1062,19 @@ class PDFPageView {
     const transform = outputScale.scaled
       ? [outputScale.sx, 0, 0, outputScale.sy, 0, 0]
       : null;
+    // 创建水印背景
+    let watermarkBackground = null;
+    if (this.#watermarkManager) {
+      const watermark = this.#watermarkManager.getPageWatermark(this.id - 1);
+      if (watermark) {
+        watermarkBackground = await this.#watermarkManager.createWatermarkBackgroundDataURL(
+          canvasWidth,
+          canvasHeight,
+          watermark
+        );
+      }
+    }
+
     const renderContext = {
       canvasContext: ctx,
       transform,
@@ -1065,6 +1084,7 @@ class PDFPageView {
       annotationCanvasMap: this._annotationCanvasMap,
       pageColors,
       isEditing: this.#isEditing,
+      background: watermarkBackground,
     };
     const renderTask = (this.renderTask = pdfPage.render(renderContext));
     renderTask.onContinue = renderContinueCallback;

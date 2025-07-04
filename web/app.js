@@ -79,6 +79,8 @@ import { PDFDocumentProperties } from "web-pdf_document_properties";
 import { PDFSignViewer } from "web-pdf_signature_viewer";
 import { PDFStampListViewer } from "web-pdf_stamplist_viewer";
 import { PDFStampDataStorage } from "web-pdf_stampdata_storage";
+import { WatermarkBackgroundManager } from "./watermark_background.js";
+import { WatermarkBackgroundDialog } from "./watermark_background_dialog.js";
 import { PDFFindBar } from "web-pdf_find_bar";
 import { PDFFindController } from "./pdf_find_controller.js";
 import { PDFHistory } from "./pdf_history.js";
@@ -132,6 +134,10 @@ const PDFViewerApplication = {
   pdfStampListViewer: null,
   /** @type {PDFStampDataStorage} */
   pdfStampDataStorage: null,
+  /** @type {WatermarkBackgroundManager} */
+  watermarkManager: null,
+  /** @type {WatermarkBackgroundDialog} */
+  watermarkDialog: null,
   /** @type {PDFLinkService} */
   pdfLinkService: null,
   /** @type {PDFHistory} */
@@ -505,6 +511,7 @@ const PDFViewerApplication = {
       abortSignal: this._globalAbortController.signal,
       enableHWA,
       supportsPinchToZoom: this.supportsPinchToZoom,
+      watermarkManager: this.watermarkManager,
     });
     this.pdfViewer = pdfViewer;
 
@@ -599,6 +606,29 @@ const PDFViewerApplication = {
         l10n,
       );
     }
+
+    // 初始化水印背景管理器
+    this.watermarkManager = new WatermarkBackgroundManager();
+    this.watermarkDialog = new WatermarkBackgroundDialog(
+      { dialog: document.getElementById("watermarkBackgroundDialog") },
+      this.overlayManager,
+      this.watermarkManager,
+      eventBus,
+      l10n
+    );
+
+    // 绑定水印背景设置按钮事件
+    if (appConfig.secondaryToolbar?.watermarkBackgroundButton) {
+      appConfig.secondaryToolbar.watermarkBackgroundButton.addEventListener("click", () => {
+        this.watermarkDialog.open();
+      });
+    }
+
+    // 监听水印背景变化事件
+    eventBus._on("watermarkbackgroundchanged", () => {
+      // 重新渲染所有页面以应用水印背景
+      this.pdfViewer?.forceRendering();
+    });
 
     // NOTE: The cursor-tools are unlikely to be helpful/useful in GeckoView,
     // in particular the `HandTool` which basically simulates touch scrolling.

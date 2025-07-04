@@ -241,6 +241,8 @@ class PDFViewer {
   #hiddenCopyElement = null;
 
   #interruptCopyCondition = false;
+  
+  watermarkManager = null;
 
   #previousContainerHeight = 0;
 
@@ -321,6 +323,7 @@ class PDFViewer {
     this.#mlManager = options.mlManager || null;
     this.#enableHWA = options.enableHWA || false;
     this.#supportsPinchToZoom = options.supportsPinchToZoom !== false;
+    this.watermarkManager = options.watermarkManager || null;
 
     this.defaultRenderingQueue = !options.renderingQueue;
     if (
@@ -999,6 +1002,7 @@ class PDFViewer {
             l10n: this.l10n,
             layerProperties: this._layerProperties,
             enableHWA: this.#enableHWA,
+            watermarkManager: this.watermarkManager,
           });
           this._pages.push(pageView);
         }

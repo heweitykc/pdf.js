@@ -896,10 +896,21 @@ class CanvasGraphics {
     const width = this.ctx.canvas.width;
     const height = this.ctx.canvas.height;
 
-    const savedFillStyle = this.ctx.fillStyle;
-    this.ctx.fillStyle = background || "#ffffff";
-    this.ctx.fillRect(0, 0, width, height);
-    this.ctx.fillStyle = savedFillStyle;
+    // 处理水印背景
+    if (background && background.startsWith('data:image')) {
+      // 如果是水印背景图片，先绘制水印
+      const img = new Image();
+      img.onload = () => {
+        this.ctx.drawImage(img, 0, 0, width, height);
+      };
+      img.src = background;
+    } else {
+      // 使用普通背景色
+      const savedFillStyle = this.ctx.fillStyle;
+      this.ctx.fillStyle = background || "#ffffff";
+      this.ctx.fillRect(0, 0, width, height);
+      this.ctx.fillStyle = savedFillStyle;
+    }
 
     if (transparency) {
       const transparentCanvas = this.cachedCanvases.getCanvas(
