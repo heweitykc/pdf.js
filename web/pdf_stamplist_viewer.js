@@ -39,8 +39,7 @@ class PDFStampListViewer {
   }
 
   updateStampList() {
-    const stampList = this.pdfStampDataStorage.getAllStamps();
-    console.log(stampList);
+    const stampList = this.pdfStampDataStorage.getAllStamps();    
     const stampListGrid = this.dialog.querySelector("#stampListGrid");    
     stampList.forEach(stamp => {
       if(stamp.type !== this.type) {

@@ -1827,6 +1827,11 @@ class AnnotationEditorUIManager {
         stampData
       );
       
+      // 自动选中创建的编辑器
+      if (editor) {
+        this.setSelected(editor);
+      }
+      
       // 清理URL对象
       URL.revokeObjectURL(svgUrl);
     } catch (error) {
