@@ -346,6 +346,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = ਚਿੱਤਰ ਜੋੜੋ
 pdfjs-editor-stamp-add-sign-button-label = ਦਸਤਖਤ ਜੋੜੋ
 pdfjs-editor-stamp-add-watermark-button-label = ਵਾਟਰਮਾਰਕ ਜੋੜੋ
+pdfjs-editor-stamp-add-signature-button-label = ਨਵਾਂ ਦਸਤਖਤ ਜੋੜੋ
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = ਮੋਟਾਈ

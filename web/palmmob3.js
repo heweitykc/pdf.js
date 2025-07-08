@@ -1,7 +1,7 @@
 var isIOS = !!navigator.userAgent.toLowerCase().match(/iphone|macintosh|ipad/g)
 var baidu_stat="a22e57e3af6919a0e515b1b00a399422", baidu_stat_ios="382d50f21a0139781907e7c434fb71a6"
 var editorWin = window
-var Palmmob_version = "1.0.3"
+var Palmmob_version = "1.0.4"
 var palmmob_debug = false;  //当前是否调试状态
 var Palmmob_appChannel  = Palmmob_Func("appChannel","huawei");
 
@@ -48,7 +48,7 @@ function Palmmob_Func3(FuncName, p0, p1, p2, defaultVal){
     palmmob_log("Palmmob_Func3", FuncName, p0, p1, p2)
     if(window.ReactNativeWebView){
         return window.ReactNativeWebView[FuncName](p0, p1, p2)
-    } else if(window.webkit && window.webkit.messageHandlers.ReactNativeWebView){        
+    } else if(window.webkit && window.webkit.messageHandlers.ReactNativeWebView){
         return prompt(JSON.stringify([FuncName, p0, p1, p2]))
     }
     return defaultVal

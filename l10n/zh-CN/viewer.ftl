@@ -336,6 +336,7 @@ pdfjs-editor-ink-opacity-input = 不透明度
 pdfjs-editor-stamp-add-image-button-label = 添加图片
 pdfjs-editor-stamp-add-sign-button-label = 添加签名/图章
 pdfjs-editor-stamp-add-watermark-button-label = 添加水印
+pdfjs-editor-stamp-add-signature-button-label = 添加签名
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = 粗细

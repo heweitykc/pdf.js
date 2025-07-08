@@ -337,6 +337,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Shtoni figurë
 pdfjs-editor-stamp-add-sign-button-label = Shtoni nënshkrim
 pdfjs-editor-stamp-add-watermark-button-label = Shtoni watermark
+pdfjs-editor-stamp-add-signature-button-label = Shtoni nënshkrim të ri
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Trashësi

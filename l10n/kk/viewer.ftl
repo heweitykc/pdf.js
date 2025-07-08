@@ -341,6 +341,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Суретті қосу
 pdfjs-editor-stamp-add-sign-button-label = Қолтаңба қосу
 pdfjs-editor-stamp-add-watermark-button-label = Су бейнесі қосу
+pdfjs-editor-stamp-add-signature-button-label = Жаңа қолтаңба қосу
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Қалыңдығы

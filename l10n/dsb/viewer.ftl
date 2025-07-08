@@ -345,6 +345,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Wobraz pśidaś
 pdfjs-editor-stamp-add-sign-button-label = Signaturu pśidaś
 pdfjs-editor-stamp-add-watermark-button-label = Wódowe znamje pśidaś
+pdfjs-editor-stamp-add-signature-button-label = Nowu signaturu pśidaś
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Tłustosć

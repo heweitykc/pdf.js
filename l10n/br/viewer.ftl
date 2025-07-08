@@ -294,6 +294,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Ouzhpennañ ur skeudenn
 pdfjs-editor-stamp-add-sign-button-label = Ouzhpennañ un sinadur
 pdfjs-editor-stamp-add-watermark-button-label = Ouzhpennañ ur merkoù-dour
+pdfjs-editor-stamp-add-signature-button-label = 添加新签名
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Tevded

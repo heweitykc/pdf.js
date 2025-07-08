@@ -341,6 +341,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = הוספת תמונה
 pdfjs-editor-stamp-add-sign-button-label = הוספת חתימה
 pdfjs-editor-stamp-add-watermark-button-label = הוספת סימן מים
+pdfjs-editor-stamp-add-signature-button-label = הוספת חתימה חדשה
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = עובי

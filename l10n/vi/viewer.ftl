@@ -338,6 +338,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Thêm hình ảnh
 pdfjs-editor-stamp-add-sign-button-label = Thêm chữ ký
 pdfjs-editor-stamp-add-watermark-button-label = Thêm watermark
+pdfjs-editor-stamp-add-signature-button-label = Thêm chữ ký mới
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Độ dày

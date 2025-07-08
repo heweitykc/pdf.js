@@ -350,6 +350,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Pridať obrázok
 pdfjs-editor-stamp-add-sign-button-label = Pridať podpis
 pdfjs-editor-stamp-add-watermark-button-label = Pridať vodoznak
+pdfjs-editor-stamp-add-signature-button-label = Pridať nový podpis
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Hrúbka

@@ -293,6 +293,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = افزودن تصویر
 pdfjs-editor-stamp-add-sign-button-label = افزودن امضا
 pdfjs-editor-stamp-add-watermark-button-label = افزودن واترمارک
+pdfjs-editor-stamp-add-signature-button-label = افزودن امضای جدید
 
 # .default-content is used as a placeholder in an empty text editor.
 pdfjs-free-text2 =

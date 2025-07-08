@@ -341,6 +341,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Rnu tawlaft
 pdfjs-editor-stamp-add-sign-button-label = Rnu asekni
 pdfjs-editor-stamp-add-watermark-button-label = Rnu ameskar
+pdfjs-editor-stamp-add-signature-button-label = Rnu asekni amaynut
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Tuzert

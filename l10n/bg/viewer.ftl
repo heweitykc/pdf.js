@@ -334,6 +334,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Добавяне на изображение
 pdfjs-editor-stamp-add-sign-button-label = Добавяне на подпис
 pdfjs-editor-stamp-add-watermark-button-label = Добавяне на воден знак
+pdfjs-editor-stamp-add-signature-button-label = Добавяне на нов подпис
 
 pdfjs-free-text =
     .aria-label = Текстов редактор

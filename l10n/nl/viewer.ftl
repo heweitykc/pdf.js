@@ -341,6 +341,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Afbeelding toevoegen
 pdfjs-editor-stamp-add-sign-button-label = Handtekening toevoegen
 pdfjs-editor-stamp-add-watermark-button-label = Watermerk toevoegen
+pdfjs-editor-stamp-add-signature-button-label = Handtekening toevoegen
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Dikte

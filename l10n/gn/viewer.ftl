@@ -341,6 +341,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Embojuaju ta’ãnga
 pdfjs-editor-stamp-add-sign-button-label = Embojuaju ñe’ẽme’ẽ
 pdfjs-editor-stamp-add-watermark-button-label = Embojuaju y rupa
+pdfjs-editor-stamp-add-signature-button-label = Embojuaju ñe'ẽme'ẽ pyahu
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Anambusu

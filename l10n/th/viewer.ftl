@@ -338,6 +338,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = เพิ่มภาพ
 pdfjs-editor-stamp-add-sign-button-label = เพิ่มลายเซ็น
 pdfjs-editor-stamp-add-watermark-button-label = เพิ่มลายน้ำ
+pdfjs-editor-stamp-add-signature-button-label = เพิ่มลายเซ็นใหม่
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = ความหนา

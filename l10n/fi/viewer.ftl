@@ -341,6 +341,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Lisää kuva
 pdfjs-editor-stamp-add-sign-button-label = Lisää allekirjoitus
 pdfjs-editor-stamp-add-watermark-button-label = Lisää vesileima
+pdfjs-editor-stamp-add-signature-button-label = Lisää uusi allekirjoitus
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Paksuus

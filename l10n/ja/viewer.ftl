@@ -338,6 +338,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = 画像を追加
 pdfjs-editor-stamp-add-sign-button-label = 署名を追加
 pdfjs-editor-stamp-add-watermark-button-label = ウォーターマークを追加
+pdfjs-editor-stamp-add-signature-button-label = 新しい署名を追加
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = 太さ

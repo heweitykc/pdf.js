@@ -291,6 +291,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Agiunghe un’immàgine
 pdfjs-editor-stamp-add-sign-button-label = Agiunghe sa firma
 pdfjs-editor-stamp-add-watermark-button-label = Agiunghe sa marca de abba
+pdfjs-editor-stamp-add-signature-button-label = Agiunghe una firma noa
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Grussària

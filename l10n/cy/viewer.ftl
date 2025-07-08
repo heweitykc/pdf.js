@@ -349,6 +349,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Ychwanegu delwedd
 pdfjs-editor-stamp-add-sign-button-label = Ychwanegu llofnod
 pdfjs-editor-stamp-add-watermark-button-label = Ychwanegu marc dŵr
+pdfjs-editor-stamp-add-signature-button-label = Ychwanegu llofnod newydd
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Trwch

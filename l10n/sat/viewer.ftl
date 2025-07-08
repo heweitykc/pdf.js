@@ -297,6 +297,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = ᱪᱤᱛᱟᱹᱨ ᱥᱮᱞᱮᱫ ᱢᱮ
 pdfjs-editor-stamp-add-sign-button-label = ᱪᱷᱟᱯᱟ ᱥᱮᱞᱮᱫ ᱢᱮ
 pdfjs-editor-stamp-add-watermark-button-label = ᱫᱟᱜ ᱪᱤᱱᱦᱟᱹ ᱥᱮᱞᱮᱫ ᱢᱮ
+pdfjs-editor-stamp-add-signature-button-label = ᱱᱟᱶᱟ ᱪᱷᱟᱯᱟ ᱥᱮᱞᱮᱫ ᱢᱮ
 
 pdfjs-free-text =
     .aria-label = ᱚᱞ ᱥᱟᱯᱲᱟᱣᱤᱭᱟᱹ

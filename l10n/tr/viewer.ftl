@@ -346,6 +346,7 @@ pdfjs-editor-stamp-add-image-button =
 pdfjs-editor-stamp-add-image-button-label = Resim ekle
 pdfjs-editor-stamp-add-sign-button-label = İmza ekle
 pdfjs-editor-stamp-add-watermark-button-label = Filigran ekle
+pdfjs-editor-stamp-add-signature-button-label = Yeni imza ekle
 
 # This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Kalınlık
