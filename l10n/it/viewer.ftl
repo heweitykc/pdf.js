@@ -523,4 +523,5 @@ pdfjs-editor-undo-bar-close-button =
     .title = Chiudi
 pdfjs-editor-undo-bar-close-button-label = Chiudi
 pdfjs-share-pdf-button-label = Condividi
+pdfjs-share-as-img-button-label = Condividi come immagine
 pdfjs-more-button-label = Altro

@@ -100,6 +100,7 @@
   --findbarButton-previous-icon: url(images/findbarButton-previous.svg);
   --findbarButton-next-icon: url(images/findbarButton-next.svg);
   --secondaryToolbarButton-sharePdf-icon: url(images/secondaryToolbarButton-sharePdf.svg);
+  --secondaryToolbarButton-shareAsImg-icon: url(images/secondaryToolbarButton-shareAsImg.svg);
   --secondaryToolbarButton-firstPage-icon: url(images/secondaryToolbarButton-firstPage.svg);
   --secondaryToolbarButton-lastPage-icon: url(images/secondaryToolbarButton-lastPage.svg);
   --secondaryToolbarButton-rotateCcw-icon: url(images/secondaryToolbarButton-rotateCcw.svg);
@@ -1305,6 +1306,10 @@ dialog :link {
 
     #sharePdf::before {
       mask-image: var(--secondaryToolbarButton-sharePdf-icon);
+    }
+
+    #shareAsImg::before {
+      mask-image: var(--secondaryToolbarButton-shareAsImg-icon);
     }
 
     #firstPage::before {

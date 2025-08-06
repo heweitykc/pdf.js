@@ -352,4 +352,5 @@ pdfjs-editor-alt-text-settings-downloading-model-button = در حال دریاف
 pdfjs-editor-alt-text-settings-close-button = بستن
 
 pdfjs-share-pdf-button-label = اشتراک‌گذاری
+pdfjs-share-as-img-button-label = اشتراک‌گذاری به‌صورت تصویر
 pdfjs-more-button-label = بیشتر

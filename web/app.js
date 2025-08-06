@@ -1240,6 +1240,13 @@ const PDFViewerApplication = {
     Palmmob_sharePdf();
   },
 
+  async shareAsImg(){    
+    if(this.pdfDocument?.annotationStorage.size > 0){
+      await this.save();
+    }
+    Palmmob_shareAsImg();
+  },
+
   annotationEdit_OK() {
     // console.log("annotationEdit_OK");
     this.eventBus.dispatch("switchannotationeditormode", {
@@ -2043,6 +2050,7 @@ const PDFViewerApplication = {
     eventBus._on("annotation_edit", this.annotationEdit.bind(this), opts);
     eventBus._on("annotation_edit_ok", this.annotationEdit_OK.bind(this), opts);
     eventBus._on("sharepdf", this.sharePdf.bind(this), opts);
+    eventBus._on("shareasimg", this.shareAsImg.bind(this), opts);
     eventBus._on("firstpage", () => (this.page = 1), opts);
     eventBus._on("lastpage", () => (this.page = this.pagesCount), opts);
     eventBus._on("nextpage", () => pdfViewer.nextPage(), opts);

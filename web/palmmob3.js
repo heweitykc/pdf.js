@@ -129,6 +129,10 @@ function Palmmob_sharePdf(){
     sendMenuCmd("share");
 }
 
+function Palmmob_shareAsImg(){    
+    sendMenuCmd("shareasimg");
+}
+
 function Palmmob_savefile(data) {
     palmmob_log("Palmmob_savefile");
     Palmmob_Func1('startSaveBlob', false);

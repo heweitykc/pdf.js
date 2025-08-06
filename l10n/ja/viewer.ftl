@@ -511,4 +511,5 @@ pdfjs-editor-undo-bar-close-button =
     .title = 閉じる
 pdfjs-editor-undo-bar-close-button-label = 閉じる
 pdfjs-share-pdf-button-label = 共有
+pdfjs-share-as-img-button-label = 画像で共有
 pdfjs-more-button-label = その他
