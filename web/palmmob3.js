@@ -126,7 +126,7 @@ function Palmmob_quit(){
 }
 
 function Palmmob_sharePdf(){    
-    sendMenuCmd("shareaspdf");
+    sendMenuCmd("share");
 }
 
 function Palmmob_savefile(data) {
@@ -173,6 +173,10 @@ function js_switchEdit(editable){
 
 function js_inputHide(){
 
+}
+
+function js_startDownload(){
+    PDFViewerApplication.eventBus.dispatch("download", {source: this});
 }
 
 function initBDStat(){
