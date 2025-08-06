@@ -18,3 +18,5 @@ copy "build\generic-legacy\web\viewer.css"  "E:\work\palmmmo3_editor_assets\pdf_
 copy "build\generic-legacy\build\pdf.mjs"         "E:\work\palmmmo3_editor_assets\pdf_global\libs\pdf.mjs"
 copy "build\generic-legacy\build\pdf.worker.mjs"  "E:\work\palmmmo3_editor_assets\pdf_global\libs\pdf.worker.mjs"
 
+
+explorer "E:\work\palmmmo3_editor_assets"
