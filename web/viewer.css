@@ -653,9 +653,14 @@ body {
   mask-image: var(--toolbarButton-editorRedo-icon);
 }
 
-#printButton::before {
+/* #printButton::before {
+  mask-image: var(--toolbarButton-print-icon);
+} */
+
+#printFile::before {
   mask-image: var(--toolbarButton-print-icon);
 }
+
 
 /*#if GENERIC*/
 #secondaryOpenFile::before {
@@ -1288,9 +1293,9 @@ dialog :link {
     }
     /*#endif*/
 
-    #secondaryPrint::before {
+    /* #secondaryPrint::before {
       mask-image: var(--toolbarButton-print-icon);
-    }
+    } */
 
     #secondaryDownload::before {
       mask-image: var(--toolbarButton-download-icon);

@@ -84,6 +84,7 @@ function getViewerConfiguration() {
       printButton: document.getElementById("secondaryPrint"),
       downloadButton: document.getElementById("secondaryDownload"),
       viewBookmarkButton: document.getElementById("viewBookmark"),
+      printFileButton: document.getElementById("printFile"),
       sharePdfButton: document.getElementById("sharePdf"),
       shareAsImgButton: document.getElementById("shareAsImg"),
       firstPageButton: document.getElementById("firstPage"),

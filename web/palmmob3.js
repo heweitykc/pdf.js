@@ -133,6 +133,10 @@ function Palmmob_shareAsImg(){
     sendMenuCmd("shareasimg");
 }
 
+function Palmmob_printFile(){    
+    sendMenuCmd("print");
+}
+
 function Palmmob_savefile(data) {
     palmmob_log("Palmmob_savefile");
     Palmmob_Func1('startSaveBlob', false);
