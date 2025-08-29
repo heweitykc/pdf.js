@@ -1351,6 +1351,24 @@ const PDFViewerApplication = {
     }
   },
 
+  _fixZoom() {
+    const pdfViewer = this.pdfViewer;
+    this.store.get('zoom', null).then(storedZoom => {
+      if (storedZoom){
+        this.eventBus.dispatch("documentloaded", { source: this });
+        return;
+      }
+      pdfViewer.onePageRendered.then(() => {
+        console.log("fixZoom updateScale");
+        pdfViewer.updateScale({
+          scaleFactor: 1.0001,
+          drawingDelay: 0
+        });
+        this.eventBus.dispatch("documentloaded", { source: this });
+      });
+    });
+  },
+
   load(pdfDocument) {
     this.pdfDocument = pdfDocument;
 
@@ -1359,7 +1377,11 @@ const PDFViewerApplication = {
       this.loadingBar?.hide();
 
       firstPagePromise.then(() => {
-        this.eventBus.dispatch("documentloaded", { source: this });
+        if(this.store && this.pdfViewer){
+          this._fixZoom();
+        } else {
+          this.eventBus.dispatch("documentloaded", { source: this });
+        }        
       });
     });
 
