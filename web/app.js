@@ -1361,7 +1361,7 @@ const PDFViewerApplication = {
       pdfViewer.onePageRendered.then(() => {
         console.log("fixZoom updateScale");
         pdfViewer.updateScale({
-          scaleFactor: 1.0001,
+          scaleFactor: 1.01,
           drawingDelay: 0
         });
         this.eventBus.dispatch("documentloaded", { source: this });
